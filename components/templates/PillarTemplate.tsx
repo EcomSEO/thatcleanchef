@@ -7,9 +7,11 @@ import { AuthorBio } from "../AuthorBio";
 import { RelatedPosts } from "../RelatedPosts";
 import { SourcesList } from "../SourcesList";
 import { EmailCapture } from "../EmailCapture";
+import { NutritionLedger, RecipeMeta, DietTags } from "../NutritionLedger";
 import { ArticleJsonLd } from "../schema/ArticleJsonLd";
 import { BreadcrumbJsonLd } from "../schema/BreadcrumbJsonLd";
 import { FaqJsonLd } from "../schema/FaqJsonLd";
+import { RecipeJsonLd } from "../schema/RecipeJsonLd";
 import { ArticleShell } from "./PageShell";
 
 export function PillarTemplate({ post }: { post: Post }) {
@@ -33,19 +35,24 @@ export function PillarTemplate({ post }: { post: Post }) {
       />
       <BreadcrumbJsonLd crumbs={crumbs} />
       {post.faq && <FaqJsonLd faq={post.faq} />}
+      <RecipeJsonLd post={post} />
 
       <ArticleShell>
         <Breadcrumbs crumbs={crumbs} />
-        <h1 className="font-serif text-4xl md:text-5xl text-forest mt-4 leading-tight">
+        <h1 className="font-serif text-4xl md:text-5xl text-olive mt-4 leading-tight">
           {post.h1}
         </h1>
         <div className="mt-3">
           <ReviewStamp updatedAt={post.updatedAt} readingTime={post.readingTime} />
         </div>
+        <RecipeMeta post={post} />
+        <DietTags tags={post.dietTags} />
 
-        <p className="mt-8 text-lg text-charcoal/90 leading-relaxed">
+        <p className="mt-6 text-lg text-charcoal/90 leading-relaxed">
           {post.description}
         </p>
+
+        <NutritionLedger post={post} />
 
         {post.faq && post.faq.length > 0 && (
           <section className="mt-12">
