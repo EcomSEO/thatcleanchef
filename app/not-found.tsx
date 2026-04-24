@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { hubs } from "@/lib/content/hubs";
+import { hubs, getHub } from "@/lib/content/hubs";
+import { latestPosts } from "@/lib/content/posts";
 import { Eyebrow } from "@/components/editorial/Eyebrow";
 import { DotRule } from "@/components/editorial/DotRule";
 
@@ -12,6 +13,7 @@ export const metadata: Metadata = {
 };
 
 export default function NotFound() {
+  const nowCooking = latestPosts(3);
   return (
     <main>
       <section className="border-b border-olive/10">
@@ -21,6 +23,10 @@ export default function NotFound() {
             We can&apos;t find that{" "}
             <em className="not-italic text-terracotta">recipe</em>.
           </h1>
+
+          <p className="font-serif italic text-olive/80 text-xl md:text-2xl mt-6 leading-[1.35] max-w-2xl">
+            &mdash; but here&apos;s what the kitchen is cooking today.
+          </p>
 
           <div className="prose mt-8">
             <p className="text-charcoal/85">
@@ -46,6 +52,61 @@ export default function NotFound() {
           </div>
         </div>
       </section>
+
+      {/* Chef improvising — latest 3 from the pass */}
+      {nowCooking.length > 0 && (
+        <section className="border-b border-olive/10">
+          <div className="mx-auto max-w-6xl px-6 py-14 md:py-20">
+            <div className="flex items-end justify-between mb-8 flex-wrap gap-3">
+              <div>
+                <Eyebrow tone="terracotta">What the kitchen is cooking</Eyebrow>
+                <h2 className="font-serif italic text-3xl md:text-[2.15rem] text-olive mt-3 leading-tight">
+                  The last three plates off the pass.
+                </h2>
+              </div>
+              <span className="caps-label text-stone">
+                Chef&apos;s improvisation
+              </span>
+            </div>
+            <div className="grid md:grid-cols-3 gap-0 border-t border-olive/10">
+              {nowCooking.map((p) => {
+                const hub = getHub(p.hub);
+                return (
+                  <Link
+                    key={p.slug}
+                    href={`/${p.slug}`}
+                    className="group p-6 border-b md:border-b-0 md:border-r border-olive/10 last:border-r-0 hover:bg-cream-deep/40 transition"
+                  >
+                    <div className="photo-slot aspect-[4/3] rounded-sm mb-4 relative overflow-hidden border border-olive/10" />
+                    <div className="caps-label text-stone">
+                      {hub?.shortName}
+                    </div>
+                    <h3 className="font-serif text-lg text-olive leading-snug mt-2 group-hover:text-terracotta transition">
+                      {p.title}
+                    </h3>
+                    {p.nutritionLedger && (
+                      <div className="mt-3 flex gap-4 font-mono text-[12px] text-olive">
+                        <span>
+                          <b className="text-terracotta">
+                            {p.nutritionLedger.calories}
+                          </b>{" "}
+                          kcal
+                        </span>
+                        <span>
+                          <b className="text-terracotta">
+                            {p.nutritionLedger.proteinG}g
+                          </b>{" "}
+                          P
+                        </span>
+                      </div>
+                    )}
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="border-b border-olive/10">
         <div className="mx-auto max-w-6xl px-6 py-14 md:py-20">
@@ -86,7 +147,7 @@ export default function NotFound() {
 
       <section>
         <div className="mx-auto max-w-6xl px-6 py-10">
-          <DotRule />
+          <DotRule drawIn />
           <p className="text-center caps-label text-stone mt-6">
             404 &middot; Off the menu
           </p>

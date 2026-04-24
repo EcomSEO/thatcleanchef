@@ -4,6 +4,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { CookieBanner } from "@/components/CookieBanner";
 import { OrganizationJsonLd } from "@/components/schema/OrganizationJsonLd";
+import { Atmosphere } from "@/components/editorial/Atmosphere";
 import { SITE } from "@/lib/content/site";
 import { robotsMeta } from "@/lib/seo";
 
@@ -42,6 +43,7 @@ export default function RootLayout({
       </head>
       <body>
         <OrganizationJsonLd />
+        <Atmosphere />
         <Header />
         {children}
         <Footer />

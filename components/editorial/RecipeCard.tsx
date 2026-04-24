@@ -38,7 +38,7 @@ export function RecipeCard({ post }: { post: Post }) {
   return (
     <article
       id="recipe-card"
-      className="my-10 relative border border-olive/15 rounded-sm bg-paper shadow-plate overflow-hidden"
+      className="card-lift my-10 relative border border-olive/15 rounded-sm bg-paper shadow-plate overflow-hidden"
       aria-label={`${post.h1} — recipe card`}
     >
       {/* Hero image slot */}

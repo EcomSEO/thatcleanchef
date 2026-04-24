@@ -29,14 +29,48 @@ html {
 body {
   background-color: var(--color-paper);
   background-image:
-    radial-gradient(at 10% 6%, rgba(122, 143, 107, 0.05) 0, transparent 60%),
-    radial-gradient(at 92% 94%, rgba(196, 102, 61, 0.05) 0, transparent 55%);
+    radial-gradient(at 12% 8%, rgba(122, 143, 107, 0.09) 0, transparent 55%),
+    radial-gradient(at 88% 6%, rgba(196, 102, 61, 0.065) 0, transparent 50%),
+    radial-gradient(at 94% 92%, rgba(196, 102, 61, 0.07) 0, transparent 55%),
+    radial-gradient(at 6% 94%, rgba(74, 85, 48, 0.045) 0, transparent 50%);
   color: var(--color-charcoal);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 17px;
   line-height: 1.65;
+  position: relative;
 }
+
+/* === Film grain — warm kitchen-photo noise, fixed overlay =============== */
+/* Warm SVG fractal noise at ~3-4% opacity, baked into a data URI so it
+   doesn't require a build asset. Feels like film, not digital. */
+.film-grain {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.035;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.54  0 0 0 0 0.34  0 0 0 0 0.21  0 0 0 0.9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  background-size: 240px 240px;
+}
+
+/* Custom scrollbar — thin olive on cream */
+html {
+  scrollbar-color: var(--color-olive) var(--color-cream);
+  scrollbar-width: thin;
+}
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--color-cream); }
+::-webkit-scrollbar-thumb {
+  background: rgba(74, 85, 48, 0.55);
+  border-radius: 999px;
+  border: 2px solid var(--color-cream);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--color-olive); }
+
+/* Ensure app content renders above the grain overlay */
+main, header, footer { position: relative; z-index: 2; }
 
 h1, h2, h3, h4, h5 {
   font-family: "Fraunces", "Source Serif 4", Georgia, serif;
@@ -47,6 +81,11 @@ h1, h2, h3, h4, h5 {
 }
 
 ::selection {
+  background: var(--color-terracotta);
+  color: var(--color-cream);
+  text-shadow: none;
+}
+::-moz-selection {
   background: var(--color-terracotta);
   color: var(--color-cream);
 }
@@ -349,12 +388,22 @@ pre,
   background: var(--color-terracotta);
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 0.2s ease;
+  transition: transform 0.28s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
 .nav-link:hover::after,
+.nav-link:focus-visible::after,
 .nav-link[aria-current="page"]::after {
   transform: scaleX(1);
+}
+
+/* Current-page marker: a small terracotta serif dot before the label */
+.nav-link[aria-current="page"]::before {
+  content: "\00b7";
+  font-family: "Fraunces", serif;
+  color: var(--color-terracotta);
+  margin-right: 0.25rem;
+  font-weight: 700;
 }
 
 .btn-primary {
@@ -455,12 +504,30 @@ pre,
     linear-gradient(135deg, var(--color-cream-deep), var(--color-cream));
   border: 1px solid rgba(74, 85, 48, 0.1);
   overflow: hidden;
+  isolation: isolate;
+}
+
+/* Slow, intentional gradient drift — a placeholder that breathes. */
+.photo-slot::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 18% 22%, rgba(122, 143, 107, 0.32), transparent 52%),
+    radial-gradient(circle at 82% 28%, rgba(196, 102, 61, 0.22), transparent 50%),
+    radial-gradient(circle at 62% 82%, rgba(74, 85, 48, 0.22), transparent 55%),
+    radial-gradient(circle at 22% 78%, rgba(227, 167, 130, 0.26), transparent 55%);
+  filter: blur(12px);
+  animation: photoSlotDrift 26s ease-in-out infinite alternate;
+  pointer-events: none;
 }
 
 .photo-slot::after {
   content: "";
   position: absolute;
   inset: 0;
+  z-index: 1;
   background-image:
     repeating-radial-gradient(
       circle at 0 0,
@@ -470,6 +537,16 @@ pre,
       transparent 3px
     );
   pointer-events: none;
+}
+
+.photo-slot > * { position: relative; z-index: 2; }
+
+@keyframes photoSlotDrift {
+  0%   { transform: translate3d(-2%, -1%, 0) scale(1.02); }
+  25%  { transform: translate3d(1.5%, -2%, 0) scale(1.05); }
+  50%  { transform: translate3d(2%, 1.5%, 0) scale(1.03); }
+  75%  { transform: translate3d(-1%, 2%, 0) scale(1.06); }
+  100% { transform: translate3d(-2%, -0.5%, 0) scale(1.02); }
 }
 
 /* === Paper texture ====================================================== */
@@ -496,3 +573,177 @@ pre,
 .fade-up { animation: fadeUp 0.6s ease-out both; }
 .fade-up-delay-1 { animation: fadeUp 0.6s ease-out 0.1s both; }
 .fade-up-delay-2 { animation: fadeUp 0.6s ease-out 0.2s both; }
+
+/* === Staggered page-load reveal — kitchen-service sequence ============== */
+/* Each step is lifted slightly and tinted-fades-up on a sequenced delay. */
+.stage { animation: fadeUp 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.stage-0  { animation-delay: 0ms; }
+.stage-1  { animation-delay: 90ms; }
+.stage-2  { animation-delay: 180ms; }
+.stage-3  { animation-delay: 280ms; }
+.stage-4  { animation-delay: 380ms; }
+.stage-5  { animation-delay: 480ms; }
+.stage-6  { animation-delay: 580ms; }
+.stage-7  { animation-delay: 680ms; }
+.stage-8  { animation-delay: 780ms; }
+
+/* === Scroll-triggered reveal ============================================ */
+/* Reveal component toggles [data-in="true"]; off = hidden state. */
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.85s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.85s cubic-bezier(0.2, 0.7, 0.2, 1);
+  will-change: opacity, transform;
+}
+.reveal[data-in="true"] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === Kitchen-rule draw-in animation (used on DotRule/KitchenRule/ThinRule) */
+/* Declarative: add .rule-draw data-in="true" (via Reveal wrapper) to trigger.
+   We animate the bg-width of each child rule span from 0 to 100%. */
+.rule-draw [class*="flex-1"] {
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 1s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.rule-draw[data-in="true"] [class*="flex-1"] { transform: scaleX(1); }
+.rule-draw > * { transition: opacity 0.6s ease 0.25s; }
+.rule-draw[data-in="true"] > * { opacity: 1; }
+
+/* Tiny sage tick at end of a drawn rule */
+.rule-draw--tick { position: relative; }
+.rule-draw--tick::after {
+  content: "";
+  position: absolute;
+  right: -3px;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  margin-top: -2.5px;
+  border-radius: 50%;
+  background: var(--color-sage);
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.3s ease 0.9s, transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1) 0.9s;
+}
+.rule-draw--tick[data-in="true"]::after { opacity: 1; transform: scale(1); }
+
+/* === Reading progress — terracotta line at the top of the masthead ====== */
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--color-terracotta-deep), var(--color-terracotta));
+  box-shadow: 0 0 10px rgba(196, 102, 61, 0.35);
+  z-index: 60;
+  transition: width 80ms linear;
+  pointer-events: none;
+}
+
+/* === Diet chip shimmer — subtle gradient sweep on reveal ================ */
+.diet-chip { position: relative; overflow: hidden; }
+.diet-chip::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    110deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.35) 45%,
+    rgba(255, 255, 255, 0.55) 50%,
+    rgba(255, 255, 255, 0.35) 55%,
+    transparent 80%
+  );
+  transform: translateX(-120%);
+  pointer-events: none;
+}
+.diet-chip--shimmer::before {
+  animation: chipShimmer 1.4s cubic-bezier(0.2, 0.7, 0.2, 1) 0.15s both;
+}
+@keyframes chipShimmer {
+  0%   { transform: translateX(-120%); }
+  100% { transform: translateX(120%); }
+}
+
+/* === RecipeCard / diet-pattern card hover lift ========================== */
+.card-lift {
+  transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1),
+              box-shadow 0.35s cubic-bezier(0.2, 0.7, 0.2, 1),
+              border-color 0.35s ease;
+  will-change: transform;
+}
+.card-lift:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 2px 3px rgba(196, 102, 61, 0.08),
+    0 18px 40px rgba(196, 102, 61, 0.16),
+    0 8px 24px rgba(74, 85, 48, 0.1);
+  border-color: rgba(196, 102, 61, 0.45);
+}
+
+/* === EmailCapture focus — warm sage ring + drawn terracotta underline === */
+.kitchen-input {
+  position: relative;
+  appearance: none;
+  background: var(--color-paper);
+  border: 1px solid rgba(74, 85, 48, 0.22);
+  border-radius: 2px;
+  padding: 0.9rem 1rem;
+  font-family: "Inter", sans-serif;
+  color: var(--color-charcoal);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.25s ease, background 0.2s ease;
+  background-image: linear-gradient(90deg, var(--color-terracotta), var(--color-terracotta));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 2px;
+}
+.kitchen-input:focus,
+.kitchen-input:focus-visible {
+  border-color: rgba(122, 143, 107, 0.55);
+  box-shadow: 0 0 0 3px rgba(122, 143, 107, 0.22);
+  background-size: 100% 2px;
+  transition: border-color 0.2s ease, box-shadow 0.25s ease, background-size 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.kitchen-input::placeholder { color: rgba(107, 103, 98, 0.7); }
+
+.kitchen-submit {
+  transition: background 0.15s ease, transform 0.08s ease, box-shadow 0.15s ease;
+}
+.kitchen-submit:active {
+  transform: translateY(1px);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+/* === ScaleButton active "tare" press feel =============================== */
+.scale-btn { transition: background 0.15s ease, color 0.15s ease, transform 0.08s ease; }
+.scale-btn:active { transform: translateY(1px); }
+.scale-btn[aria-pressed="true"] {
+  box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.12);
+}
+
+/* === Respect reduced motion ============================================= */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .photo-slot::before { animation: none; }
+  .reveal { opacity: 1; transform: none; }
+  .rule-draw [class*="flex-1"] { transform: scaleX(1); }
+  .rule-draw--tick::after { opacity: 1; transform: scale(1); }
+  .stage { animation: none; }
+  .diet-chip--shimmer::before { animation: none; }
+  .reading-progress { display: none; }
+  .film-grain { opacity: 0.02; }
+}

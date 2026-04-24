@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { AnimatedNumber } from "./AnimatedNumber";
 
 type Scale = 1 | 2 | 3 | 4;
 
@@ -11,6 +12,9 @@ type Scale = 1 | 2 | 3 | 4;
  * live region. When the `onChange` callback is provided, the parent can
  * recompute ingredient quantities. When it isn't, the button is purely
  * presentational (useful in static preview contexts).
+ *
+ * The "effective servings" readout animates between values on pick, so
+ * 1× → 2× feels like a scale recalibrating rather than a hard swap.
  */
 export function ScaleButton({
   baseServings,
@@ -26,6 +30,8 @@ export function ScaleButton({
     setScale(s);
     onChange?.(s, baseServings * s);
   }
+
+  const effective = baseServings * scale;
 
   return (
     <div className="flex flex-wrap items-center gap-3">
@@ -43,7 +49,7 @@ export function ScaleButton({
               type="button"
               onClick={() => pick(s)}
               className={
-                "px-3 py-1.5 text-[13px] font-mono tnum transition " +
+                "scale-btn px-3 py-1.5 text-[13px] font-mono tnum " +
                 (active
                   ? "bg-terracotta text-cream"
                   : "bg-paper text-olive hover:bg-cream-deep")
@@ -55,8 +61,9 @@ export function ScaleButton({
           );
         })}
       </div>
-      <span className="text-sm text-stone" aria-live="polite">
-        {baseServings * scale} serving{baseServings * scale === 1 ? "" : "s"}
+      <span className="text-sm text-stone font-mono tnum" aria-live="polite">
+        <AnimatedNumber value={effective} /> serving
+        {effective === 1 ? "" : "s"}
       </span>
     </div>
   );

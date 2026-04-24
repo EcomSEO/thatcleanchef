@@ -52,12 +52,12 @@ export function EmailCapture({
             placeholder="you@example.com"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="flex-1 rounded-sm border border-olive/25 px-4 py-3 bg-paper focus:outline-none focus:border-terracotta"
+            className="kitchen-input flex-1"
           />
           <button
             type="submit"
             disabled={status === "loading"}
-            className="rounded-sm bg-terracotta px-6 py-3 text-cream hover:bg-terracotta-deep transition disabled:opacity-50 font-medium"
+            className="kitchen-submit rounded-sm bg-terracotta px-6 py-3 text-cream hover:bg-terracotta-deep disabled:opacity-50 font-medium"
           >
             {status === "loading" ? "Sending…" : "Send me the Starter Kit"}
           </button>

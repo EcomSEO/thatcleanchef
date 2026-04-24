@@ -1,5 +1,20 @@
-export function DotRule({ className = "" }: { className?: string }) {
-  return (
+import { Reveal } from "./Reveal";
+
+/**
+ * Ornamental rules. Each supports an optional `drawIn` prop that wraps it
+ * in a Reveal and uses the `.rule-draw` CSS hook to draw the horizontal
+ * lines from left to right when the rule scrolls into view. A tiny sage
+ * tick appears at the end.
+ */
+
+export function DotRule({
+  className = "",
+  drawIn = false,
+}: {
+  className?: string;
+  drawIn?: boolean;
+}) {
+  const node = (
     <div
       aria-hidden
       className={`flex items-center gap-3 text-sage/40 ${className}`}
@@ -11,18 +26,40 @@ export function DotRule({ className = "" }: { className?: string }) {
       <span className="h-px flex-1 bg-sage/30" />
     </div>
   );
+  if (!drawIn) return node;
+  return <Reveal className="rule-draw">{node}</Reveal>;
 }
 
-export function ThinRule({ className = "" }: { className?: string }) {
-  return <div aria-hidden className={`h-px w-full bg-olive/10 ${className}`} />;
+export function ThinRule({
+  className = "",
+  drawIn = false,
+}: {
+  className?: string;
+  drawIn?: boolean;
+}) {
+  const node = (
+    <div aria-hidden className={`flex items-center ${className}`}>
+      <span className="h-px flex-1 bg-olive/10" />
+    </div>
+  );
+  if (!drawIn) return node;
+  return <Reveal className="rule-draw">{node}</Reveal>;
 }
 
-export function KitchenRule({ className = "" }: { className?: string }) {
-  return (
+export function KitchenRule({
+  className = "",
+  drawIn = false,
+}: {
+  className?: string;
+  drawIn?: boolean;
+}) {
+  const node = (
     <div aria-hidden className={`flex items-center gap-4 ${className}`}>
       <span className="h-px w-8 bg-terracotta" />
       <span className="h-1.5 w-1.5 rounded-full bg-terracotta" />
       <span className="h-px flex-1 bg-olive/25" />
     </div>
   );
+  if (!drawIn) return node;
+  return <Reveal className="rule-draw rule-draw--tick">{node}</Reveal>;
 }

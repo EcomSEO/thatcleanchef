@@ -111,7 +111,7 @@ export default async function HubPage({
               </div>
             </div>
 
-            <KitchenRule className="mt-14" />
+            <KitchenRule className="mt-14" drawIn />
           </div>
         </section>
 
@@ -163,7 +163,7 @@ export default async function HubPage({
                   <Link
                     key={p.slug}
                     href={`/${p.slug}`}
-                    className="group p-6 border-b md:border-b-0 md:border-r border-olive/10 last:border-r-0 hover:bg-cream-deep/40 transition"
+                    className="card-lift group p-6 border-b md:border-b-0 md:border-r border-olive/10 last:border-r-0 hover:bg-cream-deep/40"
                   >
                     {/* Small photo slot */}
                     <div className="photo-slot aspect-[4/3] rounded-sm mb-4 relative overflow-hidden border border-olive/10" />
@@ -259,7 +259,7 @@ export default async function HubPage({
         </section>
 
         <section className="mx-auto max-w-6xl px-6 py-10">
-          <DotRule />
+          <DotRule drawIn />
         </section>
       </main>
     </>

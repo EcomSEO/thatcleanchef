@@ -1,4 +1,5 @@
 import type { Post } from "@/lib/content/posts";
+import { CountUp } from "./CountUp";
 
 /**
  * NutritionLedger — the site's signature artifact.
@@ -6,7 +7,9 @@ import type { Post } from "@/lib/content/posts";
  * Calories · Protein · Carbs · Fat · Fiber.
  *
  * Monospace numerics, terracotta accent on the "hero" values (Calories &
- * Protein). Missing values render "—" gracefully (see brand rule).
+ * Protein). Missing values render "—" gracefully (see brand rule). Numeric
+ * values count up from 0 → target on first scroll into view ("the kitchen
+ * weighed this" moment). Reduced-motion users see final values instantly.
  */
 export function NutritionLedger({ post }: { post: Post }) {
   const n = post.nutritionLedger;
@@ -14,30 +17,57 @@ export function NutritionLedger({ post }: { post: Post }) {
   const total = post.totalTimeMinutes;
 
   // Render nothing only if this post has no nutrition signal at all.
-  // (We still want the ledger scaffolding on recipes with partial data.)
   if (!n && !servings && !total) return null;
 
   const dash = "—";
-  const calories = n ? String(n.calories) : dash;
-  const protein = n ? `${n.proteinG}g` : dash;
-  // The brand-book doesn't separate carbs in the type; derive from sugar + fiber when absent
-  // to keep the ledger complete without inventing numbers (dash if missing).
-  const carbs = dash;
-  const fat = n ? `${n.satFatG}g` : dash;
-  const fiber = n ? `${n.fiberG}g` : dash;
   const sodium = n ? `${n.sodiumMg}mg` : dash;
 
-  const cells: Array<{ label: string; value: string; hero?: boolean }> = [
-    { label: "Servings", value: servings ? String(servings) : dash },
+  type Cell = {
+    label: string;
+    hero?: boolean;
+  } & (
+    | { kind: "text"; text: string }
+    | { kind: "num"; value: number; unit?: string }
+    | { kind: "time"; minutes: number }
+  );
+
+  const cells: Cell[] = [
+    {
+      label: "Servings",
+      kind: servings != null ? "num" : "text",
+      ...(servings != null
+        ? { value: servings }
+        : { text: dash }),
+    } as Cell,
     {
       label: "Total time",
-      value: total ? formatTime(total) : dash,
-    },
-    { label: "Calories", value: calories, hero: true },
-    { label: "Protein", value: protein, hero: true },
-    { label: "Carbs", value: carbs },
-    { label: "Fat (sat.)", value: fat },
-    { label: "Fiber", value: fiber },
+      kind: total != null ? "time" : "text",
+      ...(total != null ? { minutes: total } : { text: dash }),
+    } as Cell,
+    {
+      label: "Calories",
+      hero: true,
+      kind: n ? "num" : "text",
+      ...(n ? { value: n.calories } : { text: dash }),
+    } as Cell,
+    {
+      label: "Protein",
+      hero: true,
+      kind: n ? "num" : "text",
+      ...(n ? { value: n.proteinG, unit: "g" } : { text: dash }),
+    } as Cell,
+    // Carbs isn't in the schema; keep the cell but render dash gracefully.
+    { label: "Carbs", kind: "text", text: dash } as Cell,
+    {
+      label: "Fat (sat.)",
+      kind: n ? "num" : "text",
+      ...(n ? { value: n.satFatG, unit: "g" } : { text: dash }),
+    } as Cell,
+    {
+      label: "Fiber",
+      kind: n ? "num" : "text",
+      ...(n ? { value: n.fiberG, unit: "g" } : { text: dash }),
+    } as Cell,
   ];
 
   return (
@@ -61,11 +91,17 @@ export function NutritionLedger({ post }: { post: Post }) {
             <dt className="nutrition-dl__label">{cell.label}</dt>
             <dd
               className={
-                "nutrition-dl__value" +
+                "nutrition-dl__value tnum" +
                 (cell.hero ? " nutrition-dl__value--hero" : "")
               }
             >
-              {cell.value}
+              {cell.kind === "num" ? (
+                <CountUp value={cell.value} unit={cell.unit ?? ""} />
+              ) : cell.kind === "time" ? (
+                <CountUp value={cell.minutes} kind="time" />
+              ) : (
+                cell.text
+              )}
             </dd>
           </div>
         ))}
@@ -77,6 +113,7 @@ export function NutritionLedger({ post }: { post: Post }) {
     </section>
   );
 }
+
 
 function formatTime(minutes: number): string {
   if (minutes < 60) return `${minutes}m`;

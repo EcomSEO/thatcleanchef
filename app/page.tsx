@@ -6,6 +6,7 @@ import { Eyebrow } from "@/components/editorial/Eyebrow";
 import { DotRule, KitchenRule } from "@/components/editorial/DotRule";
 import { RankNumeral } from "@/components/editorial/RankNumeral";
 import { EmailCapture } from "@/components/EmailCapture";
+import { Reveal } from "@/components/editorial/Reveal";
 
 const DIET_PATTERNS: Array<{
   key: string;
@@ -65,25 +66,37 @@ export default function HomePage() {
 
   return (
     <main>
-      {/* === HERO: kitchen masthead === */}
-      <section className="border-b border-olive/10">
+      {/* === HERO: kitchen masthead — warm radial gradient, morning-kitchen light === */}
+      <section
+        className="border-b border-olive/10 relative overflow-hidden"
+        style={{
+          backgroundImage: [
+            "radial-gradient(ellipse at 14% 18%, rgba(196, 102, 61, 0.10), transparent 55%)",
+            "radial-gradient(ellipse at 86% 8%, rgba(122, 143, 107, 0.12), transparent 55%)",
+            "radial-gradient(ellipse at 92% 88%, rgba(227, 167, 130, 0.18), transparent 60%)",
+            "radial-gradient(ellipse at 6% 92%, rgba(74, 85, 48, 0.06), transparent 55%)",
+          ].join(","),
+        }}
+      >
         <div className="mx-auto max-w-6xl px-6 pt-14 md:pt-20 pb-14 md:pb-20">
           <div className="grid md:grid-cols-12 gap-10 items-start">
-            <div className="md:col-span-8 fade-up">
-              <Eyebrow tone="terracotta">
-                Service I &nbsp;&middot;&nbsp; The Launch Menu
-              </Eyebrow>
-              <h1 className="display-headline text-olive mt-5 text-[2.75rem] sm:text-5xl md:text-[4.25rem] leading-[1.02]">
+            <div className="md:col-span-8">
+              <div className="stage stage-0">
+                <Eyebrow tone="terracotta">
+                  Service I &nbsp;&middot;&nbsp; The Launch Menu
+                </Eyebrow>
+              </div>
+              <h1 className="stage stage-2 display-headline text-olive mt-5 text-[2.75rem] sm:text-5xl md:text-[4.25rem] leading-[1.02]">
                 Recipes that <em className="not-italic text-terracotta">respect</em>{" "}
                 your time.
               </h1>
-              <p className="mt-7 text-lg md:text-xl text-charcoal/85 max-w-2xl leading-[1.55]">
+              <p className="stage stage-3 mt-7 text-lg md:text-xl text-charcoal/85 max-w-2xl leading-[1.55]">
                 Chef-tested recipes with a Nutrition Ledger on every plate,
                 honest times that include the dishes, and chef notes that
                 explain the 3&ndash;5 decisions that make the recipe work.
                 Anti-Inflammatory, Mediterranean, Whole30, High-Protein.
               </p>
-              <div className="mt-9 flex flex-wrap gap-3">
+              <div className="stage stage-4 mt-9 flex flex-wrap gap-3">
                 <Link href="#patterns" className="btn-primary">
                   Start a pattern
                   <span aria-hidden>&rarr;</span>
@@ -95,7 +108,7 @@ export default function HomePage() {
             </div>
 
             {/* "On the pass tonight" sidebar */}
-            <aside className="md:col-span-4 md:pl-8 md:border-l md:border-olive/10 fade-up-delay-1">
+            <aside className="stage stage-3 md:col-span-4 md:pl-8 md:border-l md:border-olive/10">
               <div className="eyebrow text-stone mb-4">On the pass tonight</div>
               <ul className="space-y-4">
                 {[featured, ...recipes.filter((r) => r.slug !== featured?.slug)]
@@ -154,7 +167,7 @@ export default function HomePage() {
               <article className="md:col-span-7">
                 <Link
                   href={`/${featured.slug}`}
-                  className="group block bg-paper border border-terracotta/40 rounded-sm shadow-plate hover:shadow-card hover:border-terracotta transition overflow-hidden"
+                  className="card-lift group block bg-paper border border-terracotta/40 rounded-sm shadow-plate overflow-hidden"
                 >
                   {/* Photo slot */}
                   <div className="photo-slot aspect-[16/9] relative">
@@ -225,7 +238,7 @@ export default function HomePage() {
       {/* === START A PATTERN — diet-inclusive block === */}
       <section id="patterns" className="border-b border-olive/10">
         <div className="mx-auto max-w-6xl px-6 py-16 md:py-20">
-          <div className="flex items-end justify-between mb-10 flex-wrap gap-4">
+          <Reveal className="flex items-end justify-between mb-10 flex-wrap gap-4">
             <div>
               <Eyebrow tone="sage">Start a pattern</Eyebrow>
               <h2 className="font-serif text-3xl md:text-4xl text-olive mt-3 leading-tight">
@@ -238,18 +251,27 @@ export default function HomePage() {
             >
               Why pattern, not diet &rarr;
             </Link>
-          </div>
+          </Reveal>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-0 border-t border-olive/10">
+          <Reveal className="grid md:grid-cols-2 lg:grid-cols-5 gap-0 border-t border-olive/10">
             {DIET_PATTERNS.map((pattern, i) => (
               <Link
                 key={pattern.key}
                 href="/guides/diet-specific"
                 className="group relative flex flex-col p-6 border-b lg:border-b-0 lg:border-r border-olive/10 last:border-r-0 hover:bg-cream-deep/50 transition"
+                style={{ transitionDelay: `${i * 40}ms` }}
               >
                 <span className="rank-numeral !text-4xl mb-3 !text-terracotta">
                   {String(i + 1).padStart(2, "0")}
                 </span>
+                <div className="mb-3">
+                  <span
+                    className="diet-chip diet-chip--shimmer"
+                    style={{ animationDelay: `${0.25 + i * 0.12}s` }}
+                  >
+                    {pattern.name}
+                  </span>
+                </div>
                 <h3 className="font-serif text-xl text-olive leading-tight mb-2">
                   {pattern.name}
                 </h3>
@@ -262,14 +284,14 @@ export default function HomePage() {
                 </span>
               </Link>
             ))}
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* === HUBS === */}
       <section id="hubs" className="border-b border-olive/10">
         <div className="mx-auto max-w-6xl px-6 py-16 md:py-20">
-          <div className="flex items-end justify-between mb-10 flex-wrap gap-4">
+          <Reveal className="flex items-end justify-between mb-10 flex-wrap gap-4">
             <div>
               <Eyebrow tone="terracotta">The menu sections</Eyebrow>
               <h2 className="font-serif text-3xl md:text-4xl text-olive mt-3 leading-tight">
@@ -282,9 +304,9 @@ export default function HomePage() {
             >
               How we built it &rarr;
             </Link>
-          </div>
+          </Reveal>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-0 border-t border-olive/10">
+          <Reveal className="grid md:grid-cols-2 lg:grid-cols-5 gap-0 border-t border-olive/10">
             {hubs.map((hub, i) => (
               <Link
                 key={hub.slug}
@@ -306,27 +328,27 @@ export default function HomePage() {
                 </span>
               </Link>
             ))}
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* === LATEST recipes grid === */}
       <section id="recipes" className="border-b border-olive/10">
         <div className="mx-auto max-w-6xl px-6 py-16 md:py-20">
-          <div className="flex items-end justify-between mb-10 flex-wrap gap-4">
+          <Reveal className="flex items-end justify-between mb-10 flex-wrap gap-4">
             <div>
               <Eyebrow tone="terracotta">Freshly tested</Eyebrow>
               <h2 className="font-serif text-3xl md:text-4xl text-olive mt-3 leading-tight">
                 The latest on the pass.
               </h2>
             </div>
-          </div>
+          </Reveal>
 
-          <div className="grid md:grid-cols-12 gap-10">
+          <Reveal className="grid md:grid-cols-12 gap-10">
             {/* Big feature — first recent */}
             {recent[0] && (
               <article className="md:col-span-7">
-                <Link href={`/${recent[0].slug}`} className="group block">
+                <Link href={`/${recent[0].slug}`} className="card-lift group block rounded-sm p-2 -m-2">
                   <div className="photo-slot aspect-[16/9] rounded-sm mb-5 relative overflow-hidden border border-olive/10">
                     <div className="absolute bottom-5 left-5">
                       <span className="caps-label text-olive bg-paper/85 backdrop-blur px-2 py-1 rounded-sm">
@@ -395,7 +417,7 @@ export default function HomePage() {
                 </article>
               ))}
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -405,15 +427,17 @@ export default function HomePage() {
           <div className="absolute top-8 left-6 right-6">
             <KitchenRule className="text-sage-light" />
           </div>
-          <Eyebrow tone="terracotta" className="!text-terracotta">
-            How we cook
-          </Eyebrow>
-          <h2 className="font-serif text-3xl md:text-4xl mt-4 leading-[1.15] text-cream">
-            <span className="text-sage-light">We promise</span> a recipe site
-            where every nutrition number is real, every time is honest, and
-            every technique has a reason.
-          </h2>
-          <div className="grid md:grid-cols-3 gap-10 mt-12">
+          <Reveal>
+            <Eyebrow tone="terracotta" className="!text-terracotta">
+              How we cook
+            </Eyebrow>
+            <h2 className="font-serif text-3xl md:text-4xl mt-4 leading-[1.15] text-cream">
+              <span className="text-sage-light">We promise</span> a recipe site
+              where every nutrition number is real, every time is honest, and
+              every technique has a reason.
+            </h2>
+          </Reveal>
+          <Reveal className="grid md:grid-cols-3 gap-10 mt-12">
             <div>
               <div className="rank-numeral !text-terracotta-soft mb-2">01</div>
               <h3 className="font-serif text-xl text-cream mb-2">
@@ -445,7 +469,7 @@ export default function HomePage() {
                 twenty minutes.
               </p>
             </div>
-          </div>
+          </Reveal>
           <div className="mt-12 pt-8 border-t border-sage-light/30">
             <Link
               href="/editorial-standards"
@@ -462,15 +486,15 @@ export default function HomePage() {
       {explainers.length > 0 && (
         <section className="border-b border-olive/10">
           <div className="mx-auto max-w-6xl px-6 py-16 md:py-20">
-            <div className="flex items-end justify-between mb-8 flex-wrap gap-3">
+            <Reveal className="flex items-end justify-between mb-8 flex-wrap gap-3">
               <div>
                 <Eyebrow tone="sage">The Explainers</Eyebrow>
                 <h2 className="font-serif text-3xl text-olive mt-3 leading-tight">
                   The terms and techniques you keep seeing, in plain English.
                 </h2>
               </div>
-            </div>
-            <div className="grid md:grid-cols-3 gap-0 border-t border-olive/10">
+            </Reveal>
+            <Reveal className="grid md:grid-cols-3 gap-0 border-t border-olive/10">
               {explainers.map((p, i) => (
                 <Link
                   key={p.slug}
@@ -486,7 +510,7 @@ export default function HomePage() {
                   </p>
                 </Link>
               ))}
-            </div>
+            </Reveal>
           </div>
         </section>
       )}
@@ -494,7 +518,7 @@ export default function HomePage() {
       {/* === DISPATCH (newsletter) === */}
       <section className="bg-cream-deep/60 border-b border-olive/10">
         <div className="mx-auto max-w-5xl px-6 py-16 md:py-20">
-          <div className="text-center mb-8">
+          <Reveal className="text-center mb-8">
             <Eyebrow tone="terracotta">The Dispatch</Eyebrow>
             <h2 className="font-serif text-3xl md:text-[2.5rem] text-olive mt-3 leading-[1.1] max-w-2xl mx-auto">
               One weekly recipe worth cooking.
@@ -504,7 +528,7 @@ export default function HomePage() {
               note, Tuesday morning. Free 14-day Anti-Inflammatory Starter
               Kit when you subscribe.
             </p>
-          </div>
+          </Reveal>
           <EmailCapture />
         </div>
       </section>
@@ -512,7 +536,7 @@ export default function HomePage() {
       {/* === CLOSING === */}
       <section>
         <div className="mx-auto max-w-6xl px-6 py-10">
-          <DotRule />
+          <DotRule drawIn />
           <p className="text-center caps-label text-stone mt-6">
             Last service &middot;{" "}
             {new Date().toLocaleString("en-US", {
