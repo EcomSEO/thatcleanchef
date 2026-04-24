@@ -91,10 +91,10 @@ export default function HomePage() {
                 your time.
               </h1>
               <p className="stage stage-3 mt-7 text-lg md:text-xl text-charcoal/85 max-w-2xl leading-[1.55]">
-                Chef-tested recipes with a Nutrition Ledger on every plate,
-                honest times that include the dishes, and chef notes that
-                explain the 3&ndash;5 decisions that make the recipe work.
-                Anti-Inflammatory, Mediterranean, Whole30, High-Protein.
+                Tested recipes. A Nutrition Ledger on every plate. Times that
+                include the dishes. Short chef notes at the bottom covering the
+                three or four decisions that actually matter. Anti-Inflammatory,
+                Mediterranean, Whole30, High-Protein.
               </p>
               <div className="stage stage-4 mt-9 flex flex-wrap gap-3">
                 <Link href="#patterns" className="btn-primary">
@@ -158,9 +158,9 @@ export default function HomePage() {
                   The one we&apos;re cooking this week.
                 </h2>
                 <p className="mt-5 text-charcoal/75 text-[15px] leading-relaxed">
-                  Every week we anchor a single recipe &mdash; the one that
-                  earned its slot with multiple home-kitchen tests, a verified
-                  Nutrition Ledger, and chef notes that explain why it works.
+                  One recipe a week gets this slot. It&apos;s the one we cooked
+                  three times last week, agreed on, and would serve at our own
+                  tables on Friday.
                 </p>
               </div>
 
@@ -432,9 +432,9 @@ export default function HomePage() {
               How we cook
             </Eyebrow>
             <h2 className="font-serif text-3xl md:text-4xl mt-4 leading-[1.15] text-cream">
-              <span className="text-sage-light">We promise</span> a recipe site
-              where every nutrition number is real, every time is honest, and
-              every technique has a reason.
+              <span className="text-sage-light">Here&apos;s the deal:</span>{" "}
+              every nutrition number is real, every time is honest, and every
+              technique on the page has a reason we can point to.
             </h2>
           </Reveal>
           <Reveal className="grid md:grid-cols-3 gap-10 mt-12">

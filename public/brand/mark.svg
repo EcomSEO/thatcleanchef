@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" width="60" height="60" role="img" aria-label="ThatCleanChef mark">
+  <title>ThatCleanChef</title>
+  <line x1="30" y1="12" x2="30" y2="52" stroke="#7A8F6B" stroke-width="1.4" stroke-linecap="round"/>
+  <path d="M 30 24 C 20 22, 16 17, 20 13 C 26 13, 30 17, 30 24 Z" fill="#7A8F6B"/>
+  <path d="M 30 32 C 42 29, 45 24, 40 20 C 34 20, 30 24, 30 32 Z" fill="#7A8F6B" opacity="0.85"/>
+  <path d="M 30 40 C 20 37, 16 32, 20 28 C 26 28, 30 32, 30 40 Z" fill="#7A8F6B" opacity="0.7"/>
+  <circle cx="30" cy="52" r="2.4" fill="#C4663D"/>
+</svg>
