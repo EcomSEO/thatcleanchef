@@ -41,9 +41,13 @@ export function RecipeCard({ post }: { post: Post }) {
       className="card-lift my-10 relative border border-olive/15 rounded-sm bg-paper shadow-plate overflow-hidden"
       aria-label={`${post.h1} — recipe card`}
     >
-      {/* Hero image slot */}
-      <div className="photo-slot aspect-[16/9] relative">
-        <div className="absolute inset-0 flex items-end p-6 md:p-8">
+      {/* Hero image slot — decorative gradient placeholder until real photography ships. */}
+      <div
+        className="photo-slot aspect-[16/9] relative"
+        role="img"
+        aria-label="Photography placeholder for this recipe"
+      >
+        <div className="absolute inset-0 flex items-end p-6 md:p-8" aria-hidden="true">
           <div>
             <div className="caps-label text-olive bg-paper/85 backdrop-blur px-2 py-1 rounded-sm inline-block">
               Hero photo &middot; ships with real photography

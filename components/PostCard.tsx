@@ -31,7 +31,11 @@ export function PostCard({
         className="block bg-paper border border-olive/12 rounded-sm hover:border-terracotta/40 shadow-soft hover:shadow-card transition overflow-hidden"
       >
         {recipe && (
-          <div className="photo-slot aspect-[16/9] border-b border-olive/10" />
+          <div
+            className="photo-slot aspect-[16/9] border-b border-olive/10"
+            role="presentation"
+            aria-hidden="true"
+          />
         )}
         <div className="p-7">
           <span className="caps-label text-terracotta">

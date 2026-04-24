@@ -177,9 +177,13 @@ export function RecipeTemplate({ post }: { post: Post }) {
           manufacturer labels.
         </KeyTakeaway>
 
-        {/* Hero photo slot — placeholder for real photography shoots */}
-        <figure className="mt-10 photo-slot aspect-[16/9] rounded-sm relative overflow-hidden border border-olive/10">
-          <figcaption className="absolute bottom-4 left-4">
+        {/* Hero photo slot — decorative placeholder until real photography ships. */}
+        <figure
+          className="mt-10 photo-slot aspect-[16/9] rounded-sm relative overflow-hidden border border-olive/10"
+          role="img"
+          aria-label={`Photography placeholder for ${post.h1}`}
+        >
+          <figcaption className="absolute bottom-4 left-4" aria-hidden="true">
             <span className="caps-label text-olive bg-paper/85 backdrop-blur px-2 py-1 rounded-sm">
               Hero photo &middot; {hub?.shortName ?? "Recipe"}
             </span>

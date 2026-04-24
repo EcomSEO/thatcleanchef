@@ -722,10 +722,51 @@ pre,
 }
 
 /* === ScaleButton active "tare" press feel =============================== */
-.scale-btn { transition: background 0.15s ease, color 0.15s ease, transform 0.08s ease; }
+.scale-btn {
+  transition: background 0.15s ease, color 0.15s ease, transform 0.08s ease,
+    box-shadow 0.15s ease;
+  /* Touch-target floor: 44x44 minimum (WCAG 2.5.5 / Apple HIG). */
+  min-height: 44px;
+  min-width: 44px;
+  cursor: pointer;
+}
 .scale-btn:active { transform: translateY(1px); }
 .scale-btn[aria-pressed="true"] {
   box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.12);
+}
+.scale-btn:focus-visible {
+  outline: 2px solid var(--color-olive);
+  outline-offset: 2px;
+  z-index: 1;
+}
+.scale-btn[aria-pressed="true"]:focus-visible {
+  outline-color: var(--color-cream);
+  outline-offset: -3px;
+}
+
+/* === Global focus-visible — keyboard affordance ========================= */
+/* Terracotta or olive ring on everything interactive that doesn't ship its
+   own focus style. Never a bare `outline: none` without a replacement. */
+:where(a, button, [role="button"], [role="menuitem"], input, textarea, select, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--color-terracotta);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+.btn-primary:focus-visible {
+  outline-color: var(--color-olive);
+  outline-offset: 3px;
+}
+.btn-secondary:focus-visible {
+  outline-color: var(--color-terracotta);
+  outline-offset: 3px;
+}
+/* Nav-link already draws its own terracotta underline — suppress double ring. */
+.nav-link:focus-visible { outline: none; }
+.nav-link:focus-visible {
+  /* Preserve existing bar animation; add a faint ring as a safety net for users
+     whose browsers hide the ::after underline in some render paths. */
+  box-shadow: 0 0 0 2px rgba(196, 102, 61, 0.35);
+  border-radius: 2px;
 }
 
 /* === Respect reduced motion ============================================= */

@@ -77,7 +77,10 @@ export default function NotFound() {
                     href={`/${p.slug}`}
                     className="group p-6 border-b md:border-b-0 md:border-r border-olive/10 last:border-r-0 hover:bg-cream-deep/40 transition"
                   >
-                    <div className="photo-slot aspect-[4/3] rounded-sm mb-4 relative overflow-hidden border border-olive/10" />
+                    <div
+                      className="photo-slot aspect-[4/3] rounded-sm mb-4 relative overflow-hidden border border-olive/10"
+                      aria-hidden="true"
+                    />
                     <div className="caps-label text-stone">
                       {hub?.shortName}
                     </div>

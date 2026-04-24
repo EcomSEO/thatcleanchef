@@ -169,8 +169,8 @@ export default function HomePage() {
                   href={`/${featured.slug}`}
                   className="card-lift group block bg-paper border border-terracotta/40 rounded-sm shadow-plate overflow-hidden"
                 >
-                  {/* Photo slot */}
-                  <div className="photo-slot aspect-[16/9] relative">
+                  {/* Photo slot — decorative gradient placeholder */}
+                  <div className="photo-slot aspect-[16/9] relative" aria-hidden="true">
                     <div className="absolute top-0 left-0 w-1.5 h-full bg-terracotta" />
                     <span className="absolute bottom-4 left-4 caps-label text-olive bg-paper/90 backdrop-blur px-2 py-1 rounded-sm">
                       Hero photo
@@ -349,7 +349,10 @@ export default function HomePage() {
             {recent[0] && (
               <article className="md:col-span-7">
                 <Link href={`/${recent[0].slug}`} className="card-lift group block rounded-sm p-2 -m-2">
-                  <div className="photo-slot aspect-[16/9] rounded-sm mb-5 relative overflow-hidden border border-olive/10">
+                  <div
+                    className="photo-slot aspect-[16/9] rounded-sm mb-5 relative overflow-hidden border border-olive/10"
+                    aria-hidden="true"
+                  >
                     <div className="absolute bottom-5 left-5">
                       <span className="caps-label text-olive bg-paper/85 backdrop-blur px-2 py-1 rounded-sm">
                         {typeLabel[recent[0].postType]}
