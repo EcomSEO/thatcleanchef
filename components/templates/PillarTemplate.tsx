@@ -7,12 +7,15 @@ import { AuthorBio } from "../AuthorBio";
 import { RelatedPosts } from "../RelatedPosts";
 import { SourcesList } from "../SourcesList";
 import { EmailCapture } from "../EmailCapture";
-import { NutritionLedger, RecipeMeta, DietTags } from "../NutritionLedger";
 import { ArticleJsonLd } from "../schema/ArticleJsonLd";
 import { BreadcrumbJsonLd } from "../schema/BreadcrumbJsonLd";
 import { FaqJsonLd } from "../schema/FaqJsonLd";
-import { RecipeJsonLd } from "../schema/RecipeJsonLd";
-import { ArticleShell } from "./PageShell";
+import { WideArticleShell } from "./PageShell";
+import { Eyebrow } from "../editorial/Eyebrow";
+import { DotRule, KitchenRule } from "../editorial/DotRule";
+import { KeyTakeaway } from "../editorial/KeyTakeaway";
+import { PullQuote } from "../editorial/PullQuote";
+import { DietTags } from "../NutritionLedger";
 
 export function PillarTemplate({ post }: { post: Post }) {
   const hub = getHub(post.hub);
@@ -35,46 +38,140 @@ export function PillarTemplate({ post }: { post: Post }) {
       />
       <BreadcrumbJsonLd crumbs={crumbs} />
       {post.faq && <FaqJsonLd faq={post.faq} />}
-      <RecipeJsonLd post={post} />
 
-      <ArticleShell>
+      <WideArticleShell
+        aside={
+          <nav className="space-y-6">
+            <div>
+              <Eyebrow tone="stone">On this page</Eyebrow>
+              <ul className="mt-3 space-y-2 text-[14px]">
+                <li>
+                  <a href="#lede" className="text-olive hover:text-terracotta">
+                    The short answer
+                  </a>
+                </li>
+                {post.faq && post.faq.length > 0 && (
+                  <li>
+                    <a href="#faq" className="text-olive hover:text-terracotta">
+                      FAQ
+                    </a>
+                  </li>
+                )}
+                <li>
+                  <a href="#sources" className="text-olive hover:text-terracotta">
+                    Sources
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div className="pt-6 border-t border-olive/10">
+              <Eyebrow tone="stone">The pass</Eyebrow>
+              <dl className="mt-3 space-y-2.5 text-[13.5px]">
+                <div className="flex justify-between">
+                  <dt className="text-stone">Cited</dt>
+                  <dd className="text-olive tnum font-mono">
+                    {(post.sources ?? []).length} sources
+                  </dd>
+                </div>
+                <div className="flex justify-between">
+                  <dt className="text-stone">Read time</dt>
+                  <dd className="text-olive tnum font-mono">
+                    {post.readingTime} min
+                  </dd>
+                </div>
+                <div className="flex justify-between">
+                  <dt className="text-stone">Last updated</dt>
+                  <dd className="text-olive">
+                    {new Date(post.updatedAt).toLocaleDateString("en-US", {
+                      month: "short",
+                      year: "numeric",
+                    })}
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </nav>
+        }
+      >
         <Breadcrumbs crumbs={crumbs} />
-        <h1 className="font-serif text-4xl md:text-5xl text-olive mt-4 leading-tight">
+
+        <div className="mt-6 flex flex-wrap items-center gap-3">
+          <Eyebrow tone="sage">The Guide</Eyebrow>
+          {hub && (
+            <span className="caps-label text-stone">&middot; {hub.shortName}</span>
+          )}
+        </div>
+
+        <h1
+          id="lede"
+          className="display-headline text-olive mt-4 text-[2.35rem] md:text-[3.2rem] leading-[1.04]"
+        >
           {post.h1}
         </h1>
-        <div className="mt-3">
-          <ReviewStamp updatedAt={post.updatedAt} readingTime={post.readingTime} />
+
+        <div className="mt-6 flex flex-wrap items-center gap-4">
+          <ReviewStamp
+            updatedAt={post.updatedAt}
+            readingTime={post.readingTime}
+          />
         </div>
-        <RecipeMeta post={post} />
+
         <DietTags tags={post.dietTags} />
 
-        <p className="mt-6 text-lg text-charcoal/90 leading-relaxed">
+        <KitchenRule className="mt-8" />
+
+        <p className="drop-cap mt-10 text-[1.12rem] md:text-[1.17rem] leading-[1.7] text-charcoal/90 max-w-[62ch]">
           {post.description}
         </p>
 
-        <NutritionLedger post={post} />
+        <PullQuote attribution="ThatCleanChef Kitchen">
+          We&apos;d rather answer the question you actually asked in the first
+          paragraph, then earn your trust by showing the chef notes.
+        </PullQuote>
+
+        <KeyTakeaway variant="key-takeaway" title="What this guide covers">
+          What the evidence says today, which recipes fit this pattern, and how
+          to build a week of dinners around it &mdash; with times you can trust
+          and nutrition numbers sourced from USDA.
+        </KeyTakeaway>
 
         {post.faq && post.faq.length > 0 && (
-          <section className="mt-12">
-            <h2 className="font-serif text-2xl text-forest mb-3">
-              Frequently asked questions
+          <section id="faq" className="mt-14">
+            <Eyebrow tone="terracotta">The FAQ</Eyebrow>
+            <h2 className="font-serif text-3xl text-olive mt-2 mb-6 leading-tight">
+              The questions cooks bring us.
             </h2>
-            <div className="space-y-4">
+            <dl className="divide-y divide-olive/10 border-y border-olive/10">
               {post.faq.map((f, i) => (
-                <div key={i}>
-                  <h3 className="font-serif text-lg text-forest">{f.q}</h3>
-                  <p className="text-charcoal/80">{f.a}</p>
+                <div
+                  key={i}
+                  className="grid md:grid-cols-[1fr_2fr] gap-5 py-6 first:pt-0 last:pb-0"
+                >
+                  <dt className="font-serif text-lg text-olive leading-snug">
+                    {f.q}
+                  </dt>
+                  <dd className="text-[15.5px] text-charcoal/85 leading-relaxed">
+                    {f.a}
+                  </dd>
                 </div>
               ))}
-            </div>
+            </dl>
           </section>
         )}
 
-        <SourcesList sources={post.sources ?? []} />
+        <DotRule className="my-14" />
+
+        <div id="sources">
+          <SourcesList sources={post.sources ?? []} />
+        </div>
+
         <AuthorBio />
         <RelatedPosts posts={related} />
-        <EmailCapture variant="end-of-article" />
-      </ArticleShell>
+
+        <div className="mt-14">
+          <EmailCapture variant="end-of-article" />
+        </div>
+      </WideArticleShell>
     </>
   );
 }

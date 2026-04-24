@@ -5,6 +5,7 @@ import { PillarTemplate } from "@/components/templates/PillarTemplate";
 import { ComparisonTemplate } from "@/components/templates/ComparisonTemplate";
 import { ClusterTemplate } from "@/components/templates/ClusterTemplate";
 import { ListicleTemplate } from "@/components/templates/ListicleTemplate";
+import { RecipeTemplate } from "@/components/templates/RecipeTemplate";
 import { pageMetadata } from "@/lib/seo";
 
 // Avoid colliding with /about, /contact, etc — static pages take precedence over this dynamic route.
@@ -35,8 +36,11 @@ export async function generateMetadata({
   if (RESERVED.has(slug)) return {};
   const post = getPost(slug);
   if (!post) return {};
-  const suffix =
-    post.postType === "comparison"
+  const isRecipeLike =
+    post.postType === "recipe" || post.nutritionLedger != null;
+  const suffix = isRecipeLike && post.totalTimeMinutes
+    ? ` (${post.totalTimeMinutes}m${post.nutritionLedger ? `, ${post.nutritionLedger.proteinG}g protein` : ""})`
+    : post.postType === "comparison"
       ? ` (Tested ${new Date(post.updatedAt).getFullYear()})`
       : "";
   return pageMetadata({
@@ -56,6 +60,13 @@ export default async function PostPage({
   if (RESERVED.has(slug)) notFound();
   const post = getPost(slug);
   if (!post) notFound();
+
+  // Route recipes (including cluster-tagged posts that carry a nutrition
+  // ledger — posts.ts is READ ONLY, so we infer recipe-ness from data).
+  const isRecipe =
+    post.postType === "recipe" || post.nutritionLedger != null;
+
+  if (isRecipe) return <RecipeTemplate post={post} />;
 
   switch (post.postType) {
     case "pillar":

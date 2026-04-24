@@ -1,4 +1,4 @@
-export type PostType = "pillar" | "comparison" | "cluster" | "listicle";
+export type PostType = "pillar" | "comparison" | "cluster" | "listicle" | "recipe";
 
 export type Post = {
   slug: string;

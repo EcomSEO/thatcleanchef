@@ -4,7 +4,7 @@ import { FormEvent, useState } from "react";
 
 export function EmailCapture({
   headline = "The Clean Chef Starter Kit.",
-  subhead = "A 14-day anti-inflammatory meal plan PDF with grocery lists, macros per day, and prep-ahead schedule. Free.",
+  subhead = "A 14-day anti-inflammatory meal plan PDF — grocery list by section, macros totaled per day, Sunday prep sequence. Free.",
   variant = "inline",
 }: {
   headline?: string;
@@ -12,7 +12,9 @@ export function EmailCapture({
   variant?: "inline" | "end-of-article";
 }) {
   const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "loading" | "ok" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "loading" | "ok" | "error">(
+    "idle"
+  );
 
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
@@ -24,15 +26,17 @@ export function EmailCapture({
 
   const wrapper =
     variant === "end-of-article"
-      ? "my-12 p-8 rounded-lg bg-sage/10 border border-sage/20 text-center"
-      : "my-12 p-8 rounded-lg bg-white/70 border border-forest/10 text-center";
+      ? "my-12 p-8 rounded-sm bg-terracotta/10 border border-terracotta/25 text-center"
+      : "my-12 p-8 rounded-sm bg-paper border border-olive/10 text-center";
 
   return (
     <section id="email-capture" className={wrapper}>
-      <h2 className="font-serif text-2xl text-forest mb-2">{headline}</h2>
+      <h2 className="font-serif text-2xl text-olive mb-2">{headline}</h2>
       <p className="text-charcoal/80 max-w-xl mx-auto">{subhead}</p>
       {status === "ok" ? (
-        <p className="mt-6 text-forest">Thanks — check your inbox.</p>
+        <p className="mt-6 text-olive">
+          Thanks &mdash; check your inbox for the Starter Kit.
+        </p>
       ) : (
         <form
           onSubmit={onSubmit}
@@ -48,20 +52,20 @@ export function EmailCapture({
             placeholder="you@example.com"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="flex-1 rounded-md border border-forest/20 px-4 py-3 bg-white"
+            className="flex-1 rounded-sm border border-olive/25 px-4 py-3 bg-paper focus:outline-none focus:border-terracotta"
           />
           <button
             type="submit"
             disabled={status === "loading"}
-            className="rounded-md bg-forest px-6 py-3 text-cream hover:bg-sage transition disabled:opacity-50"
+            className="rounded-sm bg-terracotta px-6 py-3 text-cream hover:bg-terracotta-deep transition disabled:opacity-50 font-medium"
           >
             {status === "loading" ? "Sending…" : "Send me the Starter Kit"}
           </button>
         </form>
       )}
-      <p className="mt-4 text-xs text-charcoal/50 max-w-md mx-auto">
+      <p className="mt-4 text-xs text-stone max-w-md mx-auto">
         By subscribing, you agree to our{" "}
-        <a href="/privacy" className="underline">
+        <a href="/privacy" className="underline decoration-terracotta/60">
           Privacy Policy
         </a>
         . One calm email a week. Unsubscribe anytime.

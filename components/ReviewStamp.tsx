@@ -13,8 +13,10 @@ export function ReviewStamp({
     day: "numeric",
   });
   return (
-    <p className="text-sm text-charcoal/60">
-      By {author} · Updated {formatted} · {readingTime} min read
+    <p className="text-[13px] text-stone tracking-wide">
+      By {author} &middot;{" "}
+      <span className="tnum font-mono">Updated {formatted}</span> &middot;{" "}
+      <span className="tnum font-mono">{readingTime} min read</span>
     </p>
   );
 }

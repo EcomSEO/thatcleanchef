@@ -5,40 +5,102 @@ import { getHub } from "@/lib/content/hubs";
 const typeLabel: Record<Post["postType"], string> = {
   pillar: "Guide",
   comparison: "Comparison",
-  cluster: "Explainer",
-  listicle: "Listicle",
+  cluster: "Recipe",
+  recipe: "Recipe",
+  listicle: "Roundup",
 };
 
-export function PostCard({ post, variant = "compact" }: { post: Post; variant?: "compact" | "feature" }) {
+function isRecipeLike(p: Post) {
+  return p.postType === "recipe" || p.nutritionLedger != null;
+}
+
+export function PostCard({
+  post,
+  variant = "compact",
+}: {
+  post: Post;
+  variant?: "compact" | "feature";
+}) {
   const hub = getHub(post.hub);
+  const recipe = isRecipeLike(post);
+
   if (variant === "feature") {
     return (
       <Link
         href={`/${post.slug}`}
-        className="block p-8 bg-white/70 border border-forest/10 rounded-lg hover:border-sage transition"
+        className="block bg-paper border border-olive/12 rounded-sm hover:border-terracotta/40 shadow-soft hover:shadow-card transition overflow-hidden"
       >
-        <span className="text-xs uppercase tracking-wide text-sage">
-          {hub?.shortName} · {typeLabel[post.postType]}
-        </span>
-        <h3 className="font-serif text-2xl text-forest mt-2 mb-3">{post.title}</h3>
-        <p className="text-charcoal/80 text-[15px] leading-relaxed">{post.description}</p>
-        <span className="mt-4 inline-block text-sage text-sm">Read the full comparison →</span>
+        {recipe && (
+          <div className="photo-slot aspect-[16/9] border-b border-olive/10" />
+        )}
+        <div className="p-7">
+          <span className="caps-label text-terracotta">
+            {hub?.shortName} &middot; {typeLabel[post.postType]}
+          </span>
+          <h3 className="font-serif text-2xl text-olive mt-2 mb-3 leading-snug">
+            {post.title}
+          </h3>
+          <p className="text-charcoal/80 text-[15px] leading-relaxed">
+            {post.description}
+          </p>
+          {recipe && post.nutritionLedger && (
+            <div className="mt-4 flex flex-wrap gap-4 font-mono text-[13px] text-olive">
+              {post.totalTimeMinutes && (
+                <span>
+                  <b className="text-terracotta">{post.totalTimeMinutes}m</b>
+                </span>
+              )}
+              <span>
+                <b className="text-terracotta">
+                  {post.nutritionLedger.calories}
+                </b>{" "}
+                kcal
+              </span>
+              <span>
+                <b className="text-terracotta">
+                  {post.nutritionLedger.proteinG}g
+                </b>{" "}
+                protein
+              </span>
+            </div>
+          )}
+          <span className="mt-5 inline-block text-terracotta text-sm font-medium">
+            Open the recipe card &rarr;
+          </span>
+        </div>
       </Link>
     );
   }
+
   return (
     <Link
       href={`/${post.slug}`}
-      className="block p-5 bg-white/60 border border-forest/10 rounded-lg hover:border-sage transition"
+      className="block p-5 bg-paper border border-olive/10 rounded-sm hover:border-terracotta/40 transition"
     >
-      <span className="text-xs uppercase tracking-wide text-sage">
-        {hub?.shortName} · {typeLabel[post.postType]}
+      <span className="caps-label text-terracotta">
+        {hub?.shortName} &middot; {typeLabel[post.postType]}
       </span>
-      <h3 className="font-serif text-lg text-forest mt-2 mb-2 leading-snug">{post.title}</h3>
+      <h3 className="font-serif text-lg text-olive mt-2 mb-2 leading-snug">
+        {post.title}
+      </h3>
       <p className="text-sm text-charcoal/70 line-clamp-2">{post.description}</p>
-      <span className="mt-3 inline-block text-xs text-charcoal/50">
-        {post.readingTime} min read
-      </span>
+      <div className="mt-3 flex items-center gap-3 font-mono text-[12px] text-stone">
+        {post.totalTimeMinutes ? (
+          <span>
+            <b className="text-terracotta">{post.totalTimeMinutes}m</b>
+          </span>
+        ) : (
+          <span>{post.readingTime} min read</span>
+        )}
+        {post.nutritionLedger && (
+          <span>
+            <b className="text-terracotta">
+              {post.nutritionLedger.proteinG}g
+            </b>{" "}
+            protein
+          </span>
+        )}
+      </div>
     </Link>
   );
 }
