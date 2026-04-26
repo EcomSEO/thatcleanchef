@@ -24,6 +24,7 @@ const config: Config = {
       },
       fontFamily: {
         serif: ["Fraunces", '"Source Serif 4"', "Georgia", "serif"],
+        cookbook: ['"Cormorant Garamond"', "Fraunces", "Garamond", "Georgia", "serif"],
         sans: ["Inter", "system-ui", "sans-serif"],
         mono: ['"IBM Plex Mono"', '"JetBrains Mono"', "ui-monospace", "monospace"],
       },

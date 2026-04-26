@@ -27,6 +27,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       "/affiliate-disclosure",
       "/contact",
       "/newsletter",
+      "/ingredients",
+      "/recipes",
+      "/methodology",
+      "/methodology/v1-2",
+      "/pipeline",
     ].map((path) => ({
       url: `${SITE.url}${path}`,
       lastModified: now,

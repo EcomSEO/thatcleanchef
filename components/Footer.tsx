@@ -43,26 +43,46 @@ export function Footer() {
           </div>
 
           <div className="md:col-span-3">
-            <h4 className="eyebrow text-stone mb-4">The masthead</h4>
+            <h4 className="eyebrow text-stone mb-4">The book</h4>
             <ul className="space-y-2.5 text-[15px]">
+              <li>
+                <Link href="/#contents" className="text-olive hover:text-terracotta transition">
+                  Contents
+                </Link>
+              </li>
+              <li>
+                <Link href="/ingredients" className="text-olive hover:text-terracotta transition">
+                  Ingredient Index
+                </Link>
+              </li>
+              <li>
+                <Link href="/recipes" className="text-olive hover:text-terracotta transition">
+                  Recipes
+                </Link>
+              </li>
+              <li>
+                <Link href="/methodology" className="text-olive hover:text-terracotta transition">
+                  Our Approach
+                </Link>
+              </li>
+              <li>
+                <Link href="/methodology/v1-2" className="text-olive hover:text-terracotta transition">
+                  What We&apos;re Testing
+                </Link>
+              </li>
+              <li>
+                <Link href="/pipeline" className="text-olive hover:text-terracotta transition">
+                  Pipeline
+                </Link>
+              </li>
               <li>
                 <Link href="/about" className="text-olive hover:text-terracotta transition">
                   About the kitchen
                 </Link>
               </li>
               <li>
-                <Link href="/editorial-standards" className="text-olive hover:text-terracotta transition">
-                  Kitchen standards
-                </Link>
-              </li>
-              <li>
                 <Link href="/contact" className="text-olive hover:text-terracotta transition">
                   Contact &amp; tips
-                </Link>
-              </li>
-              <li>
-                <Link href="/newsletter" className="text-olive hover:text-terracotta transition">
-                  The Dispatch
                 </Link>
               </li>
             </ul>
@@ -104,9 +124,10 @@ export function Footer() {
             </span>
           </div>
           <div className="normal-case tracking-normal text-stone/80 text-xs max-w-xl md:text-right leading-relaxed">
-            Commissions on some links help pay for the groceries we burn in
-            testing. They never change a ranking, never move a recipe up, never
-            affect the Nutrition Ledger.
+            A cookbook for cooking, not a clinic. Recipes here are food, not
+            medical advice. Commissions on some links help pay for the
+            groceries we burn in testing &mdash; they never change a recipe,
+            never move a page up, and never affect the Nutrition Ledger.
           </div>
         </div>
       </div>
