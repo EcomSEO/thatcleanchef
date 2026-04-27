@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { LOCALES, type LocaleCode, DEFAULT_LOCALE } from "@/lib/i18n/locales";
 import { MegaMenu } from "./MegaMenu";
+import { LocaleSwitcher } from "./LocaleSwitcher";
 
 /**
  * Clean white sticky header — medical-info shell. h-16, 1px hairline border-bottom,
@@ -14,7 +14,6 @@ import { MegaMenu } from "./MegaMenu";
 type NavKind = "Recipes" | "Techniques" | "Ingredients" | "Nutrition" | "Tools";
 
 export function Header() {
-  const [locale, setLocale] = useState<LocaleCode>(DEFAULT_LOCALE);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [megaOpen, setMegaOpen] = useState<null | NavKind>(null);
 
@@ -105,18 +104,7 @@ export function Header() {
             </svg>
           </label>
 
-          <select
-            value={locale}
-            onChange={(e) => setLocale(e.target.value as LocaleCode)}
-            className="medical-input !py-1.5 !px-3 text-[13px] cursor-pointer"
-            aria-label="Choose locale"
-          >
-            {LOCALES.map((l) => (
-              <option key={l.code} value={l.code}>
-                {l.label}
-              </option>
-            ))}
-          </select>
+          <LocaleSwitcher />
 
           <Link href="/newsletter" className="btn-primary">
             Newsletter
@@ -172,18 +160,8 @@ export function Header() {
               Newsletter
             </Link>
             <div className="mt-6">
-              <span className="caps-label block mb-2">Locale</span>
-              <select
-                value={locale}
-                onChange={(e) => setLocale(e.target.value as LocaleCode)}
-                className="medical-input w-full"
-              >
-                {LOCALES.map((l) => (
-                  <option key={l.code} value={l.code}>
-                    {l.label}
-                  </option>
-                ))}
-              </select>
+              <span className="caps-label block mb-2">Language</span>
+              <LocaleSwitcher />
             </div>
           </nav>
         </div>
