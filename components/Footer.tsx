@@ -21,8 +21,8 @@ export function Footer() {
           </div>
           <div className="max-w-md text-body-sm text-ink-2 leading-relaxed">
             Independent test kitchen. Recipes tested 3+ times in our kitchen,
-            nutritionally reviewed by registered dietitians, USDA-cited
-            Nutrition Ledger on every recipe.
+            reviewed by registered dietitians with peptide-therapy expertise,
+            USDA-cited Nutrition Ledger on every recipe.
           </div>
         </div>
 
@@ -44,12 +44,12 @@ export function Footer() {
           </div>
 
           <div className="md:col-span-3">
-            <h4 className="caps-label mb-4">Techniques</h4>
+            <h4 className="caps-label mb-4">Peptide context</h4>
             <ul className="space-y-2 text-body-sm">
-              <li><Link href="/guides/technique" className="text-ink hover:text-sage-700">Roasting</Link></li>
-              <li><Link href="/guides/technique" className="text-ink hover:text-sage-700">Braising</Link></li>
-              <li><Link href="/guides/technique" className="text-ink hover:text-sage-700">Salt, fat, acid, heat</Link></li>
-              <li><Link href="/methodology" className="text-ink hover:text-sage-700">Reading a recipe</Link></li>
+              <li><Link href="/guides/glp1-friendly" className="text-ink hover:text-sage-700">GLP-1 friendly</Link></li>
+              <li><Link href="/guides/muscle-preservation" className="text-ink hover:text-sage-700">Muscle preservation</Link></li>
+              <li><Link href="/guides/anti-inflammatory-recovery" className="text-ink hover:text-sage-700">Anti-inflammatory recovery</Link></li>
+              <li><Link href="/guides/cycle-nutrition" className="text-ink hover:text-sage-700">Cycle nutrition</Link></li>
             </ul>
           </div>
 

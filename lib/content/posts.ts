@@ -1,5 +1,16 @@
 export type PostType = "pillar" | "comparison" | "cluster" | "listicle" | "recipe";
 
+/**
+ * Peptide-therapy context for a recipe page — drives the
+ * <PeptideContextCallout> rendered above the ingredient list.
+ */
+export type PeptideContext =
+  | "glp1-friendly"
+  | "muscle-preservation"
+  | "anti-inflammatory"
+  | "bone-tendon"
+  | "cycle-nutrition";
+
 export type Post = {
   slug: string;
   title: string;
@@ -7,6 +18,8 @@ export type Post = {
   description: string;
   hub: string;
   postType: PostType;
+  /** Peptide-therapy framing for the recipe (default 'glp1-friendly'). */
+  peptideContext?: PeptideContext;
   publishedAt: string;
   updatedAt: string;
   readingTime: number;
@@ -40,7 +53,8 @@ export const posts: Post[] = [
     h1: "Anti-inflammatory golden chicken soup",
     description:
       "Chef-tested anti-inflammatory chicken soup with turmeric, ginger, and bone broth. 55 min, 32g protein, Nutrition Ledger below.",
-    hub: "diet-specific",
+    hub: "anti-inflammatory-recovery",
+    peptideContext: "anti-inflammatory",
     postType: "cluster",
     publishedAt: "2026-04-21",
     updatedAt: "2026-04-21",
@@ -188,7 +202,8 @@ export const posts: Post[] = [
     h1: "Cottage cheese flatbread",
     description:
       "The viral cottage cheese flatbread, chef-tested. 28g protein per serving, 20 minutes, 4 ingredients.",
-    hub: "protein-forward",
+    hub: "muscle-preservation",
+    peptideContext: "muscle-preservation",
     postType: "cluster",
     publishedAt: "2026-04-21",
     updatedAt: "2026-04-21",
@@ -335,7 +350,8 @@ export const posts: Post[] = [
     h1: "The anti-inflammatory diet",
     description:
       "Evidence brief, ingredient inventory, weekly framework, and the 7-day meal plan. Pillar for the Anti-Inflammatory hub.",
-    hub: "diet-specific",
+    hub: "anti-inflammatory-recovery",
+    peptideContext: "anti-inflammatory",
     postType: "pillar",
     publishedAt: "2026-04-21",
     updatedAt: "2026-04-21",
@@ -478,7 +494,8 @@ export const posts: Post[] = [
     h1: "High-protein breakfast bowl",
     description:
       "Eggs, spinach, quinoa or sweet potato, salsa, avocado — 42g protein in a 15-minute bowl. Swappable base protein.",
-    hub: "protein-forward",
+    hub: "muscle-preservation",
+    peptideContext: "muscle-preservation",
     postType: "cluster",
     publishedAt: "2026-04-21",
     updatedAt: "2026-04-21",
@@ -621,7 +638,8 @@ export const posts: Post[] = [
     h1: "Mediterranean meal prep — week 1",
     description:
       "A 7-day Mediterranean meal plan with shopping list, Sunday prep sequence, cost estimate, and weekly macros.",
-    hub: "seasonal",
+    hub: "cycle-nutrition",
+    peptideContext: "cycle-nutrition",
     postType: "pillar",
     publishedAt: "2026-04-21",
     updatedAt: "2026-04-21",
@@ -760,7 +778,8 @@ export const posts: Post[] = [
     h1: "Whole30 breakfast hash",
     description:
       "Sweet potato, sausage, peppers, eggs — a 25-minute Whole30 breakfast with 28g protein.",
-    hub: "diet-specific",
+    hub: "glp1-friendly",
+    peptideContext: "glp1-friendly",
     postType: "cluster",
     publishedAt: "2026-04-21",
     updatedAt: "2026-04-21",
@@ -903,7 +922,8 @@ export const posts: Post[] = [
     h1: "Ginger-turmeric salmon",
     description:
       "A 20-minute anti-inflammatory salmon with turmeric, ginger, garlic, and coconut aminos. 38g protein per fillet.",
-    hub: "diet-specific",
+    hub: "anti-inflammatory-recovery",
+    peptideContext: "anti-inflammatory",
     postType: "cluster",
     publishedAt: "2026-04-21",
     updatedAt: "2026-04-21",
@@ -1050,7 +1070,8 @@ export const posts: Post[] = [
     h1: "Greek lemon chicken",
     description:
       "Bone-in thighs, lemon, oregano, garlic — a Mediterranean pillar recipe, 45 minutes, 36g protein.",
-    hub: "diet-specific",
+    hub: "muscle-preservation",
+    peptideContext: "muscle-preservation",
     postType: "cluster",
     publishedAt: "2026-04-21",
     updatedAt: "2026-04-21",
@@ -1193,7 +1214,8 @@ export const posts: Post[] = [
     h1: "Cottage cheese ice cream — vanilla",
     description:
       "Blended cottage cheese, honey, vanilla, a pinch of salt — frozen in a loaf pan. 22g protein per serving.",
-    hub: "protein-forward",
+    hub: "glp1-friendly",
+    peptideContext: "glp1-friendly",
     postType: "cluster",
     publishedAt: "2026-04-21",
     updatedAt: "2026-04-21",
@@ -1336,7 +1358,8 @@ export const posts: Post[] = [
     h1: "How to roast a whole chicken",
     description:
       "The technique pillar — dry brine, spatchcock, high heat, sheet pan. 2 hours total, 6 servings.",
-    hub: "technique",
+    hub: "bone-tendon-health",
+    peptideContext: "bone-tendon",
     postType: "pillar",
     publishedAt: "2026-04-21",
     updatedAt: "2026-04-21",

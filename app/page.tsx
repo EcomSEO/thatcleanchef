@@ -9,11 +9,11 @@ import { hubs } from "@/lib/content/hubs";
 import Link from "next/link";
 
 const categoryEyebrows: Record<string, string> = {
-  "diet-specific": "By goal",
-  "meal-types": "By meal",
-  "protein-forward": "By macro",
-  "technique": "By method",
-  "seasonal": "By season",
+  "glp1-friendly": "GLP-1 therapy",
+  "muscle-preservation": "Muscle preservation",
+  "anti-inflammatory-recovery": "Recovery protocols",
+  "bone-tendon-health": "Connective tissue",
+  "cycle-nutrition": "Cycle windows",
 };
 
 export default function HomePage() {
@@ -33,14 +33,14 @@ export default function HomePage() {
 
       <CategoryTileGrid
         tiles={tiles}
-        heading="Browse recipes by goal"
-        dek="Five lenses on the same kitchen. Diet patterns, meal types, protein-forward, technique, and seasonal weekly menus."
+        heading="Browse recipes by peptide context"
+        dek="Five lenses on the same kitchen, organized for peptide therapy. GLP-1 friendly, muscle preservation, anti-inflammatory recovery, bone and tendon support, and cycle-window nutrition."
       />
 
       <FeaturedRecipeCarousel
         posts={featured}
         heading="Editor's picks this week"
-        dek="Each recipe tested at least three times in our kitchen and reviewed by a registered dietitian."
+        dek="Each recipe is tested at least three times and reviewed by a registered dietitian with peptide-therapy expertise."
       />
 
       {/* Trust strip */}

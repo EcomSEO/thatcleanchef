@@ -6,21 +6,21 @@ import { TestKitchenStamp } from "./editorial/TestKitchenStamp";
  * Home hero — 12-col grid: H1 + dek left, featured-recipe card right.
  */
 export function Hero({
-  eyebrow = "Clean-eating recipes, dietitian reviewed",
-  h1 = "Recipes that respect your time, your kitchen, and your nutrition.",
-  dek = "Independent test kitchen. Every recipe is cooked at least three times in our kitchen and nutritionally reviewed by a registered dietitian. USDA-cited Nutrition Ledger on every page.",
+  eyebrow = "Clean-eating recipes for peptide therapy",
+  h1 = "Clean-eating recipes for peptide therapy.",
+  dek = "High-protein meals to fight GLP-1 muscle loss. Anti-inflammatory dishes for peptide-cycle recovery. Time-honest, USDA-backed, dietitian-reviewed.",
   featured = {
     eyebrow: "Anti-inflammatory · 55 min",
     title: "Anti-inflammatory golden chicken soup",
-    dek: "Bone broth, turmeric bloomed in fat, 32g protein per bowl. Reviewed by an RD.",
+    dek: "Bone broth, turmeric bloomed in fat, 32g protein per bowl. Built for peptide-cycle recovery days.",
     href: "/anti-inflammatory-golden-chicken-soup",
     author: "The ThatCleanChef Kitchen",
     minutes: 55,
   },
   trending = [
-    { label: "Anti-inflammatory dinners", href: "/guides/diet-specific" },
-    { label: "High-protein breakfasts", href: "/guides/protein-forward" },
-    { label: "30-minute weeknights", href: "/guides/meal-types" },
+    { label: "GLP-1 friendly recipes", href: "/guides/glp1-friendly" },
+    { label: "High-protein for muscle preservation", href: "/guides/muscle-preservation" },
+    { label: "Anti-inflammatory recovery", href: "/guides/anti-inflammatory-recovery" },
   ],
 }: {
   eyebrow?: string;

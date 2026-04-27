@@ -5,8 +5,8 @@ import Link from "next/link";
  * RDN reviewer name and link to the reviewer profile.
  */
 export function DietitianReviewedBadge({
-  name = "Lena Marsh",
-  credentials = "RDN, MS",
+  name = "Dr. Maya Rao",
+  credentials = "RDN — GLP-1 nutrition specialist",
   href = "/about#reviewers",
   size = "md",
 }: {
@@ -20,7 +20,7 @@ export function DietitianReviewedBadge({
     <Link
       href={href}
       className={`inline-flex items-center gap-2 rounded-full bg-sage-50 text-sage-700 border border-sage-100 hover:bg-sage-100 transition ${sz}`}
-      aria-label={`Nutritionally reviewed by ${name}, ${credentials}`}
+      aria-label={`Reviewed by ${name}, ${credentials}`}
     >
       <svg
         width="13"
@@ -35,7 +35,7 @@ export function DietitianReviewedBadge({
         <circle cx="12" cy="12" r="9.2" />
       </svg>
       <span className="font-medium">
-        Nutritionally reviewed by {name}, {credentials}
+        Reviewed by {name}, {credentials}
       </span>
     </Link>
   );

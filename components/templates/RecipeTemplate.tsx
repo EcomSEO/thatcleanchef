@@ -19,6 +19,8 @@ import { SourcesAccordion, type SourceRef } from "../editorial/SourcesAccordion"
 import { RelatedRecipes, type RelatedRecipeCard } from "../editorial/RelatedRecipes";
 import { NewsletterInline } from "../editorial/NewsletterInline";
 import { DietTags } from "../NutritionLedger";
+import { PeptideContextCallout } from "../PeptideContextCallout";
+import { EducationalBanner } from "../EducationalBanner";
 
 /**
  * RecipeTemplate — full medical-info recipe layout.
@@ -159,6 +161,15 @@ export function RecipeTemplate({ post }: { post: Post }) {
         <div className="mx-auto max-w-7xl px-5 py-10 md:py-14 grid md:grid-cols-12 gap-10">
           <article className="md:col-span-8 max-w-[720px]">
             <RecipeDeveloperByline lastTested={post.updatedAt} />
+
+            <div className="mt-5">
+              <EducationalBanner />
+            </div>
+
+            <PeptideContextCallout
+              context={post.peptideContext ?? "glp1-friendly"}
+              proteinG={post.nutritionLedger?.proteinG}
+            />
 
             {/* Mobile-only inline NutritionLedger */}
             <div className="md:hidden mt-6">

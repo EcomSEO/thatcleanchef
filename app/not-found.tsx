@@ -46,8 +46,8 @@ export default function NotFound() {
               Back to the pass
               <span aria-hidden>&rarr;</span>
             </Link>
-            <Link href="/guides/protein-forward" className="btn-secondary">
-              High-Protein recipes
+            <Link href="/guides/muscle-preservation" className="btn-secondary">
+              Muscle-preservation recipes
             </Link>
           </div>
         </div>
