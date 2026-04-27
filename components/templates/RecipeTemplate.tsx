@@ -21,6 +21,7 @@ import { NewsletterInline } from "../editorial/NewsletterInline";
 import { DietTags } from "../NutritionLedger";
 import { PeptideContextCallout } from "../PeptideContextCallout";
 import { EducationalBanner } from "../EducationalBanner";
+import { WhyWeTestedThreeTimes } from "../editorial/WhyWeTestedThreeTimes";
 
 /**
  * RecipeTemplate — full medical-info recipe layout.
@@ -231,6 +232,11 @@ export function RecipeTemplate({ post }: { post: Post }) {
               <h2 className="text-h2-mid font-semibold text-ink">Storage</h2>
               <p className="mt-2 text-body-md text-ink-2">Refrigerator: 3–4 days, sealed. Freezer: up to 3 months. Reheat covered to retain moisture.</p>
             </section>
+
+            <WhyWeTestedThreeTimes
+              notes={post.testNotes}
+              recipeName={post.title.toLowerCase().replace(/^(the |a |an )/, "")}
+            />
 
             {post.faq && post.faq.length > 0 && (
               <section id="faq" className="mt-12 scroll-mt-24">

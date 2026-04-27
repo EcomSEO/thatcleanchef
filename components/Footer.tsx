@@ -3,6 +3,8 @@ import { hubs } from "@/lib/content/hubs";
 import { Wordmark } from "./editorial/Wordmark";
 import { SITE } from "@/lib/content/site";
 import { MedicalDisclaimerFooter } from "./MedicalDisclaimerFooter";
+import { CookiePreferencesLink } from "./CookiePreferencesLink";
+import { RegulatoryAuthoritiesStrip } from "./RegulatoryAuthoritiesStrip";
 
 /**
  * Comprehensive footer — clean medical-info shell. 4-col link grid + medical/
@@ -67,6 +69,7 @@ export function Footer() {
             <h4 className="caps-label mb-4">Company</h4>
             <ul className="space-y-2 text-body-sm">
               <li><Link href="/about" className="text-ink hover:text-sage-700">About the kitchen</Link></li>
+              <li><Link href="/team" className="text-ink hover:text-sage-700">The team</Link></li>
               <li><Link href="/methodology" className="text-ink hover:text-sage-700">Methodology</Link></li>
               <li><Link href="/editorial-standards" className="text-ink hover:text-sage-700">Editorial standards</Link></li>
               <li><Link href="/pipeline" className="text-ink hover:text-sage-700">Pipeline</Link></li>
@@ -75,6 +78,9 @@ export function Footer() {
               <li><Link href="/affiliate-disclosure" className="text-ink hover:text-sage-700">Affiliate disclosure</Link></li>
               <li><Link href="/privacy" className="text-ink hover:text-sage-700">Privacy</Link></li>
               <li><Link href="/terms" className="text-ink hover:text-sage-700">Terms</Link></li>
+              <li><Link href="/cookies" className="text-ink hover:text-sage-700">Cookies</Link></li>
+              <li><Link href="/impressum" className="text-ink hover:text-sage-700">Impressum</Link></li>
+              <li><CookiePreferencesLink /></li>
             </ul>
           </div>
         </div>
@@ -83,17 +89,39 @@ export function Footer() {
           <h4 className="caps-label mb-3">Sister sites</h4>
           <ul className="flex flex-wrap gap-x-6 gap-y-2 text-body-sm">
             <li>
+              <a href="https://peptips-ecom-seo.vercel.app/" className="text-ink hover:text-sage-700" rel="noopener">
+                peptips — peptide protocol notes
+              </a>
+            </li>
+            <li>
+              <a href="https://pepvise-ecom-seo.vercel.app/" className="text-ink hover:text-sage-700" rel="noopener">
+                pepvise — peptide vendor reviews
+              </a>
+            </li>
+            <li>
+              <a href="https://injectcompass-ecom-seo.vercel.app/" className="text-ink hover:text-sage-700" rel="noopener">
+                injectcompass — injection technique
+              </a>
+            </li>
+            <li>
               <a href="https://larderlab-ecom-seo.vercel.app/" className="text-ink hover:text-sage-700" rel="noopener">
                 larderlab — pantry & nutrition ledgers
               </a>
             </li>
             <li>
-              <a href="https://injectcompass-ecom-seo.vercel.app/" className="text-ink hover:text-sage-700" rel="noopener">
-                injectcompass — clinical health
+              <a href="https://circadianstack-ecom-seo.vercel.app/" className="text-ink hover:text-sage-700" rel="noopener">
+                circadianstack — circadian protocols
+              </a>
+            </li>
+            <li>
+              <a href="https://plasticfreelab-ecom-seo.vercel.app/" className="text-ink hover:text-sage-700" rel="noopener">
+                plasticfreelab — plastic-free living
               </a>
             </li>
           </ul>
         </div>
+
+        <RegulatoryAuthoritiesStrip />
 
         <MedicalDisclaimerFooter />
       </div>

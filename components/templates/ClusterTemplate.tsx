@@ -15,6 +15,7 @@ import { Eyebrow } from "../editorial/Eyebrow";
 import { DotRule, KitchenRule } from "../editorial/DotRule";
 import { KeyTakeaway } from "../editorial/KeyTakeaway";
 import { DietTags } from "../NutritionLedger";
+import { WhyWeTestedThreeTimes } from "../editorial/WhyWeTestedThreeTimes";
 
 export function ClusterTemplate({ post }: { post: Post }) {
   const hub = getHub(post.hub);
@@ -72,6 +73,11 @@ export function ClusterTemplate({ post }: { post: Post }) {
           not the preamble. Scroll for the chef notes, the sources, and the
           questions people ask next.
         </KeyTakeaway>
+
+        <WhyWeTestedThreeTimes
+          notes={post.testNotes}
+          recipeName={post.h1.toLowerCase().replace(/^(the |a |an )/, "")}
+        />
 
         {post.faq && post.faq.length > 0 && (
           <section className="mt-12">

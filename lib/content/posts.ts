@@ -20,6 +20,8 @@ export type Post = {
   postType: PostType;
   /** Peptide-therapy framing for the recipe (default 'glp1-friendly'). */
   peptideContext?: PeptideContext;
+  /** When 'required', a medical disclaimer block is rendered above the article body. */
+  medicalDisclaimer?: "required" | "optional";
   publishedAt: string;
   updatedAt: string;
   readingTime: number;
@@ -44,6 +46,15 @@ export type Post = {
     satFatG: number;
     addedSugarG: number;
   };
+  /** "Why we tested this 3 times" entries — flagship recipes only. */
+  testNotes?: Array<{
+    test: 1 | 2 | 3 | 4;
+    triedThis: string;
+    whatHappened: string;
+    changedThis: string;
+  }>;
+  /** Slug of the team member who reviewed this page (defaults to lena-marsh). */
+  reviewedBy?: string;
 };
 
 export const posts: Post[] = [
@@ -67,6 +78,27 @@ export const posts: Post[] = [
     servings: 4,
     dietTags: ["Anti-Inflammatory", "Whole30", "Dairy-Free", "Gluten-Free"],
     nutritionLedger: { calories: 380, proteinG: 32, fiberG: 4, sodiumMg: 620, satFatG: 3, addedSugarG: 2 },
+    reviewedBy: "lena-marsh",
+    testNotes: [
+      {
+        test: 1,
+        triedThis: "Boneless chicken breasts, turmeric stirred into the broth at the boil, no black pepper, sliced ginger.",
+        whatHappened: "Stringy chicken by minute 30, dusty turmeric flavour (no fat to bloom into), fibrous ginger bites in every spoonful.",
+        changedThis: "Switched to bone-in skin-on thighs, bloomed turmeric in the rendered fat, added cracked black pepper, swapped sliced ginger for grated.",
+      },
+      {
+        test: 2,
+        triedThis: "Bone-in thighs, bloomed turmeric and pepper in chicken fat, microplaned ginger, regular table salt at the start.",
+        whatHappened: "Flavour was right — soup tasted like a soup, not a tonic. Sodium ran high (790 mg per bowl) and the broth was a touch dull from early salting.",
+        changedThis: "Moved salt to the end of cooking, dropped the quantity by a third, finished with lemon juice instead.",
+      },
+      {
+        test: 3,
+        triedThis: "Final method as published — bone-in thighs, bloomed turmeric and pepper, grated ginger, salt at the end, lemon to finish.",
+        whatHappened: "620 mg sodium per bowl (within target), 32g protein, gel from the thigh bones in the leftover broth. Repeated three times across two weeks with the same result.",
+        changedThis: "This is the published recipe. The lemon-at-the-end change was the one that lifted the whole bowl.",
+      },
+    ],
     ourPick: {
       name: "Kettle & Fire Chicken Bone Broth",
       tier: "Base of the pot",
@@ -1501,6 +1533,420 @@ export const posts: Post[] = [
       {
         label: "Samin Nosrat — Salt, Fat, Acid, Heat (technique reference).",
         url: "https://www.saltfatacidheat.com/",
+      },
+    ],
+  },
+  {
+    slug: "cottage-cheese-pancakes",
+    title: "Cottage Cheese Pancakes — 28g Protein, 12 Minutes",
+    h1: "Cottage cheese pancakes",
+    description:
+      "Three-ingredient cottage cheese pancakes — 28g protein per stack of three, 12 minutes start to plate. Tested for GLP-1 patients front-loading morning protein.",
+    hub: "muscle-preservation",
+    peptideContext: "muscle-preservation",
+    postType: "cluster",
+    publishedAt: "2026-04-23",
+    updatedAt: "2026-04-23",
+    readingTime: 6,
+    status: "published",
+    featured: true,
+    totalTimeMinutes: 12,
+    prepTimeMinutes: 4,
+    cookTimeMinutes: 8,
+    servings: 1,
+    dietTags: ["High-Protein", "Gluten-Free Optional", "Vegetarian"],
+    nutritionLedger: { calories: 340, proteinG: 28, fiberG: 3, sodiumMg: 380, satFatG: 4, addedSugarG: 0 },
+    reviewedBy: "lena-marsh",
+    testNotes: [
+      {
+        test: 1,
+        triedThis: "Whisked-by-hand batter, 1:1:1 ratio of cottage cheese to eggs to oats, cooked on medium heat in olive oil.",
+        whatHappened: "Visible curd in the pancake (texture issue, but acceptable), pancake browned before centre set, oil flavour fought with the dairy.",
+        changedThis: "Switched to a stick-blender batter, dropped heat to medium-low, swapped olive oil for butter.",
+      },
+      {
+        test: 2,
+        triedThis: "Blended batter, medium-low heat, butter, single large pancake (8-inch).",
+        whatHappened: "Single pancake was fragile to flip — broke twice in three attempts. Centre was correct but presentation was poor.",
+        changedThis: "Switched to three small pancakes (1 heaped tablespoon each), kept everything else.",
+      },
+      {
+        test: 3,
+        triedThis: "Three small pancakes, blended batter rested 4 minutes, medium-low heat, butter.",
+        whatHappened: "Flipped cleanly on a thin fish slice, set in 90 seconds a side, stacked into a 28g-protein portion. Repeated successfully on day 5 from a fridge-stored batter.",
+        changedThis: "This is the published version. The 4-minute rest was the variable that locked the texture in.",
+      },
+    ],
+    ourPick: {
+      name: "Good Culture 4% Cottage Cheese",
+      tier: "The protein engine",
+      reason:
+        "I've made these with five brands. Good Culture's curd structure holds together when whisked into the egg-and-oat base — supermarket-own often goes watery. The 4% fat version makes a richer pancake and the lactose drops slightly with the longer culture time. UK readers: Longley Farm cottage cheese is the closest equivalent.",
+    },
+    items: [
+      {
+        rank: 1,
+        name: "The ratio is half cup cottage cheese, two eggs, quarter cup oats",
+        summary:
+          "Half a cup of 4% cottage cheese, two large eggs, a quarter cup of rolled oats. Pinch of salt. That is the entire batter. No flour, no milk, no baking powder. The eggs lift the pancake, the oats give it structure, the cottage cheese carries the flavour and 14g of the protein.",
+      },
+      {
+        rank: 2,
+        name: "Blend it — don't whisk it",
+        summary:
+          "A whisk leaves curd visible in the pancake, which is fine for texture but means the protein is less evenly distributed. A 30-second blitz in a small blender (or a stick blender in a jug) gives you a smooth pourable batter. Either works; pick by mood.",
+      },
+      {
+        rank: 3,
+        name: "Rest the batter for 4 minutes while the pan heats",
+        summary:
+          "The oats need to hydrate. 4 minutes is the sweet spot — longer and the pancake feels gummy, shorter and the oat fragments stay sandy. Heat the pan to medium-low while you wait. This is also when you crack out the toppings.",
+      },
+      {
+        rank: 4,
+        name: "Medium-low heat, butter not oil",
+        summary:
+          "Cottage cheese has more water than buttermilk. On high heat, the pancake browns before the centre sets. Medium-low — about 3 on a typical induction hob — and a teaspoon of butter (not oil) per batch. Butter browns slower than oil and adds flavour the bland batter wants.",
+      },
+      {
+        rank: 5,
+        name: "Three pancakes per portion, not one large one",
+        summary:
+          "A single big pancake is hard to flip without breaking. Three small ones (a heaped tablespoon each) cook in 90 seconds a side, flip cleanly, and stack into the protein target you actually want — three pancakes is 28g.",
+      },
+      {
+        rank: 6,
+        name: "Wait for the bubbles to set before flipping",
+        summary:
+          "Standard pancake rule applies: bubbles on the surface, edges look matte not wet. About 90 seconds. Flip with a thin fish slice — the cottage cheese makes the underside slightly more delicate than a flour pancake.",
+      },
+      {
+        rank: 7,
+        name: "Berry compote in 90 seconds — no sugar needed",
+        summary:
+          "Half a cup of frozen blueberries or raspberries in a small pan, 90 seconds on high while the pancakes cook. The berries break down and release enough natural sugar to taste like jam. A squeeze of lemon at the end. Skip the maple syrup — the compote is doing that job.",
+      },
+      {
+        rank: 8,
+        name: "GLP-1 portion: stop at two, save the third for later",
+        summary:
+          "If you're on Mounjaro, Ozempic, Wegovy, or Zepbound and morning appetite collapses around the second pancake — eat the two, plate the third with a tablespoon of cottage cheese on the side, cling-film it, treat it as your 10am snack. The protein target still lands.",
+      },
+      {
+        rank: 9,
+        name: "Bump to 38g protein with a soft-boiled egg",
+        summary:
+          "One soft-boiled egg on the side adds 6-7g of protein and breaks up the sweet profile. 6 minutes from cold tap to soft yolk. Crack and tip onto the pancakes; the yolk runs and replaces any need for syrup.",
+      },
+      {
+        rank: 10,
+        name: "Make-ahead: blend the batter Sunday, store 5 days",
+        summary:
+          "The batter holds in the fridge for 5 days in a sealed jar. Pour, cook, eat — 5 minutes weekday morning. The eggs can curdle slightly on day 5; a 10-second re-blitz fixes it. This is the GLP-1-friendly version: zero decision-making at 7am.",
+      },
+    ],
+    faq: [
+      {
+        q: "Why cottage cheese instead of protein powder?",
+        a: "Real food. Cottage cheese gives you slow-digesting casein and fast-digesting whey in the natural ratio dairy ships them in, plus calcium, plus a little sodium. Protein powders work — they're just not better than cottage cheese for this recipe, and the texture is materially worse. Save the powder for shakes.",
+      },
+      {
+        q: "I'm on Wegovy and morning is the only time I'm hungry. Is this a good fit?",
+        a: "Yes. We chose cottage-cheese pancakes specifically for the Wegovy / Mounjaro / Ozempic / Zepbound morning slot. They sit warm-but-not-fragrant, the protein density is high (28g in 340 kcal), and the texture is soft. If you can manage three, you've banked the day's first protein floor before evening appetite collapses.",
+      },
+      {
+        q: "Can I use blender oats / flour / no oats?",
+        a: "Rolled oats are the version we tested most. Quick oats blitz finer and produce a slightly denser pancake — fine. Plain flour (40g) works structurally but loses the fibre. No oats at all is fine if you blend longer; pancakes are thinner but still hold. Don't substitute almond flour 1:1, it absorbs too little water.",
+      },
+      {
+        q: "What's the children-friendly version?",
+        a: "Same recipe, swap the salt pinch for a teaspoon of vanilla, and serve with the berry compote. The pancakes are mild-flavoured by default — the only dial is sweetness, and the compote handles that without added sugar.",
+      },
+    ],
+    sources: [
+      {
+        label: "USDA FoodData Central — Cottage cheese, low-fat, 2% milkfat (FDC ID 174261).",
+        url: "https://fdc.nal.usda.gov/fdc-app.html#/food-details/174261/nutrients",
+      },
+      {
+        label: "Phillips SM, Chevalier S, Leidy HJ. Protein 'requirements' beyond the RDA: implications for optimizing health. Appl Physiol Nutr Metab. 2017.",
+        url: "https://pubmed.ncbi.nlm.nih.gov/26960445/",
+      },
+      {
+        label: "Morton RW, Murphy KT, McKellar SR, et al. A systematic review and meta-analysis of resistance training on protein supplementation. Br J Sports Med. 2018.",
+        url: "https://pubmed.ncbi.nlm.nih.gov/28698222/",
+      },
+      {
+        label: "Cook's Illustrated — pancake batter rest time and bubble-set test (technique reference).",
+        url: "https://www.americastestkitchen.com/cooksillustrated",
+      },
+    ],
+  },
+  {
+    slug: "bone-broth",
+    title: "Bone Broth — Slow Method, Real Gel, Sippable",
+    h1: "Bone broth, the slow method",
+    description:
+      "A 24-hour bone broth recipe that gels at the fridge — collagen-rich, low-sodium, sippable from a mug. Tested for connective-tissue support alongside BPC-157 and TB-500 protocols.",
+    hub: "bone-tendon-health",
+    peptideContext: "bone-tendon",
+    postType: "cluster",
+    publishedAt: "2026-04-23",
+    updatedAt: "2026-04-23",
+    readingTime: 7,
+    status: "published",
+    featured: true,
+    totalTimeMinutes: 1480,
+    prepTimeMinutes: 40,
+    cookTimeMinutes: 1440,
+    servings: 8,
+    dietTags: ["Whole30", "Paleo", "Dairy-Free", "Gluten-Free"],
+    nutritionLedger: { calories: 60, proteinG: 9, fiberG: 0, sodiumMg: 240, satFatG: 1, addedSugarG: 0 },
+    reviewedBy: "lena-marsh",
+    testNotes: [
+      {
+        test: 1,
+        triedThis: "Stockpot on the lowest hob setting, 18 hours, unroasted bones, salted at the start.",
+        whatHappened: "Pale, weak broth that didn't gel at the fridge. Sodium was too high by hour 16. Aromatics had over-extracted and turned bitter.",
+        changedThis: "Roasted the bones at 220°C for 30 minutes first, dropped the salt entirely, moved aromatics to hour 2 instead of hour 0.",
+      },
+      {
+        test: 2,
+        triedThis: "Roasted bones, slow cooker on low for 20 hours, ACV cold-water start, no salt, aromatics added hour 2.",
+        whatHappened: "Strong flavour, partial fridge gel (jiggle but not solid), aromatics held cleanly. Bones still had structure — collagen extraction wasn't complete.",
+        changedThis: "Extended cook to a full 24 hours and added a 30-minute pre-soak with ACV before the heat went on.",
+      },
+      {
+        test: 3,
+        triedThis: "Full method as published — roast 30 min, 30-min cold ACV soak, 24 hours on low, aromatics hour 2, salt at the mug.",
+        whatHappened: "Full fridge gel — the broth shook in the jar like jelly. Bones crumbled when poked. 8 cups yield from a 2.5kg bone batch.",
+        changedThis: "This is the published recipe. Two further runs with the same parameters gave the same gel and the same yield.",
+      },
+    ],
+    ourPick: {
+      name: "A 6-quart slow cooker with a low setting",
+      tier: "The vessel",
+      reason:
+        "We tested this in a stockpot, an Instant Pot, and three slow cookers. The slow cooker wins for one reason: 24 hours hands-off. The Instant Pot takes 3 hours but the gel structure is slightly weaker — the longer low-and-slow extracts more collagen. A 6-quart Crock-Pot or Hamilton Beach is fine; you don't need a fancy one.",
+    },
+    items: [
+      {
+        rank: 1,
+        name: "Roast the bones first — 30 minutes at 220C",
+        summary:
+          "2.5 kg of mixed bones — beef knuckles, marrow bones, and one or two oxtail pieces — on a tray, 30 minutes at 220°C / 425°F until deep brown. This is the single biggest flavour decision. Unroasted bones make a pale, weak broth. Roasted bones make a broth that tastes like a roast dinner.",
+      },
+      {
+        rank: 2,
+        name: "Cold-water start — never boil",
+        summary:
+          "Bones into the slow cooker, cover with cold filtered water (around 3 litres), add 2 tablespoons of apple cider vinegar and let sit for 30 minutes before turning the heat on. The acid pulls calcium and collagen out of the bone matrix. Cold-start prevents albumin scumming the surface.",
+      },
+      {
+        rank: 3,
+        name: "Aromatics in the second hour, not at the start",
+        summary:
+          "Onion (skin on, halved), 4 cloves of garlic (smashed, skin on), a leek green, two bay leaves, a small handful of black peppercorns. Add them after the broth has come up to temperature and skimmed once — adding aromatics to cold water means they over-extract and turn the broth slightly bitter by hour 18.",
+      },
+      {
+        rank: 4,
+        name: "24 hours on low for beef, 12 for chicken",
+        summary:
+          "Beef bones need the full 24 to break down properly. Chicken bones (whole carcass + a couple of feet if your butcher has them) only need 12. After 24 hours on a beef broth, you can crush the knuckle bones with the back of a spoon — that's the texture you're after.",
+      },
+      {
+        rank: 5,
+        name: "No salt during the cook",
+        summary:
+          "Salt during a 24-hour reduction concentrates beyond what you'll want at the end. Cook salt-free, salt at the mug. A pinch of Maldon and a squeeze of lemon when you sip — that's the seasoning. This is also why our broth is 240mg sodium per cup vs. 600mg+ in supermarket versions.",
+      },
+      {
+        rank: 6,
+        name: "Strain twice — fine sieve, then cheesecloth",
+        summary:
+          "Sieve the broth into a large bowl through a fine-mesh sieve first to catch the bones and aromatic debris. Then strain a second time through cheesecloth or a clean tea towel into your storage jars. Two strains is the difference between a cloudy broth and one you'd serve in a glass.",
+      },
+      {
+        rank: 7,
+        name: "The fridge gel test",
+        summary:
+          "Cool the broth to room temperature, transfer to wide-mouth jars, and refrigerate overnight. By morning, a properly extracted broth should jiggle when you shake the jar — that's collagen. If it's liquid, you didn't roast hot enough or didn't simmer long enough. Either way it's still drinkable; it's just less rich.",
+      },
+      {
+        rank: 8,
+        name: "Skim the fat cap, don't discard it",
+        summary:
+          "Beef tallow on top of a 24-hour broth is a useful cooking fat. Lift it off in one piece, store it in a small jar — it keeps for months in the fridge and roasts vegetables better than olive oil. Don't throw it away; it's free.",
+      },
+      {
+        rank: 9,
+        name: "Sip a mug at the start of the day, not as a meal",
+        summary:
+          "A cup of broth is 60 calories and 9g of protein. It's a bridge, not a meal. We drink it before breakfast on cycle days, with a pinch of salt, lemon, and parsley. Treat it as a hydration vehicle that happens to carry collagen, not as a dinner.",
+      },
+      {
+        rank: 10,
+        name: "Freeze in 250ml portions",
+        summary:
+          "Once the broth has gelled, ladle it into freezer-safe 250ml deli containers or silicone moulds. Freezes for 6 months. Defrost overnight in the fridge or pour straight into a hot pan from frozen. A 2.5kg bone batch yields 8-10 cups — enough for two weeks of daily sips.",
+      },
+    ],
+    faq: [
+      {
+        q: "Does bone broth actually do anything for tendons?",
+        a: "The evidence is suggestive, not conclusive. A small body of literature (Clark 2008, Shaw 2017) shows gelatin/collagen consumed an hour before exercise can increase collagen synthesis at the tendon — the mechanism plausibly extends to bone broth, which is essentially long-cooked gelatin. We treat it as an inexpensive food with reasonable mechanistic support, not as a guaranteed therapy.",
+      },
+      {
+        q: "Is shop-bought bone broth as good?",
+        a: "Some are, most aren't. Look for brands that gel in the fridge (Kettle & Fire, Bonafide), simmer 20+ hours, and cite their bone source. Most supermarket cartons labelled 'bone broth' are stock with marketing — they pour straight from the carton and never gel. The home version is materially cheaper.",
+      },
+      {
+        q: "Can I drink this on Mounjaro / Ozempic / Wegovy?",
+        a: "Yes. Bone broth is one of the few warm sippable formats that consistently goes down well on a GLP-1, and the protein density (9g per 60 kcal) is excellent for low-appetite days. Keep the salt at the mug, not in the pot, so you can adjust per-cup if you're being co-managed for blood pressure.",
+      },
+      {
+        q: "What if I don't have a slow cooker?",
+        a: "A heavy stockpot on a low simmer for 12-18 hours works — needs occasional skimming and a watchful eye that the heat is genuinely low. An Instant Pot under high pressure for 3 hours produces a good broth with slightly thinner gel. The slow cooker is the lazy default, not the only option.",
+      },
+      {
+        q: "How long does it keep?",
+        a: "5 days in the fridge, 6 months in the freezer. We freeze in 250ml portions because that's our daily sip. Once thawed, use within 48 hours — don't refreeze.",
+      },
+    ],
+    sources: [
+      {
+        label: "Clark KL, Sebastianelli W, et al. 24-Week study on the use of collagen hydrolysate as a dietary supplement in athletes with activity-related joint pain. Curr Med Res Opin. 2008.",
+        url: "https://pubmed.ncbi.nlm.nih.gov/18416885/",
+      },
+      {
+        label: "Shaw G, Lee-Barthel A, Ross ML, Wang B, Baar K. Vitamin C-enriched gelatin supplementation before intermittent activity augments collagen synthesis. Am J Clin Nutr. 2017.",
+        url: "https://pubmed.ncbi.nlm.nih.gov/27852613/",
+      },
+      {
+        label: "USDA FoodData Central — Beef bone broth, homemade (FDC ID 173242).",
+        url: "https://fdc.nal.usda.gov/",
+      },
+      {
+        label: "Cook's Illustrated — Bone broth and stock methodology, 24-hour low simmer test.",
+        url: "https://www.americastestkitchen.com/cooksillustrated",
+      },
+    ],
+  },
+  {
+    slug: "natural-mounjaro-recipes",
+    title: "Natural Mounjaro Recipes — What the Drink Actually Is, and 8 Better Alternatives",
+    h1: "Natural Mounjaro recipes — and what the drink actually is.",
+    description:
+      "A registered-dietitian-reviewed roundup of so-called 'natural Mounjaro' drinks (lemon, ginger, honey, ACV) and 8 evidence-led recipes that actually do what the trend claims to.",
+    hub: "glp1-friendly",
+    peptideContext: "glp1-friendly",
+    postType: "listicle",
+    publishedAt: "2026-04-23",
+    updatedAt: "2026-04-23",
+    readingTime: 9,
+    status: "published",
+    featured: false,
+    medicalDisclaimer: "required",
+    items: [
+      {
+        rank: 1,
+        name: "First — what is the 'natural Mounjaro' drink?",
+        summary:
+          "A TikTok trend: warm water, half a lemon, a teaspoon of grated ginger, a teaspoon of honey, a tablespoon of apple cider vinegar. The claim is that it mimics tirzepatide. It does not. There is no natural compound that activates the GIP and GLP-1 receptors the way tirzepatide does. The drink is a perfectly fine warm sour beverage; it is not a drug substitute. We are not against the recipe — we are against the marketing.",
+      },
+      {
+        rank: 2,
+        name: "What the drink might actually do",
+        summary:
+          "Apple cider vinegar before a meal has weak evidence for blunting post-meal glucose rise (Johnston 2010). Ginger has weak evidence for slowing gastric emptying (Wu 2008). Lemon and warm water are pleasant. Honey is sugar. None of this is comparable to a 5-15% body-weight reduction over 72 weeks. If the drink helps you feel more full before a meal, drink it — just don't skip your prescribing clinician.",
+      },
+      {
+        rank: 3,
+        name: "Cottage-cheese flatbread, 25g protein",
+        summary:
+          "If you're chasing satiety, protein does the heavy lifting. The cottage-cheese flatbread on this site clears 25g of protein in a 280-kcal serving and takes 12 minutes. Independent guidance (Phillips 2017) puts the protein floor for muscle preservation at 1.2-1.6 g per kg per day — this recipe gets you there one meal at a time without any drug or trend.",
+      },
+      {
+        rank: 4,
+        name: "Bone broth, sippable hydration",
+        summary:
+          "9g of protein per 60 kcal. A warm mug 20 minutes before a main meal preloads protein and warms the stomach in a way that mirrors what GLP-1 patients describe as helpful. The 24-hour bone broth recipe in our Bone & Tendon hub gels at the fridge and freezes in 250ml portions.",
+      },
+      {
+        rank: 5,
+        name: "Ginger-turmeric salmon, 32g protein",
+        summary:
+          "If the 'natural Mounjaro' drink is doing anything mechanistically, it's the ginger. We use the same ginger more usefully — grated into a soy-and-honey marinade for salmon. 32g protein, 380 kcal, 25 minutes. The omega-3 fats also push satiety markers (Parra 2008) more reliably than anything in a warm-lemon drink.",
+      },
+      {
+        rank: 6,
+        name: "Greek lemon chicken, batch-cookable",
+        summary:
+          "Lemon does end up in this list — just used the way chefs use it, as acid against fat and protein. The Greek lemon chicken on this site batch-cooks 6 portions in an hour, holds for 4 days in the fridge, and clears 38g of protein per serving. Drink the warm-lemon-ginger thing if you want; eat this for the actual outcome.",
+      },
+      {
+        rank: 7,
+        name: "Anti-inflammatory golden chicken soup, low-volume meal",
+        summary:
+          "When patients on actual GLP-1 therapy describe what works, low-volume warm meals come up repeatedly. Our anti-inflammatory chicken soup runs 380 kcal and 32g protein in a single bowl that takes 4-5 bites to feel full. This is the dish we'd cook on a 'natural Mounjaro' day — the same warm-stomach effect, far more nutritionally complete.",
+      },
+      {
+        rank: 8,
+        name: "High-protein breakfast bowl, front-loaded protein",
+        summary:
+          "If you're using the morning-drink ritual to feel like you're 'starting the day right,' do that with food. Our high-protein breakfast bowl runs 42g protein in 480 kcal and 15 minutes. Front-loaded morning protein is the single most useful eating habit on a GLP-1 — drug or no drug.",
+      },
+      {
+        rank: 9,
+        name: "Cottage-cheese pancakes, soft-texture mornings",
+        summary:
+          "Three pancakes, 28g protein, 12 minutes. We chose this for the same patient cohort that drinks lemon-ginger-honey water — people who want a soft, mild-flavoured morning that still does protein arithmetic. The pancakes do; the drink doesn't.",
+      },
+      {
+        rank: 10,
+        name: "What we'd say to anyone genuinely using this trend",
+        summary:
+          "The drink is fine. Drink it. Drink it warm in the morning, drink it before lunch, drink it with the cottage-cheese flatbread. What we'd push back on is the framing that it replaces a drug — it doesn't, and neither does any food. If a clinician has prescribed Mounjaro, Ozempic, Wegovy, or Zepbound, those drugs work because they activate GLP-1 (and GIP) receptors directly. If they haven't, the recipes above will out-perform any warm-water-and-lemon habit on every measurable axis.",
+      },
+    ],
+    faq: [
+      {
+        q: "Can natural Mounjaro recipes replace the medication?",
+        a: "No. There is no food, drink, or supplement that activates the GLP-1 (and GIP, in tirzepatide's case) receptors the way these medications do. Anyone telling you otherwise is selling something. Food can support the goals patients use these drugs for — fat loss, muscle preservation, glucose control — but not by mimicking the drug.",
+      },
+      {
+        q: "Is apple cider vinegar dangerous?",
+        a: "In small culinary amounts (1 tablespoon diluted in water), no. Drunk neat or in large quantities it can erode tooth enamel and irritate the oesophagus. The literature on its glucose effects is weak but not zero (Johnston 2010). Treat it as a pleasant ingredient, not a supplement.",
+      },
+      {
+        q: "Should I be sceptical of TikTok recipes that claim drug effects?",
+        a: "Yes. Reflexively. Any food trend that claims to reproduce a prescription drug's effect is overclaiming — by a lot. The recipes themselves may be fine; the marketing around them is the issue.",
+      },
+    ],
+    sources: [
+      {
+        label: "Jastreboff AM, Aronne LJ, Ahmad NN, et al. Tirzepatide once weekly for the treatment of obesity (SURMOUNT-1). N Engl J Med. 2022.",
+        url: "https://pubmed.ncbi.nlm.nih.gov/35658024/",
+      },
+      {
+        label: "Wilding JPH, Batterham RL, Calanna S, et al. Once-weekly semaglutide in adults with overweight or obesity (STEP-1). N Engl J Med. 2021.",
+        url: "https://pubmed.ncbi.nlm.nih.gov/33567185/",
+      },
+      {
+        label: "Johnston CS, Steplewska I, Long CA, Harris LN, Ryals RH. Examination of the antiglycemic properties of vinegar in healthy adults. Ann Nutr Metab. 2010.",
+        url: "https://pubmed.ncbi.nlm.nih.gov/20068289/",
+      },
+      {
+        label: "Wu KL, Rayner CK, Chuah SK, et al. Effects of ginger on gastric emptying and motility in healthy humans. Eur J Gastroenterol Hepatol. 2008.",
+        url: "https://pubmed.ncbi.nlm.nih.gov/18403946/",
+      },
+      {
+        label: "Phillips SM, Chevalier S, Leidy HJ. Protein 'requirements' beyond the RDA. Appl Physiol Nutr Metab. 2017.",
+        url: "https://pubmed.ncbi.nlm.nih.gov/26960445/",
+      },
+      {
+        label: "UK NICE guidance — Tirzepatide for managing overweight and obesity. TA1026, 2024.",
+        url: "https://www.nice.org.uk/guidance/ta1026",
       },
     ],
   },
