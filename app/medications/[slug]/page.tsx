@@ -290,10 +290,22 @@ export default async function MedicationHubPage({
                     href={`/${p.slug}`}
                     className="card-lift group p-6 border-b md:border-b-0 md:border-r border-olive/10 last:border-r-0 hover:bg-cream-deep/40"
                   >
-                    <div
-                      className="photo-slot aspect-[4/3] rounded-sm mb-4 relative overflow-hidden border border-olive/10"
-                      aria-hidden="true"
-                    />
+                    {p.imageUrl ? (
+                      <div className="relative aspect-[4/3] rounded-sm mb-4 overflow-hidden border border-olive/10 bg-cream-deep/40">
+                        <Image
+                          src={p.imageUrl}
+                          alt={p.title}
+                          fill
+                          sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                          className="object-cover"
+                        />
+                      </div>
+                    ) : (
+                      <div
+                        className="photo-slot aspect-[4/3] rounded-sm mb-4 relative overflow-hidden border border-olive/10"
+                        aria-hidden="true"
+                      />
+                    )}
                     <span className="rank-numeral">
                       {String(i + 1).padStart(2, "0")}
                     </span>
