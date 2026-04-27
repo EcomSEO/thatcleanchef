@@ -202,7 +202,11 @@ export const posts: Post[] = [
       },
       {
         q: "What if I don't have bone broth?",
-        a: "Regular low-sodium chicken broth works — you'll just lose a little body. Boost it with an extra tablespoon of fat (ghee or olive oil) and an extra 15 minutes of simmer with the bones in the pot. Not quite the same, but close.",
+        a: "Regular low-sodium chicken broth works — you'll just lose a little body. Boost it with an extra tablespoon of fat (ghee or olive oil) and an extra 15 minutes of simmer with the bones in the pot. Not quite the same, but close. If you've got time on a Sunday, our 24-hour bone broth recipe (/bone-broth) makes a double batch you can freeze in 500 ml portions and pull out for this soup any weeknight.",
+      },
+      {
+        q: "Where does the bone broth come from?",
+        a: "Make a batch from scratch using our slow-method bone broth recipe (/bone-broth) — 24 hours on the lowest setting your hob can hold, gels solid when cold. Or buy: Kettle & Fire and Bonafide are the two brands that pass the gel test in our kitchen. Either way, this soup is the most natural place to use it.",
       },
     ],
     sources: [
@@ -1811,6 +1815,10 @@ export const posts: Post[] = [
       {
         q: "How long does it keep?",
         a: "5 days in the fridge, 6 months in the freezer. We freeze in 250ml portions because that's our daily sip. Once thawed, use within 48 hours — don't refreeze.",
+      },
+      {
+        q: "What's the most natural recipe to use this in?",
+        a: "Our anti-inflammatory golden chicken soup (/anti-inflammatory-golden-chicken-soup) is the dish we built specifically around this broth. 4 cups of broth, bone-in thighs, turmeric bloomed in the fat, lime to finish — 32g protein in a 380 kcal bowl that goes down on a GLP-1 day better than almost anything else we cook. Make a double batch of broth on Sunday and it's the soup on Tuesday and Thursday.",
       },
     ],
     sources: [

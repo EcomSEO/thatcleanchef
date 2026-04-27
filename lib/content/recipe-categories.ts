@@ -24,6 +24,9 @@ export type RecipeCategory = {
   minProteinG?: number;
   // Filter on totalTimeMinutes
   maxTotalMin?: number;
+  // Slug-substring filter — for clusters defined by ingredient (cottage-cheese,
+  // bone-broth) where hub + protein floor isn't a clean discriminator.
+  slugIncludes?: string;
   faq: { q: string; a: string }[];
 };
 
@@ -165,6 +168,70 @@ export const recipeCategories: RecipeCategory[] = [
       {
         q: "How long does cooked protein actually keep?",
         a: "USDA FDC guidance: 3–4 days for most cooked proteins at <4°C. We test to 5 days only on recipes that hold flavour and texture — flagged on the recipe page itself.",
+      },
+    ],
+  },
+  {
+    slug: "cottage-cheese",
+    title: "Cottage cheese recipes",
+    h1: "Cottage cheese recipes — high-protein, GLP-1 friendly, tested.",
+    primaryKeyword: "cottage cheese recipes",
+    monthlyVolumeUK: 6600,
+    intent:
+      "Adults using cottage cheese as a daily protein vehicle — pancakes, savoury bowls, ice cream — for GLP-1, weight management, or muscle preservation.",
+    description:
+      "The cottage cheese cluster: pancakes, savoury bowls, scrambled eggs, ice cream, flatbread. Each recipe carries 25 g+ protein per serving and has been tested at least three times. RD-reviewed by Lena Marsh, MS RD.",
+    introCopy:
+      "Cottage cheese is the single most useful protein vehicle on a GLP-1. Soft on a slow-emptying stomach, neutral enough that food-reward changes don't spoil it, and high-protein per calorie in a way Greek yoghurt and skyr can't match. The recipes in this cluster — pancakes, savoury bowls, blended ice cream, flatbread — are how we use it three or four times a week without it ever feeling like the same dish.",
+    slugIncludes: "cottage-cheese",
+    faq: [
+      {
+        q: "Why cottage cheese specifically — what about Greek yoghurt or skyr?",
+        a: "Cottage cheese carries roughly the same protein per 100 g as 5% Greek yoghurt (10–11 g) but has a softer mouthfeel that reads better on a slow-emptying GLP-1 stomach. The casein digests slowly, holding satiety longer than whey-heavy yoghurts. Both are good. Cottage cheese is the one we reach for first.",
+      },
+      {
+        q: "Is cottage cheese OK on a GLP-1?",
+        a: "Yes — Lena (our RD reviewer) recommends it as a default protein for patients on Wegovy, Mounjaro, Zepbound, or Ozempic who can't face stronger flavours. The neutral profile and soft texture survive the food-aversion phase most patients describe in weeks 1–4 of dose escalation.",
+      },
+      {
+        q: "Which brand?",
+        a: "Good Culture 4% in the US, Longley Farm in the UK. Both have a cultured-longer curd that holds shape under heat (so the pancakes don't go watery) and tastes of dairy rather than salt. We've tested supermarket-own brands for the savoury-bowl recipe and they collapse inside 90 seconds — fine for an ice cream blend, not fine for a bowl.",
+      },
+      {
+        q: "What if I want more variety than one cluster?",
+        a: "The cottage cheese pancakes link out to the broader high-protein-breakfast cluster, the savoury bowl links to the muscle-preservation pillar, and the cottage cheese ice cream is the only sweet preparation we test. If you want non-dairy protein, see the high-protein-meals category.",
+      },
+    ],
+  },
+  {
+    slug: "bone-broth",
+    title: "Bone broth recipes",
+    h1: "Bone broth — slow method, real gel, sippable.",
+    primaryKeyword: "bone broth recipe",
+    monthlyVolumeUK: 8100,
+    intent:
+      "Adults making bone broth as a base technique — for sippable mugs, soups, joint/tendon support during peptide cycles (BPC-157, TB-500), or post-illness recovery.",
+    description:
+      "Bone broth as a core technique recipe: 24-hour slow method, real gel set, sippable straight or as a base. Pairs with our anti-inflammatory chicken soup and the bone-and-tendon-health pillar.",
+    introCopy:
+      "A real bone broth gels solid when it's cold. That single test — does it set into a wobbly aspic in the fridge — is what separates broth from glorified stock. The slow method below runs 24 hours on the lowest setting your hob or slow cooker can hold and produces something you can sip from a mug or use as the foundation of any soup in the anti-inflammatory cluster.",
+    slugIncludes: "bone-broth",
+    faq: [
+      {
+        q: "Why 24 hours and not 4?",
+        a: "Collagen extraction from chicken bones is largely complete by hour 8; from beef bones it continues up to 24. The visible test is gelation: a 4-hour broth runs liquid cold, a 24-hour beef broth wobbles like aspic. The longer broth has the substrate (glycine, proline, hydroxyproline) you came for.",
+      },
+      {
+        q: "Does bone broth replace collagen powder for joints?",
+        a: "Lena (our RD): not a like-for-like swap. A mug of broth carries roughly 6–10 g of collagen-derived protein; clinical trials showing tendon-support effects (Shaw 2017, Clark 2008) used 10–15 g of hydrolysed collagen with vitamin C 30–60 minutes pre-loading. Broth is good. If you're running a serious BPC-157 or TB-500 protocol, broth is breakfast — the powder is the dose.",
+      },
+      {
+        q: "How does this pair with the chicken soup recipe?",
+        a: "The 24-hour bone broth is the base. The anti-inflammatory chicken soup uses 4 cups of it — make a double batch on Sunday, freeze in 500 ml portions, the soup comes together in 35 minutes any weeknight after that. The two recipes cross-link explicitly.",
+      },
+      {
+        q: "Is store-bought broth fine?",
+        a: "If you're using it as a soup base, yes. If you're sipping it for the collagen and minerals, the gel test is a deal-breaker — most cartons run liquid cold because they're not simmered long enough. Brands that gel: Bonafide, Kettle & Fire bone broth (not the broth concentrate), Brodo. We don't take affiliate fees on any of them.",
       },
     ],
   },

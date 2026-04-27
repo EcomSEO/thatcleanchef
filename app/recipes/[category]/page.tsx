@@ -37,6 +37,12 @@ export async function generateMetadata({
 function matchesCategory(p: Post, cat: ReturnType<typeof getRecipeCategory>) {
   if (!cat) return false;
   if (!(p.postType === "recipe" || p.nutritionLedger != null)) return false;
+  // slugIncludes is an OR-style override for ingredient-defined clusters
+  // (cottage-cheese, bone-broth) where the hub + protein discriminator
+  // doesn't carve out the right set. If set, it's the only filter.
+  if (cat.slugIncludes) {
+    return p.slug.includes(cat.slugIncludes);
+  }
   const hubOk = !cat.matchHubs || cat.matchHubs.includes(p.hub);
   const proteinOk =
     cat.minProteinG == null ||
