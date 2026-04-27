@@ -1950,6 +1950,902 @@ export const posts: Post[] = [
       },
     ],
   },
+  {
+    slug: "savory-cottage-cheese-bowl",
+    title: "Savory Cottage Cheese Bowl with Tomato, Cucumber and Olive Oil",
+    h1: "Savory cottage cheese bowl",
+    description: "A 5-minute savory cottage cheese bowl with tomato, cucumber, olive oil, and za'atar. 32g protein, no sweet stuff, the lunch I eat three times a week.",
+    hub: "muscle-preservation",
+    peptideContext: "muscle-preservation",
+    postType: "cluster",
+    publishedAt: "2026-04-24",
+    updatedAt: "2026-04-24",
+    readingTime: 4,
+    status: "published",
+    totalTimeMinutes: 5,
+    prepTimeMinutes: 5,
+    cookTimeMinutes: 0,
+    servings: 1,
+    dietTags: ["High-Protein", "Vegetarian", "Gluten-Free", "No-Cook"],
+    nutritionLedger: { calories: 320, proteinG: 32, fiberG: 3, sodiumMg: 540, satFatG: 4, addedSugarG: 0 },
+    reviewedBy: "lena-marsh",
+    ourPick: {
+      name: "Good Culture 4% Cottage Cheese (or Longley Farm in the UK)",
+      tier: "The base",
+      reason: "I have made this bowl with budget supermarket cottage cheese and it goes watery in 90 seconds. Cultured-longer brands hold their shape, taste of dairy rather than salt, and carry the 32g protein cleanly in a single 3/4 cup. If you can only find one, get this one.",
+    },
+    items: [
+      {
+        rank: 1,
+        name: "3/4 cup cottage cheese, salted ten minutes before",
+        summary: "A teaspoon of flaky salt onto the cottage cheese, ten minutes before assembly. The salt pulls a little whey out and tightens the curd. Don't skip this. The texture difference is the whole bowl.",
+      },
+      {
+        rank: 2,
+        name: "Half a cucumber, cut into thumb-sized chunks not slices",
+        summary: "Sliced cucumber goes limp in cottage cheese inside two minutes. Chunks the size of your thumb stay crunchy for the time it takes to eat. Salt them lightly, drain on a paper towel for two minutes while you do the tomatoes.",
+      },
+      {
+        rank: 3,
+        name: "One ripe tomato or 8 cherry tomatoes, halved",
+        summary: "If the tomato is in season, that's the bowl. Out of season, switch to cherry or grape tomatoes — they hold their flavor through winter where a beefsteak doesn't. Halve, salt, drain. Three minutes.",
+      },
+      {
+        rank: 4,
+        name: "Two tablespoons of good olive oil, on top, last",
+        summary: "The olive oil goes on at the end, off the spoon, not stirred in. You want it to puddle on top of the cottage cheese so each bite gets a slick of fat alongside the curd. Cheap olive oil tastes like nothing here. Use the green peppery one you've been saving.",
+      },
+      {
+        rank: 5,
+        name: "Za'atar or fresh dill — pick one, not both",
+        summary: "A teaspoon of za'atar over the top, or a small handful of dill chopped finely. Both is too busy. I use za'atar in winter and dill in summer because that is what reads as in season.",
+      },
+      {
+        rank: 6,
+        name: "Optional: a soft-boiled egg, halved",
+        summary: "Bumps protein from 32g to 38g and turns this from a side into dinner. Six minutes from cold tap. The yolk runs into the cottage cheese and the whole thing tastes like a different dish.",
+      },
+    ],
+    faq: [
+      {
+        q: "Is cottage cheese healthy if I'm on a GLP-1?",
+        a: "It's one of the best foods on a GLP-1 in our reading. High protein per calorie, soft texture, mild flavor (food reward is often dulled on these drugs), and the casein digests slowly. Lena (our RD) recommends it as a default lunch protein for patients on Wegovy or Mounjaro who can't face anything fragrant.",
+      },
+      {
+        q: "Can I make it ahead?",
+        a: "Components yes, assembled bowl no. The cucumber goes limp and the olive oil bleeds into the cottage cheese after about 20 minutes. Salt the cottage cheese in the morning, chop the vegetables, assemble at the desk.",
+      },
+      {
+        q: "What if I don't like cottage cheese?",
+        a: "Skyr or thick Greek yogurt at 0% are the closest swaps. Both will give you 25-30g protein in the same volume. Same method.",
+      },
+    ],
+    sources: [
+      {
+        label: "USDA FoodData Central — Cottage cheese, low-fat, 2% milkfat (FDC ID 174261).",
+        url: "https://fdc.nal.usda.gov/fdc-app.html#/food-details/174261/nutrients",
+      },
+      {
+        label: "British Dietetic Association — Protein for adults factsheet.",
+        url: "https://www.bda.uk.com/resource/protein.html",
+      },
+      {
+        label: "Phillips SM, Chevalier S, Leidy HJ. Protein 'requirements' beyond the RDA. Appl Physiol Nutr Metab. 2017.",
+        url: "https://pubmed.ncbi.nlm.nih.gov/26960445/",
+      },
+    ],
+  },
+  {
+    slug: "greek-yogurt-power-bowl",
+    title: "Greek Yogurt Power Bowl with Berries, Walnuts and Hemp Seeds",
+    h1: "Greek yogurt power bowl",
+    description: "30g protein, 8g fiber, 10 minutes. A breakfast bowl that holds you to lunch without a second coffee.",
+    hub: "muscle-preservation",
+    peptideContext: "muscle-preservation",
+    postType: "cluster",
+    publishedAt: "2026-04-24",
+    updatedAt: "2026-04-24",
+    readingTime: 5,
+    status: "published",
+    totalTimeMinutes: 10,
+    prepTimeMinutes: 10,
+    cookTimeMinutes: 0,
+    servings: 1,
+    dietTags: ["High-Protein", "Vegetarian", "Gluten-Free Optional", "No-Cook"],
+    nutritionLedger: { calories: 420, proteinG: 30, fiberG: 8, sodiumMg: 110, satFatG: 4, addedSugarG: 0 },
+    reviewedBy: "lena-marsh",
+    ourPick: {
+      name: "Fage Total 5% Greek yogurt",
+      tier: "The base",
+      reason: "Tested four brands. Fage 5% is the only one that doesn't release a pool of whey at the bottom of the bowl after five minutes. The 0% version works for protein but tastes like sour cream-flavoured air. Five percent fat is the version I keep buying.",
+    },
+    items: [
+      {
+        rank: 1,
+        name: "3/4 cup Greek yogurt, room temperature for 5 minutes",
+        summary: "Cold yogurt straight from the fridge tastes flatter. Five minutes on the counter while you toast the walnuts brings the dairy notes back. This sounds fussy. It isn't, and you'll taste the difference once.",
+      },
+      {
+        rank: 2,
+        name: "20g walnuts, dry-toasted in a pan, 90 seconds",
+        summary: "Walnuts straight from the bag have a slight tannic edge. 90 seconds in a dry pan over medium heat fixes it. They go from pale to faintly bronzed and the kitchen smells like baking. Cool for a minute before adding to the bowl or they wilt the yogurt.",
+      },
+      {
+        rank: 3,
+        name: "Half cup of berries, mixed, frozen if out of season",
+        summary: "Frozen mixed berries are honestly fine here, and at half the price. Defrost in the bowl while the walnuts toast. Blueberries hold up best, raspberries break down and turn the yogurt pink, blackberries stay closest to fresh.",
+      },
+      {
+        rank: 4,
+        name: "Two tablespoons of hemp seeds",
+        summary: "Hemp gives you 6g of plant protein and the omega-3 you don't get from yogurt. They taste like very mild walnuts and do not need toasting. This is the one swap I would not skip — it's the difference between a 25g protein bowl and a 30g bowl.",
+      },
+      {
+        rank: 5,
+        name: "A small drizzle of honey, only if the berries are tart",
+        summary: "If the berries are sweet enough, no honey. If they are January raspberries from a freezer bag, half a teaspoon. The bowl is not built around added sugar and the honey is corrective, not structural. Skip it most days.",
+      },
+      {
+        rank: 6,
+        name: "Pinch of cinnamon at the end",
+        summary: "Cinnamon over the top, not stirred in. It hits the nose first and changes how the whole bowl reads. A small pinch is plenty.",
+      },
+    ],
+    faq: [
+      {
+        q: "Can I make this the night before?",
+        a: "You can, with caveats. Yogurt and berries hold for 12 hours together in the fridge in a sealed jar. Walnuts go soft in the same jar within 4 hours, so keep them dry on the side and tip in at the table. Hemp can go in the night before.",
+      },
+      {
+        q: "What if I'm dairy-free?",
+        a: "Coconut yogurt with added pea protein is the closest match. Plain coconut yogurt by itself is too low in protein for this bowl to do its job — about 2g per serving. Add a half-scoop of unflavoured pea or whey protein isolate stirred in or a quarter-cup of hemp hearts.",
+      },
+      {
+        q: "Is this enough for a workout breakfast?",
+        a: "For most adults, yes. 30g protein and 420 kcal pre-training will hold you through a 60-minute resistance session. If you're doing endurance, add a slice of sourdough on the side.",
+      },
+    ],
+    sources: [
+      {
+        label: "USDA FoodData Central — Greek yogurt, plain, whole milk (FDC ID 170890).",
+        url: "https://fdc.nal.usda.gov/",
+      },
+      {
+        label: "Morton RW, Murphy KT, McKellar SR, et al. Resistance training and protein supplementation meta-analysis. Br J Sports Med. 2018.",
+        url: "https://pubmed.ncbi.nlm.nih.gov/28698222/",
+      },
+      {
+        label: "Heart UK — Walnuts and cardiovascular markers (technical brief).",
+        url: "https://www.heartuk.org.uk/",
+      },
+    ],
+  },
+  {
+    slug: "salmon-rice-bowl-meal-prep",
+    title: "Salmon Rice Bowl Meal Prep — 5 Lunches in 35 Minutes",
+    h1: "Salmon rice bowl meal prep",
+    description: "Five lunches: roasted salmon, brown rice, cucumber, edamame, sesame-soy dressing. 35 minutes Sunday, 38g protein per box.",
+    hub: "cycle-nutrition",
+    peptideContext: "cycle-nutrition",
+    postType: "pillar",
+    publishedAt: "2026-04-24",
+    updatedAt: "2026-04-24",
+    readingTime: 7,
+    status: "published",
+    featured: true,
+    totalTimeMinutes: 35,
+    prepTimeMinutes: 10,
+    cookTimeMinutes: 25,
+    servings: 5,
+    dietTags: ["High-Protein", "Dairy-Free", "Gluten-Free Optional", "Meal-Prep"],
+    nutritionLedger: { calories: 510, proteinG: 38, fiberG: 6, sodiumMg: 690, satFatG: 4, addedSugarG: 1 },
+    reviewedBy: "lena-marsh",
+    testNotes: [
+      {
+        test: 1,
+        triedThis: "White rice, sesame oil dressing made hot, salmon roasted skin-on at 200°C, all five boxes assembled hot and refrigerated together.",
+        whatHappened: "Day 3 the rice tasted of fish and the cucumber was gone. The hot dressing had cooked the cucumber a little when the boxes went into the fridge.",
+        changedThis: "Switched to brown rice, dressed it cold, kept the cucumber in a separate small pot, dropped salmon temperature to 180°C for slower-cooked flake.",
+      },
+      {
+        test: 2,
+        triedThis: "Brown rice cold, salmon at 180°C, cucumber in a separate pot. Dressing made cold and added to each box at the desk.",
+        whatHappened: "Held cleanly to day 5. Salmon was a touch dry on day 4. Brown rice held its bite. Cucumber stayed crisp.",
+        changedThis: "Roasted salmon to 50°C internal instead of 55°C, knowing the residual heat would carry it to 53°C in the fridge.",
+      },
+      {
+        test: 3,
+        triedThis: "All settings as published. Repeat-cooked twice over two weeks.",
+        whatHappened: "Day 5 salmon was still moist, rice held, cucumber was the only component that needed to stay separate. Each box clears 38g protein and 510 kcal.",
+        changedThis: "This is the published recipe.",
+      },
+    ],
+    ourPick: {
+      name: "Glasslock 720ml square containers (5 of them)",
+      tier: "The vessel",
+      reason: "I tried plastic, two glass brands, and a steel two-tier setup. Glasslock 720ml is the one that holds rice + salmon + edamame without the salmon perfuming the rice and without the lid leaking dressing in your bag. Buy five at once. It's the one purchase that has actually changed how often I do meal prep.",
+    },
+    items: [
+      {
+        rank: 1,
+        name: "1.2 kg salmon side, skin on, two trays",
+        summary: "A 1.2 kg side cut into 5 portions of about 240g each. Skin on. Two trays so the air circulates — one tray and the salmon at the back goes pale and steamed-looking. Brush with a teaspoon of soy and roast 18 minutes at 180°C.",
+      },
+      {
+        rank: 2,
+        name: "Brown rice, 1 cup dry, rinsed three times",
+        summary: "1 cup of dry brown rice yields about 3 cups cooked, which is 5 generous half-cup portions. Rinsing matters — the cloudy water is starch and it makes the rice gummy in the fridge. 35 minutes simmered, 10 minutes off the heat with the lid on.",
+      },
+      {
+        rank: 3,
+        name: "200g shelled edamame, frozen, blanched 90 seconds",
+        summary: "Frozen edamame blanched in the rice water (use the rice water, don't waste it) for 90 seconds and shocked in cold water. Drain on a tea towel for 5 minutes. They go in the box dry, not wet.",
+      },
+      {
+        rank: 4,
+        name: "One full cucumber, batoned, kept separate",
+        summary: "Cucumber goes in five small pots, not in the main box. This is the only fiddly bit and it saves the texture of the whole prep. Half a cucumber per box, batons not slices.",
+      },
+      {
+        rank: 5,
+        name: "The dressing — three tablespoons each of soy, rice vinegar, sesame oil, plus grated ginger",
+        summary: "Whisk three tablespoons of low-sodium soy, three of rice vinegar, three of toasted sesame oil, a tablespoon of grated ginger, and a pinch of chili. About a tablespoon per box at the desk. Keep in a small jar in the fridge — holds for two weeks.",
+      },
+      {
+        rank: 6,
+        name: "Assemble cold, dress at the desk",
+        summary: "Half cup rice, 240g salmon flake (skin discarded), 40g edamame, sesame seeds. Cucumber in a small pot. Dressing in the jar. Two minutes per box. The single rule is do not pre-dress — that's the day-3 disaster.",
+      },
+    ],
+    faq: [
+      {
+        q: "How long does it actually keep?",
+        a: "Five days in the fridge at <4°C. We tested this twice. USDA FSIS guidance for cooked seafood is 3-4 days as a default; this recipe holds longer because the salmon is cooked to 50°C internal, not 60°C, so it doesn't continue drying out in the cold.",
+      },
+      {
+        q: "Can I freeze the boxes?",
+        a: "I wouldn't. Brown rice goes mealy after thawing and the cucumber turns to slush. The components freeze fine separately — flake the salmon, freeze in 240g portions, defrost overnight, assemble at the desk.",
+      },
+      {
+        q: "What if I'm cooking for two?",
+        a: "Halve everything except the dressing. The dressing recipe makes enough for 10 boxes and lasts two weeks. Worth keeping the bigger jar.",
+      },
+      {
+        q: "Is this enough for a 75kg adult on a deficit?",
+        a: "510 kcal and 38g protein lands the lunch slot for most adults at 1.2-1.5 g/kg/day protein. If you're at 1.6 g/kg/day or above, add a side of cottage cheese or a hard-boiled egg.",
+      },
+    ],
+    sources: [
+      {
+        label: "USDA FoodData Central — Salmon, Atlantic, farmed, cooked (FDC ID 175168).",
+        url: "https://fdc.nal.usda.gov/",
+      },
+      {
+        label: "USDA FSIS — Refrigerator and Freezer Storage Chart (cooked fish guidance).",
+        url: "https://www.fsis.usda.gov/",
+      },
+      {
+        label: "British Heart Foundation — Oily fish and cardiovascular evidence.",
+        url: "https://www.bhf.org.uk/",
+      },
+    ],
+  },
+  {
+    slug: "lentil-sweet-potato-stew",
+    title: "Lentil and Sweet Potato Stew — One Pot, 18g Fiber",
+    h1: "Lentil and sweet potato stew",
+    description: "A weeknight one-pot stew. Red lentils, sweet potato, coconut milk, turmeric, lemon. 18g fiber per bowl, the kind of food that fixes a tired evening.",
+    hub: "anti-inflammatory-recovery",
+    peptideContext: "anti-inflammatory",
+    postType: "cluster",
+    publishedAt: "2026-04-24",
+    updatedAt: "2026-04-24",
+    readingTime: 6,
+    status: "published",
+    totalTimeMinutes: 35,
+    prepTimeMinutes: 10,
+    cookTimeMinutes: 25,
+    servings: 4,
+    dietTags: ["Vegan", "Gluten-Free", "Dairy-Free", "Anti-Inflammatory"],
+    nutritionLedger: { calories: 480, proteinG: 18, fiberG: 18, sodiumMg: 480, satFatG: 8, addedSugarG: 0 },
+    reviewedBy: "lena-marsh",
+    ourPick: {
+      name: "Hodmedods red lentils (UK) or Bob's Red Mill (US)",
+      tier: "The pulse",
+      reason: "Both brands cook to a clean, slightly nutty tenderness in 18 minutes flat. Cheaper red lentils I've tried go to mush at 14 minutes and the stew turns into baby food. If you can only buy one, pay the extra two pounds.",
+    },
+    items: [
+      {
+        rank: 1,
+        name: "One red onion, diced and sweated 8 minutes",
+        summary: "Eight minutes is the difference between a stew that tastes of onion and one that tastes of dinner. Low-medium heat, a pinch of salt, until the onion is soft and translucent and the kitchen smells right. Don't rush this.",
+      },
+      {
+        rank: 2,
+        name: "Bloom spices in oil before any liquid",
+        summary: "Two teaspoons turmeric, two teaspoons cumin, one teaspoon ginger, half a teaspoon black pepper. Into the pan with the onion, 30 seconds, until they smell warm rather than dusty. The black pepper is non-optional — piperine raises curcumin absorption by about twentyfold (Shoba 1998).",
+      },
+      {
+        rank: 3,
+        name: "300g sweet potato, 2cm cubes",
+        summary: "Two centimeter cubes cook through in the same time the lentils take to break down. Smaller and they disappear into the stew. Larger and you have to fish them out half-raw. Cube before you start the onion so they're ready to go.",
+      },
+      {
+        rank: 4,
+        name: "200g red lentils, rinsed twice, then 800ml stock",
+        summary: "Rinse the lentils until the water runs clear. The starch in the unrinsed water makes the stew thick and slightly sour. Add lentils, stock, and a 400ml tin of coconut milk. Simmer 18 minutes uncovered.",
+      },
+      {
+        rank: 5,
+        name: "A whole lemon at the end, juice and zest",
+        summary: "Off the heat, add the juice of a whole lemon and a teaspoon of the zest. The acid wakes the entire pot up. Without it, the stew is one-note and slightly cloying. With it, you reach for a second bowl.",
+      },
+      {
+        rank: 6,
+        name: "Coriander or parsley, a small handful, at the table",
+        summary: "Chopped soft herbs at the table. Coriander if you have it, parsley if you don't. A tablespoon of pumpkin seeds toasted in a dry pan adds 2g of protein and a textural break.",
+      },
+    ],
+    faq: [
+      {
+        q: "Why is fiber the headline number here, not protein?",
+        a: "On a GLP-1, fiber is one of the under-eaten macros. Most patients are below 15g/day. This bowl carries 18g in one serving. UK NHS reference is 30g/day. We frame this stew around fiber the way our cottage-cheese recipes are framed around protein.",
+      },
+      {
+        q: "Can I add chicken to bump the protein?",
+        a: "Yes. 200g of cooked shredded chicken stirred in at the end raises the protein from 18g to 28g per serving without changing the cooking method. It also stops being vegan, obviously.",
+      },
+      {
+        q: "How long does it keep?",
+        a: "Four days in the fridge, three months in the freezer. The flavor improves on day two — the spices integrate. I make this on Sunday and eat it twice in the week as a side to grilled chicken or fish.",
+      },
+    ],
+    sources: [
+      {
+        label: "Shoba G, Joy D, Joseph T, et al. Influence of piperine on the pharmacokinetics of curcumin in animals and human volunteers. Planta Med. 1998.",
+        url: "https://pubmed.ncbi.nlm.nih.gov/9619120/",
+      },
+      {
+        label: "USDA FoodData Central — Red lentils, raw (FDC ID 172420).",
+        url: "https://fdc.nal.usda.gov/",
+      },
+      {
+        label: "NHS — How to get more fibre into your diet.",
+        url: "https://www.nhs.uk/live-well/eat-well/digestive-health/how-to-get-more-fibre-into-your-diet/",
+      },
+    ],
+  },
+  {
+    slug: "anti-inflammatory-smoothie",
+    title: "Anti-Inflammatory Smoothie with Turmeric, Ginger and Pineapple",
+    h1: "Anti-inflammatory smoothie",
+    description: "A 4-minute smoothie with turmeric, fresh ginger, pineapple, kefir, and chia. 20g protein, the morning glass on cycle days.",
+    hub: "anti-inflammatory-recovery",
+    peptideContext: "anti-inflammatory",
+    postType: "cluster",
+    publishedAt: "2026-04-24",
+    updatedAt: "2026-04-24",
+    readingTime: 4,
+    status: "published",
+    totalTimeMinutes: 4,
+    prepTimeMinutes: 4,
+    cookTimeMinutes: 0,
+    servings: 1,
+    dietTags: ["High-Protein", "Vegetarian", "Gluten-Free", "No-Cook"],
+    nutritionLedger: { calories: 290, proteinG: 20, fiberG: 6, sodiumMg: 130, satFatG: 1, addedSugarG: 0 },
+    reviewedBy: "lena-marsh",
+    ourPick: {
+      name: "Biotiful kefir (plain)",
+      tier: "The base",
+      reason: "Plain kefir blends thinner than yogurt and carries 11g of protein per cup. Biotiful is the brand that doesn't taste of cardboard, which most other UK brands do. US readers, Lifeway plain is the equivalent.",
+    },
+    items: [
+      {
+        rank: 1,
+        name: "1 cup kefir, fridge cold",
+        summary: "Plain kefir, not flavoured. Flavoured kefir adds 12g of sugar before you've added anything to the blender. Cold from the fridge so the smoothie comes out cold without needing extra ice.",
+      },
+      {
+        rank: 2,
+        name: "100g pineapple chunks, frozen",
+        summary: "Frozen pineapple does the job of ice cubes plus flavor. Bromelain in pineapple has weak in vitro evidence for an anti-inflammatory effect (Pavan 2012); the stronger reason to use it here is taste. It cuts the kefir tang the way nothing else does.",
+      },
+      {
+        rank: 3,
+        name: "A 2cm piece of fresh ginger, a 1cm piece of fresh turmeric",
+        summary: "Fresh, not powdered. Powdered turmeric is fine in a curry, less fine raw. A small piece of each, peeled with a teaspoon edge. Fresh turmeric stains everything yellow — I peel mine on a piece of paper towel.",
+      },
+      {
+        rank: 4,
+        name: "Half a teaspoon of black pepper, ground",
+        summary: "The piperine and the curcumin point again. Without black pepper, the curcumin in turmeric is poorly absorbed. With it, twenty times more bioavailable. Half a teaspoon disappears into the kefir tang and you don't taste it.",
+      },
+      {
+        rank: 5,
+        name: "A tablespoon of chia seeds",
+        summary: "Chia gives the smoothie 3g of fiber and a slight thickness it would otherwise lack. Whole chia, not ground. They settle to the bottom if you let the smoothie sit, so blend last and drink within 10 minutes.",
+      },
+      {
+        rank: 6,
+        name: "A scoop of unflavoured pea or whey isolate (optional)",
+        summary: "Optional, but it's the move that takes this from a 13g protein smoothie to a 20g one. I use unflavoured pea isolate because it doesn't fight the ginger. Whey works fine too. Don't use vanilla flavor — it muddies the spice.",
+      },
+    ],
+    faq: [
+      {
+        q: "Does turmeric in food do anything?",
+        a: "Mechanistically yes, dose-dependently. Curcumin (the compound in turmeric) has shown anti-inflammatory effects in laboratory and animal studies; in humans the dose used in clinical trials is several grams per day, far more than a smoothie carries. We use it because it tastes good, not because a single glass is a therapy.",
+      },
+      {
+        q: "Can I make this the night before?",
+        a: "I wouldn't. Chia thickens the whole drink to a pudding inside two hours. If you want a make-ahead version, blend without chia and add it at drinking time.",
+      },
+      {
+        q: "Is the bromelain in pineapple a real thing?",
+        a: "It's a real enzyme, and there is weak in vitro evidence for an anti-inflammatory effect. The clinical trial data is thin and inconsistent. Use pineapple here for flavor; treat the bromelain claim as a maybe.",
+      },
+    ],
+    sources: [
+      {
+        label: "Shoba G, Joy D, Joseph T, et al. Influence of piperine on the pharmacokinetics of curcumin. Planta Med. 1998.",
+        url: "https://pubmed.ncbi.nlm.nih.gov/9619120/",
+      },
+      {
+        label: "Pavan R, Jain S, Shraddha, Kumar A. Properties and Therapeutic Application of Bromelain. Biotechnol Res Int. 2012.",
+        url: "https://pubmed.ncbi.nlm.nih.gov/23304525/",
+      },
+      {
+        label: "USDA FoodData Central — Kefir, plain, low-fat (FDC ID 174833).",
+        url: "https://fdc.nal.usda.gov/",
+      },
+    ],
+  },
+  {
+    slug: "egg-white-frittata",
+    title: "Egg White Frittata with Spinach and Goat Cheese",
+    h1: "Egg white frittata",
+    description: "A soft frittata for the GLP-1 morning. 28g protein, 220 kcal, 18 minutes start to plate. Mild texture, no fried smell.",
+    hub: "glp1-friendly",
+    peptideContext: "glp1-friendly",
+    postType: "cluster",
+    publishedAt: "2026-04-24",
+    updatedAt: "2026-04-24",
+    readingTime: 5,
+    status: "published",
+    totalTimeMinutes: 18,
+    prepTimeMinutes: 5,
+    cookTimeMinutes: 13,
+    servings: 1,
+    dietTags: ["High-Protein", "Vegetarian", "Gluten-Free", "Low-Carb"],
+    nutritionLedger: { calories: 220, proteinG: 28, fiberG: 2, sodiumMg: 380, satFatG: 4, addedSugarG: 0 },
+    reviewedBy: "lena-marsh",
+    ourPick: {
+      name: "A 20cm nonstick pan with an oven-safe handle",
+      tier: "The pan",
+      reason: "I tried this in three sizes. 20cm is the one that gives you a frittata the right thickness for a single portion. Smaller and it's puck-shaped; larger and the eggs run too thin and overcook at the edges. An oven-safe handle matters because the finish goes under the grill.",
+    },
+    items: [
+      {
+        rank: 1,
+        name: "5 egg whites + 1 whole egg, whisked together",
+        summary: "Whole egg whites only is too lean and rubbery. Adding one whole egg back keeps the texture soft and gives the frittata a faintly yellow color that tastes like food rather than packaging. 28g protein, 220 kcal.",
+      },
+      {
+        rank: 2,
+        name: "A handful of baby spinach, wilted in the same pan first",
+        summary: "Two big handfuls of baby spinach with a teaspoon of olive oil, 90 seconds over medium heat until they collapse. Squeeze out any liquid with the back of a wooden spoon — wet spinach makes a wet frittata.",
+      },
+      {
+        rank: 3,
+        name: "Pour eggs in, low-medium heat, lid on",
+        summary: "Eggs over the spinach, lid on, low-medium heat for 6 minutes. The lid traps steam and sets the top. No stirring. This is the calm version of an omelette — no flipping, no folding.",
+      },
+      {
+        rank: 4,
+        name: "30g goat cheese in small chunks, on top",
+        summary: "Hard goat cheese crumbles work, soft goat cheese is better. Tear, don't slice. Drop in chunks across the surface in the last 3 minutes of cooking. Don't stir in — the chunks should stay distinct.",
+      },
+      {
+        rank: 5,
+        name: "Finish under the grill 2 minutes",
+        summary: "Move the pan under a hot grill (broiler) for 2 minutes until the top is just set. This is what stops the centre being raw and the edges being leathery. Watch it. Two minutes goes to three quickly.",
+      },
+      {
+        rank: 6,
+        name: "Slide onto a plate, cracked black pepper, eat hot",
+        summary: "Slide rather than flip. Cracked black pepper. No salt — the goat cheese carries it. If your appetite is in collapse, eat half and cling-film the other half for an 11am snack.",
+      },
+    ],
+    faq: [
+      {
+        q: "Why egg whites and not whole eggs?",
+        a: "On a GLP-1, calorie density matters more than fat avoidance for most patients. Egg whites give you the protein at lower calorie density, which is useful when total food volume is small. The single whole egg back in the mix is for flavor and color. If you're not on a GLP-1, three whole eggs is a better default.",
+      },
+      {
+        q: "Can I add other vegetables?",
+        a: "Yes — but cook them dry first. Anything with water (mushrooms, courgette, tomatoes) will weep into the eggs if added raw. Sauté for 3 minutes to drive off moisture, then proceed as written.",
+      },
+      {
+        q: "What if I don't have a grill?",
+        a: "Cook with the lid on for 9-10 minutes total instead of 6 + 2. The top will be slightly less colored but the centre will set. Don't try to flip a frittata; it will not end well.",
+      },
+    ],
+    sources: [
+      {
+        label: "USDA FoodData Central — Egg white, raw, fresh (FDC ID 173425).",
+        url: "https://fdc.nal.usda.gov/",
+      },
+      {
+        label: "Phillips SM, Chevalier S, Leidy HJ. Protein 'requirements' beyond the RDA. Appl Physiol Nutr Metab. 2017.",
+        url: "https://pubmed.ncbi.nlm.nih.gov/26960445/",
+      },
+      {
+        label: "British Dietetic Association — Eating well on a smaller appetite (older adults factsheet, transferable to GLP-1 patients).",
+        url: "https://www.bda.uk.com/",
+      },
+    ],
+  },
+  {
+    slug: "spinach-feta-egg-bites",
+    title: "Spinach and Feta Egg Bites — 12 Bites, 5 Days",
+    h1: "Spinach and feta egg bites",
+    description: "12 small egg bites for the week. 6g protein each, made in a muffin tin in 22 minutes, hold for 5 days. Designed for the in-between snack slot.",
+    hub: "muscle-preservation",
+    peptideContext: "muscle-preservation",
+    postType: "cluster",
+    publishedAt: "2026-04-24",
+    updatedAt: "2026-04-24",
+    readingTime: 5,
+    status: "published",
+    totalTimeMinutes: 22,
+    prepTimeMinutes: 5,
+    cookTimeMinutes: 17,
+    servings: 12,
+    dietTags: ["High-Protein", "Vegetarian", "Gluten-Free", "Meal-Prep"],
+    nutritionLedger: { calories: 75, proteinG: 6, fiberG: 1, sodiumMg: 120, satFatG: 2, addedSugarG: 0 },
+    reviewedBy: "lena-marsh",
+    ourPick: {
+      name: "A standard 12-cup muffin tin and silicone cases",
+      tier: "The vessel",
+      reason: "I have made these in metal cases (stuck), paper cases (soggy bottoms), and silicone (pop out cleanly every time). Spend ten pounds on silicone cases. They last forever, the bites release without tearing, and washing-up is a five-second wipe.",
+    },
+    items: [
+      {
+        rank: 1,
+        name: "8 large eggs, whisked with 60ml milk",
+        summary: "Eight eggs into 12 cases gives you small bites about 6g protein each. Sixty millilitres of milk (whole or semi-skimmed) makes them tender rather than rubbery. Whole eggs only — no whites here, the fat carries the flavor.",
+      },
+      {
+        rank: 2,
+        name: "150g spinach, wilted and squeezed dry",
+        summary: "A whole 150g bag of baby spinach into a dry pan, 60 seconds, until it collapses. Tip into a sieve over the sink and press out the water with the back of a spoon. Wet spinach makes wet bites.",
+      },
+      {
+        rank: 3,
+        name: "100g feta, crumbled in your hand",
+        summary: "Crumble with your fingers, not a knife. Feta tears unevenly which means each bite hits a chunk of cheese in different places. Greek feta is saltier than the supermarket own-brand; if using Greek, drop any added salt.",
+      },
+      {
+        rank: 4,
+        name: "Spring onion, two stalks, sliced thin",
+        summary: "Spring onion adds a small allium note without dominating. Two stalks, white and green parts, thinly sliced. Optional but worth it.",
+      },
+      {
+        rank: 5,
+        name: "Fill cases two-thirds, 18 minutes at 180°C",
+        summary: "Eggs rise about 30% in the oven. Two-thirds full or they overflow. 180°C for 18 minutes until set in the centre. The edges should be just turning gold.",
+      },
+      {
+        rank: 6,
+        name: "Cool 10 minutes in the tin, then to the fridge",
+        summary: "If you remove them from the tin while hot they sag and crack. Ten minutes in the tin, then transfer to a sealed container. Hold in the fridge for 5 days. Eat cold or reheat 25 seconds in the microwave.",
+      },
+    ],
+    faq: [
+      {
+        q: "How many do I eat at once?",
+        a: "Two for a snack (12g protein), three for a small meal (18g). Five if you're using them as a breakfast and want to clear 30g protein with no other components. They scale up clean.",
+      },
+      {
+        q: "Can I freeze them?",
+        a: "Yes. Cooled, in a sealed bag, three months. Defrost overnight in the fridge or 60 seconds in the microwave from frozen. Texture is slightly looser after freezing but still very edible.",
+      },
+      {
+        q: "What other fillings work?",
+        a: "Smoked salmon and dill. Roasted red pepper and goat cheese. Cooked bacon and chives. The rule: no raw vegetables that release water, no more than 100g of total filling per 8 eggs.",
+      },
+    ],
+    sources: [
+      {
+        label: "USDA FoodData Central — Egg, whole, raw (FDC ID 171287).",
+        url: "https://fdc.nal.usda.gov/",
+      },
+      {
+        label: "USDA FSIS — Storage chart for cooked egg dishes.",
+        url: "https://www.fsis.usda.gov/",
+      },
+      {
+        label: "Phillips SM. Dietary protein requirements and adaptive advantages in athletes. Br J Nutr. 2012.",
+        url: "https://pubmed.ncbi.nlm.nih.gov/22916816/",
+      },
+    ],
+  },
+  {
+    slug: "chia-pudding-three-ways",
+    title: "Chia Pudding Three Ways — Berry, Cocoa, Tahini",
+    h1: "Chia pudding, three ways",
+    description: "One base recipe, three flavors, all 18g protein. 5 minutes the night before, breakfast that doesn't need cooking.",
+    hub: "anti-inflammatory-recovery",
+    peptideContext: "anti-inflammatory",
+    postType: "cluster",
+    publishedAt: "2026-04-24",
+    updatedAt: "2026-04-24",
+    readingTime: 5,
+    status: "published",
+    totalTimeMinutes: 5,
+    prepTimeMinutes: 5,
+    cookTimeMinutes: 0,
+    servings: 1,
+    dietTags: ["High-Protein", "Vegetarian", "Gluten-Free", "No-Cook"],
+    nutritionLedger: { calories: 380, proteinG: 18, fiberG: 12, sodiumMg: 90, satFatG: 2, addedSugarG: 0 },
+    reviewedBy: "lena-marsh",
+    ourPick: {
+      name: "Whole black chia seeds, any brand",
+      tier: "The base",
+      reason: "I have not been able to taste a difference between brands. White chia gels slightly slower; black chia is the default. Buy in 500g bags from a wholefood section, not 100g jars from the supermarket — same product, four times the price in the small jar.",
+    },
+    items: [
+      {
+        rank: 1,
+        name: "The base — 3 tablespoons chia, 1 cup milk, 4 hours minimum",
+        summary: "Three tablespoons of chia into one cup of milk (dairy or plant). Whisk hard for 30 seconds, then again at the 5-minute mark to break up the clumps. Fridge, four hours, ideally overnight. This is the only step that matters and the one most people get wrong by skipping the second whisk.",
+      },
+      {
+        rank: 2,
+        name: "Berry — 1 cup frozen mixed berries, defrosted, on top",
+        summary: "Frozen mixed berries in a small bowl, microwave 60 seconds, mash slightly with a fork to release the juices. Spoon onto the chia. The juice runs into the pudding and turns it pink. 18g protein, 6g fiber from berries plus 12g from chia.",
+      },
+      {
+        rank: 3,
+        name: "Cocoa — 1 tablespoon cocoa powder + 1 teaspoon honey into the base",
+        summary: "Add a tablespoon of unsweetened cocoa powder and a teaspoon of honey at the whisking stage. Tastes like a drinkable chocolate mousse. Top with a tablespoon of cacao nibs for crunch. This is my Sunday version.",
+      },
+      {
+        rank: 4,
+        name: "Tahini — 1 tablespoon tahini + half a teaspoon cinnamon, stirred through",
+        summary: "Tahini stirred into the base after the four-hour set. Half a teaspoon of cinnamon. Drizzle a teaspoon more tahini on top and a small handful of toasted sesame seeds. Tastes like halva. Adult and slightly bitter; my favourite of the three.",
+      },
+      {
+        rank: 5,
+        name: "The protein bump — half a scoop of protein powder",
+        summary: "Half a scoop of unflavoured pea or whey isolate at the whisking stage takes any version from 12g to 18g protein. Vanilla protein works in the cocoa version, fights the others. Skip if you don't keep powder around — chia carries 6g protein per 3 tablespoons on its own.",
+      },
+      {
+        rank: 6,
+        name: "Layered jar trick for the week",
+        summary: "Make four jars on Sunday. Whisk the base and divide. Keep berry, cocoa, and tahini toppings separate in small pots. Five minutes Sunday, three breakfasts that take 30 seconds Monday-Wednesday. The fourth jar I usually eat as an afternoon snack.",
+      },
+    ],
+    faq: [
+      {
+        q: "Why does my chia clump?",
+        a: "You skipped the second whisk at the 5-minute mark. Chia releases its gel in two stages — at zero minutes and at five minutes. If you only whisk once, the second-stage gel forms around clumps. Whisk twice, no clumps. Every time.",
+      },
+      {
+        q: "Is chia really anti-inflammatory?",
+        a: "Chia is a meaningful source of plant omega-3 (alpha-linolenic acid, ALA). Conversion of ALA to EPA/DHA in humans is poor (3-10%), so chia is not a replacement for oily fish for omega-3 supply. It is a good source of fiber and a modest source of plant protein. Treat the anti-inflammatory framing as 'whole-food breakfast that works in the pillar', not 'therapeutic dose'.",
+      },
+      {
+        q: "Can I use water instead of milk?",
+        a: "You can. Texture is slightly thinner and the pudding tastes faintly grainy. Milk (any kind) gives you a creamier set. If using water, add an extra half tablespoon of chia.",
+      },
+    ],
+    sources: [
+      {
+        label: "USDA FoodData Central — Chia seeds, dried (FDC ID 170554).",
+        url: "https://fdc.nal.usda.gov/",
+      },
+      {
+        label: "Brenna JT, Salem N, Sinclair AJ, Cunnane SC. ALA supplementation and conversion to EPA and DHA. Prostaglandins Leukot Essent Fatty Acids. 2009.",
+        url: "https://pubmed.ncbi.nlm.nih.gov/19269799/",
+      },
+      {
+        label: "British Dietetic Association — Omega-3 fact sheet.",
+        url: "https://www.bda.uk.com/resource/omega-3.html",
+      },
+    ],
+  },
+  {
+    slug: "miso-salmon-soup",
+    title: "Miso Salmon Soup — Soft, Hydrating, Low-Volume",
+    h1: "Miso salmon soup",
+    description: "A clear miso broth with poached salmon and silken tofu. 28g protein in a 250 kcal bowl. The soup I cook for friends on a GLP-1.",
+    hub: "glp1-friendly",
+    peptideContext: "glp1-friendly",
+    postType: "cluster",
+    publishedAt: "2026-04-24",
+    updatedAt: "2026-04-24",
+    readingTime: 5,
+    status: "published",
+    featured: true,
+    totalTimeMinutes: 14,
+    prepTimeMinutes: 4,
+    cookTimeMinutes: 10,
+    servings: 1,
+    dietTags: ["High-Protein", "Dairy-Free", "Gluten-Free Optional", "Low-Calorie"],
+    nutritionLedger: { calories: 250, proteinG: 28, fiberG: 1, sodiumMg: 720, satFatG: 2, addedSugarG: 0 },
+    reviewedBy: "lena-marsh",
+    testNotes: [
+      {
+        test: 1,
+        triedThis: "White miso, salmon dropped into boiling broth, no dashi base, lemon at the end.",
+        whatHappened: "Miso flavour turned flat — boiling killed the cultures. Salmon overcooked in 90 seconds and went chalky. White miso made the soup uncomfortably sweet against the salmon.",
+        changedThis: "Switched to brown rice miso, dropped water temperature to ~80°C, poached the salmon at 60°C instead of boiling.",
+      },
+      {
+        test: 2,
+        triedThis: "Brown rice miso, 80°C water, salmon poached gently. Skipped the dashi to keep it simple.",
+        whatHappened: "Texture was right, miso flavour held — but the broth tasted thin without dashi. Umami carried only by the miso, no depth underneath.",
+        changedThis: "Added a 5-minute kombu infusion at the start (or a teaspoon of instant dashi powder) before the miso went in.",
+      },
+      {
+        test: 3,
+        triedThis: "Kombu-infused water, brown rice miso whisked off-heat, salmon poached at 60°C, sesame oil at the table.",
+        whatHappened: "Broth had depth, miso flavour was preserved, salmon was custardy. Repeated three times across two weeks with consistent results.",
+        changedThis: "This is the published recipe. The kombu infusion is the upgrade that made the bowl repeatable.",
+      },
+    ],
+    ourPick: {
+      name: "Clearspring brown rice miso (UK) or Miso Master (US)",
+      tier: "The broth",
+      reason: "Brown rice miso is mellower and more savoury than white miso, and works for this soup at half the dose. White miso is sweeter and turns this soup into something cloying. If you only have white miso, halve the quantity and add a teaspoon of soy.",
+    },
+    items: [
+      {
+        rank: 1,
+        name: "350ml hot water — not boiling",
+        summary: "Miso must not boil. Boiling miso strips out the lactobacillus and dulls the flavour to a salt note. Heat water to about 80°C (the kettle clicks off, wait one minute) before the miso goes in.",
+      },
+      {
+        rank: 2,
+        name: "1 tablespoon miso, dissolved in a small bowl first",
+        summary: "Spoon the miso into a small bowl, ladle in a couple of tablespoons of the hot water, whisk to a smooth paste. Then back into the main pan. Adding miso paste directly to a pan gives you streaks and lumps that never quite blend.",
+      },
+      {
+        rank: 3,
+        name: "120g salmon, skin off, into the warm broth",
+        summary: "A piece of salmon, skin off, cut into 2cm cubes. Drop into the warm (not boiling) broth. Eight minutes off the heat with the lid on. Salmon poaches softly, doesn't toughen, holds its color.",
+      },
+      {
+        rank: 4,
+        name: "Half a block of silken tofu, in cubes",
+        summary: "Silken, not firm. Half a 300g block, cut into cubes in the packet, slid in. Heats through in 90 seconds. Adds 6g of protein and a velvety counterpoint to the salmon. The reason the bowl reads as a meal not a starter.",
+      },
+      {
+        rank: 5,
+        name: "A handful of baby spinach, wilted at the end",
+        summary: "A fistful of baby spinach into the bowl off the heat. Wilts in 30 seconds in the residual warmth. Don't add to the pan — it overcooks and turns olive-green.",
+      },
+      {
+        rank: 6,
+        name: "Spring onion, sesame oil, chili flakes if you like",
+        summary: "One sliced spring onion, half a teaspoon of toasted sesame oil, a pinch of chili flakes if you tolerate them. The chili is optional and many GLP-1 patients skip it; the spring onion and sesame oil are the move.",
+      },
+    ],
+    faq: [
+      {
+        q: "Why is sodium so high?",
+        a: "Miso is a salt-based ferment. 1 tablespoon of miso plus the trace soy in good salmon brings sodium to about 720mg per bowl, which is the upper end for a single meal. If you're being co-managed for blood pressure, halve the miso (use 1.5 teaspoons) and check the flavor before adding more.",
+      },
+      {
+        q: "Can I do this without salmon?",
+        a: "Yes. Two soft-boiled eggs in their place gives you a 22g protein bowl. Or 200g of poached firm tofu for a 24g vegan version. The broth carries the dish.",
+      },
+      {
+        q: "Is this enough for dinner?",
+        a: "On a GLP-1, yes for most patients. Off a GLP-1 it's a starter. Bulk it out with a side of brown rice (half cup) for a 38g protein, 380 kcal dinner if you're not in a low-volume eating window.",
+      },
+    ],
+    sources: [
+      {
+        label: "USDA FoodData Central — Miso, fermented soybean paste (FDC ID 173768).",
+        url: "https://fdc.nal.usda.gov/",
+      },
+      {
+        label: "British Heart Foundation — Salt and your heart.",
+        url: "https://www.bhf.org.uk/informationsupport/heart-matters-magazine/nutrition/salt",
+      },
+      {
+        label: "Watanabe F, Yabuta Y, Bito T, Teng F. Vitamin B12 in miso (relevant to fermented soy nutrient profile). Nutrients. 2014.",
+        url: "https://pubmed.ncbi.nlm.nih.gov/24803097/",
+      },
+    ],
+  },
+  {
+    slug: "sheet-pan-mediterranean-chicken",
+    title: "Sheet-Pan Mediterranean Chicken with Olives, Feta and Lemon",
+    h1: "Sheet-pan Mediterranean chicken",
+    description: "One tray, four servings, 38g protein. Chicken thighs, cherry tomatoes, olives, feta, oregano. The Tuesday-night dinner I cook on autopilot.",
+    hub: "cycle-nutrition",
+    peptideContext: "cycle-nutrition",
+    postType: "cluster",
+    publishedAt: "2026-04-24",
+    updatedAt: "2026-04-24",
+    readingTime: 6,
+    status: "published",
+    totalTimeMinutes: 35,
+    prepTimeMinutes: 8,
+    cookTimeMinutes: 27,
+    servings: 4,
+    dietTags: ["High-Protein", "Mediterranean", "Gluten-Free", "Sheet-Pan"],
+    nutritionLedger: { calories: 460, proteinG: 38, fiberG: 4, sodiumMg: 680, satFatG: 8, addedSugarG: 0 },
+    reviewedBy: "lena-marsh",
+    ourPick: {
+      name: "A heavy steel sheet pan, at least 30x40cm",
+      tier: "The vessel",
+      reason: "A flimsy aluminium tray buckles in a hot oven and the juices pool in the bend. A heavy steel pan stays flat, browns the chicken evenly, and the bottom of every thigh is the same colour. Sturdy steel is a one-time buy — buy it once, use it twice a week for ten years.",
+    },
+    items: [
+      {
+        rank: 1,
+        name: "1 kg chicken thighs, bone-in, skin-on",
+        summary: "Eight thighs for four servings. Bone-in for flavor and juice retention; skin-on for texture and rendered fat. Pat dry with paper towel before seasoning — wet skin will not crisp.",
+      },
+      {
+        rank: 2,
+        name: "Salt the thighs 30 minutes before cooking, fridge",
+        summary: "A teaspoon of fine salt over the thighs and back into the fridge uncovered for 30 minutes. The salt draws moisture to the surface and dries the skin. This is the difference between mahogany skin and grey skin. Don't skip it.",
+      },
+      {
+        rank: 3,
+        name: "Cherry tomatoes, olives, garlic — under and around",
+        summary: "300g cherry tomatoes, 100g pitted Kalamata olives, 6 cloves garlic (whole, skin on). Tip onto the pan. Two tablespoons of olive oil, a teaspoon of dried oregano, the salted thighs on top of the vegetables, skin up.",
+      },
+      {
+        rank: 4,
+        name: "200°C for 25 minutes, do not open the door",
+        summary: "Preheated 200°C oven, 25 minutes. The skin crisps because the air is dry and the fat renders down into the tomatoes. Opening the door drops the temperature 30°C and you lose the crisping window.",
+      },
+      {
+        rank: 5,
+        name: "Feta crumbled over the last 2 minutes",
+        summary: "Pull the pan, scatter 100g of feta over the chicken and tomatoes, back in for 2 minutes. The feta softens and turns slightly golden in places. Adding feta at the start makes it dry and brown.",
+      },
+      {
+        rank: 6,
+        name: "Lemon juice off the heat, parsley at the table",
+        summary: "Half a lemon's juice over the whole pan once it's out of the oven. A handful of chopped parsley at the table. The lemon is what stops the dish being rich and one-note. Without it, you reach for a glass of water; with it, you reach for a second portion.",
+      },
+    ],
+    faq: [
+      {
+        q: "Can I use chicken breasts?",
+        a: "You can but I wouldn't. Breasts overcook in 25 minutes at 200°C and turn dry. If you only have breasts, drop the temperature to 180°C, cook for 22 minutes, and check at 18 minutes — you want internal 65°C, no higher.",
+      },
+      {
+        q: "Is this freezer-friendly?",
+        a: "The chicken is, the tomatoes aren't. Strip the meat from the bones, freeze in 240g portions with a few of the olives. Reheat in a low oven, top with fresh tomatoes and feta on a separate weeknight.",
+      },
+      {
+        q: "What goes with it?",
+        a: "Brown rice or wholegrain orzo to soak up the pan juices. A simple cucumber-yogurt side. If you're cooking for someone on a GLP-1, just the chicken and tomatoes is plenty — the carb side is for everyone else at the table.",
+      },
+    ],
+    sources: [
+      {
+        label: "USDA FoodData Central — Chicken thigh, bone-in, with skin, roasted (FDC ID 171465).",
+        url: "https://fdc.nal.usda.gov/",
+      },
+      {
+        label: "Estruch R, Ros E, Salas-Salvadó J, et al. PREDIMED — Mediterranean diet and cardiovascular outcomes. N Engl J Med. 2018 (re-analysis).",
+        url: "https://pubmed.ncbi.nlm.nih.gov/29897866/",
+      },
+      {
+        label: "USDA FSIS — Safe minimum internal temperatures, poultry.",
+        url: "https://www.fsis.usda.gov/",
+      },
+    ],
+  },
 ];
 
 export function getPost(slug: string): Post | undefined { return posts.find((p) => p.slug === slug); }

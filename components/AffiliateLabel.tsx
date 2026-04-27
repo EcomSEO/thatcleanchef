@@ -23,9 +23,9 @@ export const AFFILIATE_LABEL_BY_LOCALE: Record<LocaleCode, string> = {
   pl: "Reklama",
   sv: "Annons",
   pt: "Publicidade",
-  ja: "広告",
-  zh: "广告",
-  ar: "إعلان",
+  ro: "Publicitate",
+  cs: "Reklama",
+  no: "Annonse",
 };
 
 export function AffiliateLabel({ locale = "en" }: { locale?: LocaleCode }) {
