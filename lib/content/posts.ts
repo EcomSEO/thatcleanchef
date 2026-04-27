@@ -55,11 +55,17 @@ export type Post = {
   }>;
   /** Slug of the team member who reviewed this page (defaults to lena-marsh). */
   reviewedBy?: string;
+  /**
+   * Hero image path (under /public). 16:9 ratio expected. When undefined,
+   * templates fall back to the photo-slot placeholder.
+   */
+  imageUrl?: string;
 };
 
 export const posts: Post[] = [
   {
     slug: "anti-inflammatory-golden-chicken-soup",
+    imageUrl: "/images/recipes/anti-inflammatory-golden-chicken-soup.jpg",
     title: "Anti-Inflammatory Golden Chicken Soup",
     h1: "Anti-inflammatory golden chicken soup",
     description:
@@ -234,6 +240,7 @@ export const posts: Post[] = [
   },
   {
     slug: "cottage-cheese-flatbread",
+    imageUrl: "/images/recipes/cottage-cheese-flatbread.jpg",
     title: "Cottage Cheese Flatbread — 28g Protein, 20 Minutes",
     h1: "Cottage cheese flatbread",
     description:
@@ -526,6 +533,7 @@ export const posts: Post[] = [
   },
   {
     slug: "high-protein-breakfast-bowl",
+    imageUrl: "/images/recipes/high-protein-breakfast-bowl.jpg",
     title: "High-Protein Breakfast Bowl — 42g Protein, 15 Minutes",
     h1: "High-protein breakfast bowl",
     description:
@@ -810,6 +818,7 @@ export const posts: Post[] = [
   },
   {
     slug: "whole30-breakfast-hash",
+    imageUrl: "/images/recipes/whole30-breakfast-hash.jpg",
     title: "Whole30 Breakfast Hash",
     h1: "Whole30 breakfast hash",
     description:
@@ -954,6 +963,7 @@ export const posts: Post[] = [
   },
   {
     slug: "ginger-turmeric-salmon",
+    imageUrl: "/images/recipes/ginger-turmeric-salmon.jpg",
     title: "Ginger-Turmeric Salmon",
     h1: "Ginger-turmeric salmon",
     description:
@@ -1102,6 +1112,7 @@ export const posts: Post[] = [
   },
   {
     slug: "greek-lemon-chicken",
+    imageUrl: "/images/recipes/greek-lemon-chicken.jpg",
     title: "Greek Lemon Chicken",
     h1: "Greek lemon chicken",
     description:
@@ -1246,6 +1257,7 @@ export const posts: Post[] = [
   },
   {
     slug: "cottage-cheese-ice-cream-vanilla",
+    imageUrl: "/images/recipes/cottage-cheese-ice-cream-vanilla.jpg",
     title: "Cottage Cheese Ice Cream — Vanilla",
     h1: "Cottage cheese ice cream — vanilla",
     description:
@@ -1390,6 +1402,7 @@ export const posts: Post[] = [
   },
   {
     slug: "how-to-roast-a-whole-chicken",
+    imageUrl: "/images/recipes/how-to-roast-a-whole-chicken.jpg",
     title: "How to Roast a Whole Chicken",
     h1: "How to roast a whole chicken",
     description:
@@ -1542,6 +1555,7 @@ export const posts: Post[] = [
   },
   {
     slug: "cottage-cheese-pancakes",
+    imageUrl: "/images/recipes/cottage-cheese-pancakes.jpg",
     title: "Cottage Cheese Pancakes — 28g Protein, 12 Minutes",
     h1: "Cottage cheese pancakes",
     description:
@@ -1688,6 +1702,7 @@ export const posts: Post[] = [
   },
   {
     slug: "bone-broth",
+    imageUrl: "/images/recipes/bone-broth.jpg",
     title: "Bone Broth — Slow Method, Real Gel, Sippable",
     h1: "Bone broth, the slow method",
     description:

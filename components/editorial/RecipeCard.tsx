@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Post } from "@/lib/content/posts";
 
@@ -20,11 +21,23 @@ export function RecipeCard({
       className={`card card-lift block bg-surface overflow-hidden h-full ${className}`}
       aria-label={post.h1}
     >
-      <div
-        className="photo-slot aspect-[16/10] w-full"
-        role="img"
-        aria-label="Photography placeholder"
-      />
+      {post.imageUrl ? (
+        <div className="relative aspect-[16/10] w-full overflow-hidden">
+          <Image
+            src={post.imageUrl}
+            alt={post.h1}
+            fill
+            sizes="(min-width: 768px) 320px, 100vw"
+            className="object-cover"
+          />
+        </div>
+      ) : (
+        <div
+          className="photo-slot aspect-[16/10] w-full"
+          role="img"
+          aria-label="Photography placeholder"
+        />
+      )}
       <div className="p-4">
         <div className="caps-label mb-1.5">{post.hub.replace(/-/g, " ")}</div>
         <h3 className="text-[16px] font-semibold text-ink leading-snug line-clamp-2">

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Post } from "@/lib/content/posts";
 import { getHub } from "@/lib/content/hubs";
@@ -31,11 +32,23 @@ export function PostCard({
         className="block bg-paper border border-olive/12 rounded-sm hover:border-terracotta/40 shadow-soft hover:shadow-card transition overflow-hidden"
       >
         {recipe && (
-          <div
-            className="photo-slot aspect-[16/9] border-b border-olive/10"
-            role="presentation"
-            aria-hidden="true"
-          />
+          post.imageUrl ? (
+            <div className="relative aspect-[16/9] w-full overflow-hidden border-b border-olive/10">
+              <Image
+                src={post.imageUrl}
+                alt={post.h1}
+                fill
+                sizes="(min-width: 1024px) 33vw, 100vw"
+                className="object-cover"
+              />
+            </div>
+          ) : (
+            <div
+              className="photo-slot aspect-[16/9] border-b border-olive/10"
+              role="presentation"
+              aria-hidden="true"
+            />
+          )
         )}
         <div className="p-7">
           <span className="caps-label text-terracotta">
