@@ -1,0 +1,65 @@
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { LOCALES, isLocale, HREFLANG, type Locale } from "@/lib/content/i18n";
+import { t } from "@/lib/content/translations";
+import { LocalizedStaticTemplate } from "@/components/templates/LocalizedStaticTemplate";
+import { SITE } from "@/lib/content/site";
+
+const NON_EN = LOCALES.filter((l) => l !== "en");
+const TITLES: Record<Locale, string> = {
+  en: "Imprint",
+  de: "Impressum",
+  fr: "Mentions légales",
+  it: "Note legali",
+  es: "Aviso legal",
+  nl: "Colofon",
+  pl: "Stopka redakcyjna",
+  sv: "Utgivningsbevis",
+  pt: "Aviso legal",
+  ro: "Mențiuni legale",
+  cs: "Tiráž",
+  no: "Kolofon",
+};
+
+export function generateStaticParams() {
+  return NON_EN.map((locale) => ({ slug: locale }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug: localeSlug } = await params;
+  if (!isLocale(localeSlug) || localeSlug === "en") return {};
+  const locale = localeSlug as Locale;
+  const url = `${SITE.url}/${locale}/impressum`;
+  const languages: Record<string, string> = {};
+  for (const l of LOCALES) {
+    languages[HREFLANG[l]] = l === "en" ? `${SITE.url}/impressum` : `${SITE.url}/${l}/impressum`;
+  }
+  languages["x-default"] = `${SITE.url}/impressum`;
+  return {
+    title: `${TITLES[locale]} — ${SITE.name}`,
+    alternates: { canonical: url, languages },
+  };
+}
+
+export default async function LocalizedImpressumPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug: localeSlug } = await params;
+  if (!isLocale(localeSlug) || localeSlug === "en") notFound();
+  const locale = localeSlug as Locale;
+  return (
+    <LocalizedStaticTemplate
+      locale={locale}
+      englishHref="/impressum"
+      eyebrow={TITLES[locale]}
+      title={TITLES[locale]}
+      intro={t(locale).translationNoticeBody}
+    />
+  );
+}
