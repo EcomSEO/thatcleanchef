@@ -2,40 +2,41 @@ import Link from "next/link";
 import { hubs } from "@/lib/content/hubs";
 import { Wordmark } from "./editorial/Wordmark";
 import { SITE } from "@/lib/content/site";
+import { MedicalDisclaimerFooter } from "./MedicalDisclaimerFooter";
 
+/**
+ * Comprehensive footer — clean medical-info shell. 4-col link grid + medical/
+ * dietetic disclaimer + sister-site links + copyright.
+ */
 export function Footer() {
   return (
-    <footer className="mt-24 bg-cream-deep/50 border-t border-olive/12">
-      {/* Masthead row */}
-      <div className="mx-auto max-w-6xl px-6 pt-14 pb-10">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 pb-10 border-b border-olive/15">
+    <footer className="mt-24 bg-surface-tint border-t border-hairline">
+      <div className="mx-auto max-w-7xl px-6 pt-14 pb-10">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 pb-10 border-b border-hairline">
           <div>
             <Wordmark size="lg" asLink={false} />
-            <p className="mt-3 font-serif text-lg text-olive italic max-w-md">
+            <p className="mt-2 text-body-md text-ink-2 max-w-md">
               {SITE.tagline}
             </p>
           </div>
-          <div className="max-w-md text-sm text-stone leading-relaxed">
-            A small kitchen testing recipes in home equipment, timing them
-            honestly, and posting the Nutrition Ledger. No grandmother stories,
-            no diet scolding, no ads between ingredients.
+          <div className="max-w-md text-body-sm text-ink-2 leading-relaxed">
+            Independent test kitchen. Recipes tested 3+ times in our kitchen,
+            nutritionally reviewed by registered dietitians, USDA-cited
+            Nutrition Ledger on every recipe.
           </div>
         </div>
 
         <div className="grid md:grid-cols-12 gap-10 mt-10">
-          <div className="md:col-span-5">
-            <h4 className="eyebrow text-stone mb-4">The five hubs</h4>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2.5">
-              {hubs.map((hub, i) => (
+          <div className="md:col-span-3">
+            <h4 className="caps-label mb-4">Recipes</h4>
+            <ul className="space-y-2 text-body-sm">
+              {hubs.map((hub) => (
                 <li key={hub.slug}>
                   <Link
                     href={`/guides/${hub.slug}`}
-                    className="group flex items-center gap-2 text-olive hover:text-terracotta transition"
+                    className="text-ink hover:text-sage-700 transition"
                   >
-                    <span className="rank-numeral !text-sm !text-terracotta/50 group-hover:!text-terracotta tnum">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <span className="text-[15px]">{hub.name}</span>
+                    {hub.shortName}
                   </Link>
                 </li>
               ))}
@@ -43,91 +44,68 @@ export function Footer() {
           </div>
 
           <div className="md:col-span-3">
-            <h4 className="eyebrow text-stone mb-4">The book</h4>
-            <ul className="space-y-2.5 text-[15px]">
-              <li>
-                <Link href="/#contents" className="text-olive hover:text-terracotta transition">
-                  Contents
-                </Link>
-              </li>
-              <li>
-                <Link href="/ingredients" className="text-olive hover:text-terracotta transition">
-                  Ingredient Index
-                </Link>
-              </li>
-              <li>
-                <Link href="/recipes" className="text-olive hover:text-terracotta transition">
-                  Recipes
-                </Link>
-              </li>
-              <li>
-                <Link href="/methodology" className="text-olive hover:text-terracotta transition">
-                  Our Approach
-                </Link>
-              </li>
-              <li>
-                <Link href="/methodology/v1-2" className="text-olive hover:text-terracotta transition">
-                  What We&apos;re Testing
-                </Link>
-              </li>
-              <li>
-                <Link href="/pipeline" className="text-olive hover:text-terracotta transition">
-                  Pipeline
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="text-olive hover:text-terracotta transition">
-                  About the kitchen
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="text-olive hover:text-terracotta transition">
-                  Contact &amp; tips
-                </Link>
-              </li>
+            <h4 className="caps-label mb-4">Techniques</h4>
+            <ul className="space-y-2 text-body-sm">
+              <li><Link href="/guides/technique" className="text-ink hover:text-sage-700">Roasting</Link></li>
+              <li><Link href="/guides/technique" className="text-ink hover:text-sage-700">Braising</Link></li>
+              <li><Link href="/guides/technique" className="text-ink hover:text-sage-700">Salt, fat, acid, heat</Link></li>
+              <li><Link href="/methodology" className="text-ink hover:text-sage-700">Reading a recipe</Link></li>
             </ul>
           </div>
 
-          <div className="md:col-span-4">
-            <h4 className="eyebrow text-stone mb-4">Fine print</h4>
-            <ul className="space-y-2.5 text-[15px]">
-              <li>
-                <Link href="/affiliate-disclosure" className="text-olive hover:text-terracotta transition">
-                  Affiliate disclosure
-                </Link>
-              </li>
-              <li>
-                <Link href="/privacy" className="text-olive hover:text-terracotta transition">
-                  Privacy policy
-                </Link>
-              </li>
-              <li>
-                <Link href="/terms" className="text-olive hover:text-terracotta transition">
-                  Terms of service
-                </Link>
-              </li>
+          <div className="md:col-span-3">
+            <h4 className="caps-label mb-4">Ingredients</h4>
+            <ul className="space-y-2 text-body-sm">
+              <li><Link href="/ingredients" className="text-ink hover:text-sage-700">Vegetables</Link></li>
+              <li><Link href="/ingredients" className="text-ink hover:text-sage-700">Proteins</Link></li>
+              <li><Link href="/ingredients" className="text-ink hover:text-sage-700">Pantry & oils</Link></li>
+              <li><Link href="/ingredients" className="text-ink hover:text-sage-700">A-Z index</Link></li>
+            </ul>
+          </div>
+
+          <div className="md:col-span-3">
+            <h4 className="caps-label mb-4">Company</h4>
+            <ul className="space-y-2 text-body-sm">
+              <li><Link href="/about" className="text-ink hover:text-sage-700">About the kitchen</Link></li>
+              <li><Link href="/methodology" className="text-ink hover:text-sage-700">Methodology</Link></li>
+              <li><Link href="/editorial-standards" className="text-ink hover:text-sage-700">Editorial standards</Link></li>
+              <li><Link href="/pipeline" className="text-ink hover:text-sage-700">Pipeline</Link></li>
+              <li><Link href="/newsletter" className="text-ink hover:text-sage-700">Newsletter</Link></li>
+              <li><Link href="/contact" className="text-ink hover:text-sage-700">Contact</Link></li>
+              <li><Link href="/affiliate-disclosure" className="text-ink hover:text-sage-700">Affiliate disclosure</Link></li>
+              <li><Link href="/privacy" className="text-ink hover:text-sage-700">Privacy</Link></li>
+              <li><Link href="/terms" className="text-ink hover:text-sage-700">Terms</Link></li>
             </ul>
           </div>
         </div>
+
+        <div className="mt-10 pt-8 border-t border-hairline">
+          <h4 className="caps-label mb-3">Sister sites</h4>
+          <ul className="flex flex-wrap gap-x-6 gap-y-2 text-body-sm">
+            <li>
+              <a href="https://larderlab-ecom-seo.vercel.app/" className="text-ink hover:text-sage-700" rel="noopener">
+                larderlab — pantry & nutrition ledgers
+              </a>
+            </li>
+            <li>
+              <a href="https://injectcompass-ecom-seo.vercel.app/" className="text-ink hover:text-sage-700" rel="noopener">
+                injectcompass — clinical health
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <MedicalDisclaimerFooter />
       </div>
 
-      {/* Imprint strip */}
-      <div className="border-t border-olive/10">
-        <div className="mx-auto max-w-6xl px-6 py-6 flex flex-col md:flex-row justify-between gap-3 text-[11px] tracking-[0.14em] uppercase text-stone">
-          <div className="flex items-center gap-3">
-            <span>
-              &copy;&nbsp;{new Date().getFullYear()} ThatCleanChef
-            </span>
-            <span aria-hidden className="text-terracotta/50">&middot;</span>
-            <span>
-              {SITE.service} &middot; {SITE.issue}
-            </span>
+      <div className="border-t border-hairline">
+        <div className="mx-auto max-w-7xl px-6 py-5 flex flex-col md:flex-row justify-between gap-3 text-label-sm text-ink-2">
+          <div>
+            &copy;&nbsp;{new Date().getFullYear()} ThatCleanChef ·
+            Independent test kitchen · No brand sponsorships.
           </div>
-          <div className="normal-case tracking-normal text-stone/80 text-xs max-w-xl md:text-right leading-relaxed">
-            A cookbook for cooking, not a clinic. Recipes here are food, not
-            medical advice. Commissions on some links help pay for the
-            groceries we burn in testing &mdash; they never change a recipe,
-            never move a page up, and never affect the Nutrition Ledger.
+          <div>
+            {SITE.service} · {SITE.issue}
           </div>
         </div>
       </div>

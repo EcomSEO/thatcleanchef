@@ -7,8 +7,8 @@
  * paired with a hand-drawn herb mark rather than a rank numeral.
  */
 
-import type { ChapterEntry } from "@/components/editorial/ChapterTOC";
-import type { IndexEntry } from "@/components/editorial/IngredientIndex";
+import type { ChapterEntry } from "@/components/_legacy/cookbook/ChapterTOC";
+import type { IndexEntry } from "@/components/_legacy/cookbook/IngredientIndex";
 
 export const chapters: ChapterEntry[] = [
   {

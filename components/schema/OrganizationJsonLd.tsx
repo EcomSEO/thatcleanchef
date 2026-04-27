@@ -1,6 +1,11 @@
 import { SITE } from "@/lib/content/site";
 import { JsonLd } from "./JsonLd";
 
+/**
+ * Organization + WebSite JSON-LD on the home page.
+ * sameAs links to sister sites (larderlab, injectcompass) so search engines
+ * can connect the network graph.
+ */
 export function OrganizationJsonLd() {
   return (
     <JsonLd
@@ -13,6 +18,11 @@ export function OrganizationJsonLd() {
             name: SITE.name,
             url: SITE.url,
             logo: `${SITE.url}/logo.png`,
+            description: SITE.description,
+            sameAs: [
+              "https://larderlab-ecom-seo.vercel.app/",
+              "https://injectcompass-ecom-seo.vercel.app/",
+            ],
           },
           {
             "@type": "WebSite",
