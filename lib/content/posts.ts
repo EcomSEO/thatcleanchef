@@ -389,6 +389,7 @@ export const posts: Post[] = [
   },
   {
     slug: "anti-inflammatory-diet",
+    imageUrl: "/images/recipes/anti-inflammatory-diet.jpg",
     title: "The Anti-Inflammatory Diet — A Cook's Version",
     h1: "The anti-inflammatory diet",
     description:
@@ -678,6 +679,7 @@ export const posts: Post[] = [
   },
   {
     slug: "mediterranean-meal-prep-week-1",
+    imageUrl: "/images/recipes/mediterranean-meal-prep-week-1.jpg",
     title: "Mediterranean Meal Prep — Week 1",
     h1: "Mediterranean meal prep — week 1",
     description:
@@ -1857,6 +1859,7 @@ export const posts: Post[] = [
   },
   {
     slug: "natural-mounjaro-recipes",
+    imageUrl: "/images/recipes/natural-mounjaro-recipes.jpg",
     title: "Natural Mounjaro Recipes — What the Drink Actually Is, and 8 Better Alternatives",
     h1: "Natural Mounjaro recipes — and what the drink actually is.",
     description:
@@ -1975,6 +1978,7 @@ export const posts: Post[] = [
   },
   {
     slug: "savory-cottage-cheese-bowl",
+    imageUrl: "/images/recipes/savory-cottage-cheese-bowl.jpg",
     title: "Savory Cottage Cheese Bowl with Tomato, Cucumber and Olive Oil",
     h1: "Savory cottage cheese bowl",
     description: "A 5-minute savory cottage cheese bowl with tomato, cucumber, olive oil, and za'atar. 32g protein, no sweet stuff, the lunch I eat three times a week.",
@@ -2060,6 +2064,7 @@ export const posts: Post[] = [
   },
   {
     slug: "greek-yogurt-power-bowl",
+    imageUrl: "/images/recipes/greek-yogurt-power-bowl.jpg",
     title: "Greek Yogurt Power Bowl with Berries, Walnuts and Hemp Seeds",
     h1: "Greek yogurt power bowl",
     description: "30g protein, 8g fiber, 10 minutes. A breakfast bowl that holds you to lunch without a second coffee.",
@@ -2145,6 +2150,7 @@ export const posts: Post[] = [
   },
   {
     slug: "salmon-rice-bowl-meal-prep",
+    imageUrl: "/images/recipes/salmon-rice-bowl-meal-prep.jpg",
     title: "Salmon Rice Bowl Meal Prep — 5 Lunches in 35 Minutes",
     h1: "Salmon rice bowl meal prep",
     description: "Five lunches: roasted salmon, brown rice, cucumber, edamame, sesame-soy dressing. 35 minutes Sunday, 38g protein per box.",
@@ -2255,6 +2261,7 @@ export const posts: Post[] = [
   },
   {
     slug: "lentil-sweet-potato-stew",
+    imageUrl: "/images/recipes/lentil-sweet-potato-stew.jpg",
     title: "Lentil and Sweet Potato Stew — One Pot, 18g Fiber",
     h1: "Lentil and sweet potato stew",
     description: "A weeknight one-pot stew. Red lentils, sweet potato, coconut milk, turmeric, lemon. 18g fiber per bowl, the kind of food that fixes a tired evening.",
@@ -2340,6 +2347,7 @@ export const posts: Post[] = [
   },
   {
     slug: "anti-inflammatory-smoothie",
+    imageUrl: "/images/recipes/anti-inflammatory-smoothie.jpg",
     title: "Anti-Inflammatory Smoothie with Turmeric, Ginger and Pineapple",
     h1: "Anti-inflammatory smoothie",
     description: "A 4-minute smoothie with turmeric, fresh ginger, pineapple, kefir, and chia. 20g protein, the morning glass on cycle days.",
@@ -2425,6 +2433,7 @@ export const posts: Post[] = [
   },
   {
     slug: "egg-white-frittata",
+    imageUrl: "/images/recipes/egg-white-frittata.jpg",
     title: "Egg White Frittata with Spinach and Goat Cheese",
     h1: "Egg white frittata",
     description: "A soft frittata for the GLP-1 morning. 28g protein, 220 kcal, 18 minutes start to plate. Mild texture, no fried smell.",
@@ -2510,6 +2519,7 @@ export const posts: Post[] = [
   },
   {
     slug: "spinach-feta-egg-bites",
+    imageUrl: "/images/recipes/spinach-feta-egg-bites.jpg",
     title: "Spinach and Feta Egg Bites — 12 Bites, 5 Days",
     h1: "Spinach and feta egg bites",
     description: "12 small egg bites for the week. 6g protein each, made in a muffin tin in 22 minutes, hold for 5 days. Designed for the in-between snack slot.",
@@ -2595,6 +2605,7 @@ export const posts: Post[] = [
   },
   {
     slug: "chia-pudding-three-ways",
+    imageUrl: "/images/recipes/chia-pudding-three-ways.jpg",
     title: "Chia Pudding Three Ways — Berry, Cocoa, Tahini",
     h1: "Chia pudding, three ways",
     description: "One base recipe, three flavors, all 18g protein. 5 minutes the night before, breakfast that doesn't need cooking.",
@@ -2680,6 +2691,7 @@ export const posts: Post[] = [
   },
   {
     slug: "miso-salmon-soup",
+    imageUrl: "/images/recipes/miso-salmon-soup.jpg",
     title: "Miso Salmon Soup — Soft, Hydrating, Low-Volume",
     h1: "Miso salmon soup",
     description: "A clear miso broth with poached salmon and silken tofu. 28g protein in a 250 kcal bowl. The soup I cook for friends on a GLP-1.",
@@ -2786,6 +2798,7 @@ export const posts: Post[] = [
   },
   {
     slug: "sheet-pan-mediterranean-chicken",
+    imageUrl: "/images/recipes/sheet-pan-mediterranean-chicken.jpg",
     title: "Sheet-Pan Mediterranean Chicken with Olives, Feta and Lemon",
     h1: "Sheet-pan Mediterranean chicken",
     description: "One tray, four servings, 38g protein. Chicken thighs, cherry tomatoes, olives, feta, oregano. The Tuesday-night dinner I cook on autopilot.",

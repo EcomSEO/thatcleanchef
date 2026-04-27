@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { team } from "@/lib/content/team";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
@@ -80,14 +81,29 @@ export default function TeamIndexPage() {
                             {m.oneLiner}
                           </p>
                         </div>
-                        <div
-                          className={`hidden sm:block w-20 aspect-[4/5] rounded-sm border border-olive/15 ${accentBg[accent]} relative overflow-hidden`}
-                          aria-hidden="true"
-                        >
+                        {m.imageUrl ? (
+                          <div className="hidden sm:block relative w-24 aspect-square rounded-sm overflow-hidden border border-olive/15 bg-cream-deep/40">
+                            <Image
+                              src={m.imageUrl}
+                              alt={m.name}
+                              fill
+                              sizes="96px"
+                              className="object-cover"
+                            />
+                            <div
+                              className={`absolute top-0 left-0 w-1 h-full ${accentBar[accent]}`}
+                            />
+                          </div>
+                        ) : (
                           <div
-                            className={`absolute top-0 left-0 w-1 h-full ${accentBar[accent]}`}
-                          />
-                        </div>
+                            className={`hidden sm:block w-20 aspect-[4/5] rounded-sm border border-olive/15 ${accentBg[accent]} relative overflow-hidden`}
+                            aria-hidden="true"
+                          >
+                            <div
+                              className={`absolute top-0 left-0 w-1 h-full ${accentBar[accent]}`}
+                            />
+                          </div>
+                        )}
                       </div>
                     </Link>
                   </li>

@@ -11,6 +11,8 @@ export type TeamRole = "RD reviewer" | "Recipe developer" | "Photography" | "Edi
 
 export type TeamMember = {
   slug: string;
+  /** 1:1 portrait image path under /public. */
+  imageUrl?: string;
   name: string;
   credentials: string; // "RDN, MS"
   jobTitle: string;
@@ -35,6 +37,7 @@ export type TeamMember = {
 export const team: TeamMember[] = [
   {
     slug: "lena-marsh",
+    imageUrl: "/images/team/lena-marsh.jpg",
     name: "Lena Marsh",
     credentials: "RDN, MS",
     jobTitle: "Reviewing Dietitian, ThatCleanChef",
@@ -57,6 +60,7 @@ export const team: TeamMember[] = [
   },
   {
     slug: "rosa-pellegrino",
+    imageUrl: "/images/team/rosa-pellegrino.jpg",
     name: "Rosa Pellegrino",
     credentials: "Lead recipe developer",
     jobTitle: "Lead Recipe Developer",
@@ -76,6 +80,7 @@ export const team: TeamMember[] = [
   },
   {
     slug: "jakub-novak",
+    imageUrl: "/images/team/jakub-novak.jpg",
     name: "Jakub Novák",
     credentials: "Food photographer",
     jobTitle: "Food Photographer",
@@ -94,6 +99,7 @@ export const team: TeamMember[] = [
   },
   {
     slug: "harriet-osei",
+    imageUrl: "/images/team/harriet-osei.jpg",
     name: "Harriet Osei",
     credentials: "Senior editor",
     jobTitle: "Senior Editor",

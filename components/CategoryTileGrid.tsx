@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export type CategoryTile = {
@@ -6,6 +7,7 @@ export type CategoryTile = {
   dek: string;
   href: string;
   recipeCount: number;
+  imageUrl?: string;
 };
 
 /**
@@ -41,7 +43,19 @@ export function CategoryTileGrid({
                 href={t.href}
                 className="card card-lift block h-full bg-surface overflow-hidden"
               >
-                <div className="photo-slot aspect-[16/10] w-full" />
+                {t.imageUrl ? (
+                  <div className="relative aspect-[16/10] w-full overflow-hidden bg-cream-deep/40">
+                    <Image
+                      src={t.imageUrl}
+                      alt={t.title}
+                      fill
+                      sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                      className="object-cover"
+                    />
+                  </div>
+                ) : (
+                  <div className="photo-slot aspect-[16/10] w-full" />
+                )}
                 <div className="p-4">
                   <div className="caps-label mb-1.5">{t.eyebrow}</div>
                   <h3 className="text-h3 font-semibold text-ink leading-snug">{t.title}</h3>

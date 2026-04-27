@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
 import { getTeamMember, team } from "@/lib/content/team";
 import { posts } from "@/lib/content/posts";
@@ -108,15 +109,30 @@ export default async function TeamMemberPage({
 
             <div className="mt-10 grid md:grid-cols-12 gap-10 items-start">
               <div className="md:col-span-4">
-                {/* Photo placeholder — accent-tinted block until artwork lands */}
-                <div
-                  className={`aspect-[4/5] rounded-sm border border-olive/15 ${accentBg[accent]} relative overflow-hidden`}
-                  aria-hidden="true"
-                >
+                {m.imageUrl ? (
+                  <div className="relative aspect-square rounded-sm overflow-hidden border border-olive/15 bg-cream-deep/40">
+                    <Image
+                      src={m.imageUrl}
+                      alt={m.name}
+                      fill
+                      sizes="(min-width: 768px) 33vw, 100vw"
+                      className="object-cover"
+                      priority
+                    />
+                    <div
+                      className={`absolute top-0 left-0 w-1 h-full ${accentBar[accent]}`}
+                    />
+                  </div>
+                ) : (
                   <div
-                    className={`absolute top-0 left-0 w-1 h-full ${accentBar[accent]}`}
-                  />
-                </div>
+                    className={`aspect-[4/5] rounded-sm border border-olive/15 ${accentBg[accent]} relative overflow-hidden`}
+                    aria-hidden="true"
+                  >
+                    <div
+                      className={`absolute top-0 left-0 w-1 h-full ${accentBar[accent]}`}
+                    />
+                  </div>
+                )}
               </div>
               <div className="md:col-span-8">
                 <Eyebrow tone={accent === "stone" ? "stone" : "terracotta"}>

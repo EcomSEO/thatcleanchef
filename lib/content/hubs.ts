@@ -4,11 +4,14 @@ export type Hub = {
   shortName: string;
   oneLiner: string;
   thesis: string;
+  /** 16:9 hero image path under /public. */
+  imageUrl?: string;
 };
 
 export const hubs: Hub[] = [
   {
     slug: "glp1-friendly",
+    imageUrl: "/images/hubs/glp1-friendly.jpg",
     name: "GLP-1 Friendly Recipes",
     shortName: "GLP-1 Friendly",
     oneLiner:
@@ -18,6 +21,7 @@ export const hubs: Hub[] = [
   },
   {
     slug: "muscle-preservation",
+    imageUrl: "/images/hubs/muscle-preservation.jpg",
     name: "High-Protein for Muscle Preservation",
     shortName: "Muscle Preservation",
     oneLiner:
@@ -27,6 +31,7 @@ export const hubs: Hub[] = [
   },
   {
     slug: "anti-inflammatory-recovery",
+    imageUrl: "/images/hubs/anti-inflammatory-recovery.jpg",
     name: "Anti-Inflammatory Recovery",
     shortName: "Anti-Inflammatory",
     oneLiner:
@@ -36,6 +41,7 @@ export const hubs: Hub[] = [
   },
   {
     slug: "bone-tendon-health",
+    imageUrl: "/images/hubs/bone-tendon-health.jpg",
     name: "Bone & Tendon Health",
     shortName: "Bone & Tendon",
     oneLiner:
@@ -45,6 +51,7 @@ export const hubs: Hub[] = [
   },
   {
     slug: "cycle-nutrition",
+    imageUrl: "/images/hubs/cycle-nutrition.jpg",
     name: "Pre/Post-Cycle Nutrition",
     shortName: "Cycle Nutrition",
     oneLiner:

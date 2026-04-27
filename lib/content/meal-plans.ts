@@ -26,6 +26,8 @@ export type MealPlanDay = {
 
 export type MealPlan = {
   slug: string;
+  /** 16:9 hero image path under /public. */
+  imageUrl?: string;
   title: string;
   h1: string;
   description: string;
@@ -54,6 +56,7 @@ export type MealPlan = {
 export const mealPlans: MealPlan[] = [
   {
     slug: "14-day-anti-inflammatory",
+    imageUrl: "/images/meal-plans/14-day-anti-inflammatory.jpg",
     title: "14-Day Anti-Inflammatory Meal Plan",
     h1: "A 14-day anti-inflammatory meal plan, RD-reviewed.",
     description:
@@ -123,6 +126,7 @@ export const mealPlans: MealPlan[] = [
   },
   {
     slug: "glp1-7-day",
+    imageUrl: "/images/meal-plans/glp1-7-day.jpg",
     title: "7-Day GLP-1 Meal Plan",
     h1: "A 7-day GLP-1 meal plan, built for small appetites and big protein needs.",
     description:

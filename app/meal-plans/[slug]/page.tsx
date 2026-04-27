@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
 import { getMealPlan, mealPlans } from "@/lib/content/meal-plans";
 import { getPost } from "@/lib/content/posts";
@@ -112,6 +113,19 @@ export default async function MealPlanPage({
                 </dl>
               </div>
             </div>
+
+            {plan.imageUrl && (
+              <div className="mt-10 relative aspect-[16/9] w-full overflow-hidden rounded-sm border border-olive/10 bg-cream-deep/40">
+                <Image
+                  src={plan.imageUrl}
+                  alt={plan.title}
+                  fill
+                  sizes="(min-width: 1024px) 1024px, 100vw"
+                  className="object-cover"
+                  priority
+                />
+              </div>
+            )}
 
             <KitchenRule className="mt-14" drawIn />
           </div>

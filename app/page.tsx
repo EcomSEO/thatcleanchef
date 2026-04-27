@@ -8,6 +8,7 @@ import { posts } from "@/lib/content/posts";
 import { hubs } from "@/lib/content/hubs";
 import { medications } from "@/lib/content/medications";
 import { mealPlans } from "@/lib/content/meal-plans";
+import Image from "next/image";
 import Link from "next/link";
 
 const categoryEyebrows: Record<string, string> = {
@@ -27,6 +28,7 @@ export default function HomePage() {
     dek: h.oneLiner,
     href: `/guides/${h.slug}`,
     recipeCount: posts.filter((p) => p.hub === h.slug).length,
+    imageUrl: h.imageUrl,
   }));
 
   return (
@@ -71,6 +73,17 @@ export default function HomePage() {
                 href={`/medications/${m.slug}`}
                 className="card-lift group p-6 border-b sm:border-b border-olive/10 sm:[&:nth-child(2n)]:border-r-0 lg:[&:nth-child(n)]:border-r lg:[&:nth-child(4n)]:border-r-0 sm:border-r lg:border-b-0 hover:bg-cream-deep/40"
               >
+                {m.imageUrl && (
+                  <div className="relative aspect-[16/10] w-full overflow-hidden mb-4 rounded-sm border border-olive/10 bg-cream-deep/40">
+                    <Image
+                      src={m.imageUrl}
+                      alt={`${m.brand} kitchen brief`}
+                      fill
+                      sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                      className="object-cover"
+                    />
+                  </div>
+                )}
                 <span className="rank-numeral">
                   {String(i + 1).padStart(2, "0")}
                 </span>
@@ -111,8 +124,20 @@ export default function HomePage() {
               <Link
                 key={p.slug}
                 href={`/meal-plans/${p.slug}`}
-                className="card-lift group block p-7 bg-paper border border-olive/15 rounded-sm hover:border-terracotta/50"
+                className="card-lift group block bg-paper border border-olive/15 rounded-sm hover:border-terracotta/50 overflow-hidden"
               >
+                {p.imageUrl && (
+                  <div className="relative aspect-[16/9] w-full overflow-hidden bg-cream-deep/40">
+                    <Image
+                      src={p.imageUrl}
+                      alt={p.title}
+                      fill
+                      sizes="(min-width: 768px) 50vw, 100vw"
+                      className="object-cover"
+                    />
+                  </div>
+                )}
+                <div className="p-7">
                 <span className="caps-label text-terracotta">
                   {p.durationLabel}
                 </span>
@@ -125,6 +150,7 @@ export default function HomePage() {
                 <span className="mt-5 inline-flex items-center gap-1.5 text-terracotta group-hover:text-olive transition text-sm font-medium">
                   Get the PDF &rarr;
                 </span>
+                </div>
               </Link>
             ))}
           </div>

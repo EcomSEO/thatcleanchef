@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
 import { getHub, hubs } from "@/lib/content/hubs";
 import { postsByHub } from "@/lib/content/posts";
@@ -110,6 +111,19 @@ export default async function HubPage({
                 </dl>
               </div>
             </div>
+
+            {hub.imageUrl && (
+              <div className="mt-10 relative aspect-[16/9] w-full overflow-hidden rounded-sm border border-olive/10 bg-cream-deep/40">
+                <Image
+                  src={hub.imageUrl}
+                  alt={hub.name}
+                  fill
+                  sizes="(min-width: 1024px) 1024px, 100vw"
+                  className="object-cover"
+                  priority
+                />
+              </div>
+            )}
 
             <KitchenRule className="mt-14" drawIn />
           </div>

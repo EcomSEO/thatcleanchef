@@ -12,6 +12,8 @@
 
 export type Medication = {
   slug: string;
+  /** 16:9 hero image path under /public. */
+  imageUrl?: string;
   brand: string;
   generic: string;
   drugClass: "GLP-1 agonist" | "GIP/GLP-1 dual agonist";
@@ -36,6 +38,7 @@ export type Medication = {
 export const medications: Medication[] = [
   {
     slug: "mounjaro",
+    imageUrl: "/images/medications/mounjaro.jpg",
     brand: "Mounjaro",
     generic: "tirzepatide",
     drugClass: "GIP/GLP-1 dual agonist",
@@ -84,6 +87,7 @@ export const medications: Medication[] = [
   },
   {
     slug: "ozempic",
+    imageUrl: "/images/medications/ozempic.jpg",
     brand: "Ozempic",
     generic: "semaglutide",
     drugClass: "GLP-1 agonist",
@@ -132,6 +136,7 @@ export const medications: Medication[] = [
   },
   {
     slug: "wegovy",
+    imageUrl: "/images/medications/wegovy.jpg",
     brand: "Wegovy",
     generic: "semaglutide (weight-management dose)",
     drugClass: "GLP-1 agonist",
@@ -180,6 +185,7 @@ export const medications: Medication[] = [
   },
   {
     slug: "zepbound",
+    imageUrl: "/images/medications/zepbound.jpg",
     brand: "Zepbound",
     generic: "tirzepatide (weight-management dose)",
     drugClass: "GIP/GLP-1 dual agonist",
