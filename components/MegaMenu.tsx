@@ -14,31 +14,32 @@ const COLUMNS: Record<
 > = {
   Recipes: [
     {
-      heading: "Peptide context",
+      heading: "By hub",
       items: [
-        { label: "GLP-1 friendly", href: "/guides/glp1-friendly" },
-        { label: "Muscle preservation", href: "/guides/muscle-preservation" },
-        { label: "Anti-inflammatory recovery", href: "/guides/anti-inflammatory-recovery" },
-        { label: "Bone & tendon health", href: "/guides/bone-tendon-health" },
-        { label: "Pre/post-cycle nutrition", href: "/guides/cycle-nutrition" },
+        { label: "Diet-specific", href: "/guides/diet-specific" },
+        { label: "Meal types", href: "/guides/meal-types" },
+        { label: "Protein-forward", href: "/guides/protein-forward" },
+        { label: "Technique & reference", href: "/guides/technique" },
+        { label: "Seasonal & meal plans", href: "/guides/seasonal-menus" },
       ],
     },
     {
-      heading: "On a GLP-1",
+      heading: "By meal",
       items: [
-        { label: "Small-portion dinners", href: "/guides/glp1-friendly" },
-        { label: "High-protein breakfasts", href: "/guides/muscle-preservation" },
-        { label: "Easy-on-the-stomach snacks", href: "/guides/glp1-friendly" },
-        { label: "Anti-nausea pairings", href: "/guides/glp1-friendly" },
+        { label: "Breakfast", href: "/guides/meal-types" },
+        { label: "Lunch", href: "/guides/meal-types" },
+        { label: "Dinner", href: "/guides/meal-types" },
+        { label: "Snacks", href: "/guides/meal-types" },
       ],
     },
     {
-      heading: "Recovery & cycles",
+      heading: "By approach",
       items: [
-        { label: "BPC-157 / TB-500 anti-inflammatory", href: "/guides/anti-inflammatory-recovery" },
-        { label: "Bone broth & collagen", href: "/guides/bone-tendon-health" },
-        { label: "Pre-cycle priming", href: "/guides/cycle-nutrition" },
-        { label: "Post-cycle recovery", href: "/guides/cycle-nutrition" },
+        { label: "Anti-inflammatory", href: "/guides/diet-specific" },
+        { label: "Mediterranean", href: "/guides/diet-specific" },
+        { label: "High-protein", href: "/guides/protein-forward" },
+        { label: "Whole30", href: "/guides/diet-specific" },
+        { label: "Low-FODMAP", href: "/guides/diet-specific" },
       ],
     },
   ],
@@ -46,26 +47,26 @@ const COLUMNS: Record<
     {
       heading: "Cooking technique",
       items: [
-        { label: "Roasting", href: "/guides/bone-tendon-health" },
-        { label: "Braising", href: "/guides/bone-tendon-health" },
-        { label: "Searing", href: "/guides/bone-tendon-health" },
-        { label: "Fermenting", href: "/guides/bone-tendon-health" },
+        { label: "Roasting", href: "/guides/technique" },
+        { label: "Braising", href: "/guides/technique" },
+        { label: "Searing", href: "/guides/technique" },
+        { label: "Bone broth", href: "/guides/technique" },
       ],
     },
     {
       heading: "Method explainers",
       items: [
-        { label: "Salt, fat, acid, heat", href: "/guides/bone-tendon-health" },
-        { label: "Sous-vide vs. oven low-and-slow", href: "/guides/bone-tendon-health" },
+        { label: "Salt, fat, acid, heat", href: "/guides/technique" },
+        { label: "Sous-vide vs. oven low-and-slow", href: "/guides/technique" },
         { label: "Reading a recipe before you cook", href: "/methodology" },
       ],
     },
     {
       heading: "By equipment",
       items: [
-        { label: "Sheet pan", href: "/guides/bone-tendon-health" },
-        { label: "Dutch oven", href: "/guides/bone-tendon-health" },
-        { label: "Cast iron", href: "/guides/bone-tendon-health" },
+        { label: "Sheet pan", href: "/guides/technique" },
+        { label: "Dutch oven", href: "/guides/technique" },
+        { label: "Cast iron", href: "/guides/technique" },
       ],
     },
   ],
@@ -150,16 +151,16 @@ const COLUMNS: Record<
 
 const FEATURED: Record<Kind, { eyebrow: string; title: string; dek: string; href: string }> = {
   Recipes: {
-    eyebrow: "Anti-inflammatory recovery",
+    eyebrow: "Anti-inflammatory · 55 min",
     title: "Anti-inflammatory golden chicken soup",
-    dek: "Bone broth, turmeric bloomed in fat, 32g protein per bowl. Built for peptide-cycle recovery days.",
+    dek: "Bone broth, turmeric bloomed in fat, 32g protein per bowl — the bowl we cook most weeks in winter.",
     href: "/anti-inflammatory-golden-chicken-soup",
   },
   Techniques: {
     eyebrow: "Method",
     title: "How to roast a whole chicken",
     dek: "Five things that matter: dry brine, position, temperature, rest, carve.",
-    href: "/guides/bone-tendon-health",
+    href: "/guides/technique",
   },
   Ingredients: {
     eyebrow: "Ingredient",

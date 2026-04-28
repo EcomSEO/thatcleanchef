@@ -5,9 +5,9 @@ import Link from "next/link";
  * RDN reviewer name and link to the reviewer profile.
  */
 export function DietitianReviewedBadge({
-  name = "Dr. Maya Rao",
-  credentials = "RDN — GLP-1 nutrition specialist",
-  href = "/about#reviewers",
+  name = "Lena Marsh",
+  credentials = "RDN, MS",
+  href = "/team/lena-marsh",
   size = "md",
 }: {
   name?: string;

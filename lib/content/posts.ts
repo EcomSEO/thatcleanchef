@@ -1,16 +1,5 @@
 export type PostType = "pillar" | "comparison" | "cluster" | "listicle" | "recipe";
 
-/**
- * Peptide-therapy context for a recipe page — drives the
- * <PeptideContextCallout> rendered above the ingredient list.
- */
-export type PeptideContext =
-  | "glp1-friendly"
-  | "muscle-preservation"
-  | "anti-inflammatory"
-  | "bone-tendon"
-  | "cycle-nutrition";
-
 export type Post = {
   slug: string;
   title: string;
@@ -18,8 +7,12 @@ export type Post = {
   description: string;
   hub: string;
   postType: PostType;
-  /** Peptide-therapy framing for the recipe (default 'glp1-friendly'). */
-  peptideContext?: PeptideContext;
+  /**
+   * Optional internal tag for cross-referencing (e.g. "anti-inflammatory",
+   * "high-protein"). Not rendered. Kept for filtering convenience while we
+   * migrate posts to the recipe-site hub structure.
+   */
+  peptideContext?: string;
   /** When 'required', a medical disclaimer block is rendered above the article body. */
   medicalDisclaimer?: "required" | "optional";
   publishedAt: string;
@@ -70,7 +63,7 @@ export const posts: Post[] = [
     h1: "Anti-inflammatory golden chicken soup",
     description:
       "Chef-tested anti-inflammatory chicken soup with turmeric, ginger, and bone broth. 55 min, 32g protein, Nutrition Ledger below.",
-    hub: "anti-inflammatory-recovery",
+    hub: "diet-specific",
     peptideContext: "anti-inflammatory",
     postType: "cluster",
     publishedAt: "2026-04-21",
@@ -245,7 +238,7 @@ export const posts: Post[] = [
     h1: "Cottage cheese flatbread",
     description:
       "The viral cottage cheese flatbread, chef-tested. 28g protein per serving, 20 minutes, 4 ingredients.",
-    hub: "muscle-preservation",
+    hub: "protein-forward",
     peptideContext: "muscle-preservation",
     postType: "cluster",
     publishedAt: "2026-04-21",
@@ -394,7 +387,7 @@ export const posts: Post[] = [
     h1: "The anti-inflammatory diet",
     description:
       "Evidence brief, ingredient inventory, weekly framework, and the 7-day meal plan. Pillar for the Anti-Inflammatory hub.",
-    hub: "anti-inflammatory-recovery",
+    hub: "diet-specific",
     peptideContext: "anti-inflammatory",
     postType: "pillar",
     publishedAt: "2026-04-21",
@@ -539,7 +532,7 @@ export const posts: Post[] = [
     h1: "High-protein breakfast bowl",
     description:
       "Eggs, spinach, quinoa or sweet potato, salsa, avocado — 42g protein in a 15-minute bowl. Swappable base protein.",
-    hub: "muscle-preservation",
+    hub: "protein-forward",
     peptideContext: "muscle-preservation",
     postType: "cluster",
     publishedAt: "2026-04-21",
@@ -684,7 +677,7 @@ export const posts: Post[] = [
     h1: "Mediterranean meal prep — week 1",
     description:
       "A 7-day Mediterranean meal plan with shopping list, Sunday prep sequence, cost estimate, and weekly macros.",
-    hub: "cycle-nutrition",
+    hub: "seasonal-menus",
     peptideContext: "cycle-nutrition",
     postType: "pillar",
     publishedAt: "2026-04-21",
@@ -825,7 +818,7 @@ export const posts: Post[] = [
     h1: "Whole30 breakfast hash",
     description:
       "Sweet potato, sausage, peppers, eggs — a 25-minute Whole30 breakfast with 28g protein.",
-    hub: "glp1-friendly",
+    hub: "meal-types",
     peptideContext: "glp1-friendly",
     postType: "cluster",
     publishedAt: "2026-04-21",
@@ -970,7 +963,7 @@ export const posts: Post[] = [
     h1: "Ginger-turmeric salmon",
     description:
       "A 20-minute anti-inflammatory salmon with turmeric, ginger, garlic, and coconut aminos. 38g protein per fillet.",
-    hub: "anti-inflammatory-recovery",
+    hub: "diet-specific",
     peptideContext: "anti-inflammatory",
     postType: "cluster",
     publishedAt: "2026-04-21",
@@ -1119,7 +1112,7 @@ export const posts: Post[] = [
     h1: "Greek lemon chicken",
     description:
       "Bone-in thighs, lemon, oregano, garlic — a Mediterranean pillar recipe, 45 minutes, 36g protein.",
-    hub: "muscle-preservation",
+    hub: "protein-forward",
     peptideContext: "muscle-preservation",
     postType: "cluster",
     publishedAt: "2026-04-21",
@@ -1264,7 +1257,7 @@ export const posts: Post[] = [
     h1: "Cottage cheese ice cream — vanilla",
     description:
       "Blended cottage cheese, honey, vanilla, a pinch of salt — frozen in a loaf pan. 22g protein per serving.",
-    hub: "glp1-friendly",
+    hub: "meal-types",
     peptideContext: "glp1-friendly",
     postType: "cluster",
     publishedAt: "2026-04-21",
@@ -1409,7 +1402,7 @@ export const posts: Post[] = [
     h1: "How to roast a whole chicken",
     description:
       "The technique pillar — dry brine, spatchcock, high heat, sheet pan. 2 hours total, 6 servings.",
-    hub: "bone-tendon-health",
+    hub: "technique",
     peptideContext: "bone-tendon",
     postType: "pillar",
     publishedAt: "2026-04-21",
@@ -1561,8 +1554,8 @@ export const posts: Post[] = [
     title: "Cottage Cheese Pancakes — 28g Protein, 12 Minutes",
     h1: "Cottage cheese pancakes",
     description:
-      "Three-ingredient cottage cheese pancakes — 28g protein per stack of three, 12 minutes start to plate. Tested for GLP-1 patients front-loading morning protein.",
-    hub: "muscle-preservation",
+      "Three-ingredient cottage cheese pancakes — 28g protein per stack of three, 12 minutes start to plate. The morning protein move that doesn't need a powder.",
+    hub: "protein-forward",
     peptideContext: "muscle-preservation",
     postType: "cluster",
     publishedAt: "2026-04-23",
@@ -1648,9 +1641,9 @@ export const posts: Post[] = [
       },
       {
         rank: 8,
-        name: "GLP-1 portion: stop at two, save the third for later",
+        name: "Small-appetite portion: stop at two, save the third for later",
         summary:
-          "If you're on Mounjaro, Ozempic, Wegovy, or Zepbound and morning appetite collapses around the second pancake — eat the two, plate the third with a tablespoon of cottage cheese on the side, cling-film it, treat it as your 10am snack. The protein target still lands.",
+          "If your morning appetite is small and collapses around the second pancake — eat the two, plate the third with a tablespoon of cottage cheese on the side, cling-film it, treat it as your 10am snack. The protein target still lands.",
       },
       {
         rank: 9,
@@ -1662,7 +1655,7 @@ export const posts: Post[] = [
         rank: 10,
         name: "Make-ahead: blend the batter Sunday, store 5 days",
         summary:
-          "The batter holds in the fridge for 5 days in a sealed jar. Pour, cook, eat — 5 minutes weekday morning. The eggs can curdle slightly on day 5; a 10-second re-blitz fixes it. This is the GLP-1-friendly version: zero decision-making at 7am.",
+          "The batter holds in the fridge for 5 days in a sealed jar. Pour, cook, eat — 5 minutes weekday morning. The eggs can curdle slightly on day 5; a 10-second re-blitz fixes it. This is the make-ahead version: zero decision-making at 7am.",
       },
     ],
     faq: [
@@ -1671,8 +1664,8 @@ export const posts: Post[] = [
         a: "Real food. Cottage cheese gives you slow-digesting casein and fast-digesting whey in the natural ratio dairy ships them in, plus calcium, plus a little sodium. Protein powders work — they're just not better than cottage cheese for this recipe, and the texture is materially worse. Save the powder for shakes.",
       },
       {
-        q: "I'm on Wegovy and morning is the only time I'm hungry. Is this a good fit?",
-        a: "Yes. We chose cottage-cheese pancakes specifically for the Wegovy / Mounjaro / Ozempic / Zepbound morning slot. They sit warm-but-not-fragrant, the protein density is high (28g in 340 kcal), and the texture is soft. If you can manage three, you've banked the day's first protein floor before evening appetite collapses.",
+        q: "Mornings are the only time I'm hungry. Is this a good fit?",
+        a: "Yes. We chose cottage-cheese pancakes specifically for the small-appetite morning slot. They sit warm-but-not-fragrant, the protein density is high (28g in 340 kcal), and the texture is soft. If you can manage three, you've banked the day's first protein floor before evening appetite collapses.",
       },
       {
         q: "Can I use blender oats / flour / no oats?",
@@ -1709,7 +1702,7 @@ export const posts: Post[] = [
     h1: "Bone broth, the slow method",
     description:
       "A 24-hour bone broth recipe that gels at the fridge — collagen-rich, low-sodium, sippable from a mug. Tested for connective-tissue support alongside BPC-157 and TB-500 protocols.",
-    hub: "bone-tendon-health",
+    hub: "technique",
     peptideContext: "bone-tendon",
     postType: "cluster",
     publishedAt: "2026-04-23",
@@ -1822,8 +1815,8 @@ export const posts: Post[] = [
         a: "Some are, most aren't. Look for brands that gel in the fridge (Kettle & Fire, Bonafide), simmer 20+ hours, and cite their bone source. Most supermarket cartons labelled 'bone broth' are stock with marketing — they pour straight from the carton and never gel. The home version is materially cheaper.",
       },
       {
-        q: "Can I drink this on Mounjaro / Ozempic / Wegovy?",
-        a: "Yes. Bone broth is one of the few warm sippable formats that consistently goes down well on a GLP-1, and the protein density (9g per 60 kcal) is excellent for low-appetite days. Keep the salt at the mug, not in the pot, so you can adjust per-cup if you're being co-managed for blood pressure.",
+        q: "Is bone broth a meal or a snack?",
+        a: "It is the in-between move. Bone broth is one of the few warm sippable formats that hits well when appetite is small, and the protein density (9g per 60 kcal) is excellent for low-appetite days. Keep the salt at the mug, not in the pot, so you can adjust per-cup if you're being co-managed for blood pressure.",
       },
       {
         q: "What if I don't have a slow cooker?",
@@ -1835,7 +1828,7 @@ export const posts: Post[] = [
       },
       {
         q: "What's the most natural recipe to use this in?",
-        a: "Our anti-inflammatory golden chicken soup (/anti-inflammatory-golden-chicken-soup) is the dish we built specifically around this broth. 4 cups of broth, bone-in thighs, turmeric bloomed in the fat, lime to finish — 32g protein in a 380 kcal bowl that goes down on a GLP-1 day better than almost anything else we cook. Make a double batch of broth on Sunday and it's the soup on Tuesday and Thursday.",
+        a: "Our anti-inflammatory golden chicken soup (/anti-inflammatory-golden-chicken-soup) is the dish we built specifically around this broth. 4 cups of broth, bone-in thighs, turmeric bloomed in the fat, lime to finish — 32g protein in a 380 kcal bowl that lands well on a low-appetite day. Make a double batch of broth on Sunday and it's the soup on Tuesday and Thursday.",
       },
     ],
     sources: [
@@ -1858,131 +1851,12 @@ export const posts: Post[] = [
     ],
   },
   {
-    slug: "natural-mounjaro-recipes",
-    imageUrl: "/images/recipes/natural-mounjaro-recipes.jpg",
-    title: "Natural Mounjaro Recipes — What the Drink Actually Is, and 8 Better Alternatives",
-    h1: "Natural Mounjaro recipes — and what the drink actually is.",
-    description:
-      "A registered-dietitian-reviewed roundup of so-called 'natural Mounjaro' drinks (lemon, ginger, honey, ACV) and 8 evidence-led recipes that actually do what the trend claims to.",
-    hub: "glp1-friendly",
-    peptideContext: "glp1-friendly",
-    postType: "listicle",
-    publishedAt: "2026-04-23",
-    updatedAt: "2026-04-23",
-    readingTime: 9,
-    status: "published",
-    featured: false,
-    medicalDisclaimer: "required",
-    items: [
-      {
-        rank: 1,
-        name: "First — what is the 'natural Mounjaro' drink?",
-        summary:
-          "A TikTok trend: warm water, half a lemon, a teaspoon of grated ginger, a teaspoon of honey, a tablespoon of apple cider vinegar. The claim is that it mimics tirzepatide. It does not. There is no natural compound that activates the GIP and GLP-1 receptors the way tirzepatide does. The drink is a perfectly fine warm sour beverage; it is not a drug substitute. We are not against the recipe — we are against the marketing.",
-      },
-      {
-        rank: 2,
-        name: "What the drink might actually do",
-        summary:
-          "Apple cider vinegar before a meal has weak evidence for blunting post-meal glucose rise (Johnston 2010). Ginger has weak evidence for slowing gastric emptying (Wu 2008). Lemon and warm water are pleasant. Honey is sugar. None of this is comparable to a 5-15% body-weight reduction over 72 weeks. If the drink helps you feel more full before a meal, drink it — just don't skip your prescribing clinician.",
-      },
-      {
-        rank: 3,
-        name: "Cottage-cheese flatbread, 25g protein",
-        summary:
-          "If you're chasing satiety, protein does the heavy lifting. The cottage-cheese flatbread on this site clears 25g of protein in a 280-kcal serving and takes 12 minutes. Independent guidance (Phillips 2017) puts the protein floor for muscle preservation at 1.2-1.6 g per kg per day — this recipe gets you there one meal at a time without any drug or trend.",
-      },
-      {
-        rank: 4,
-        name: "Bone broth, sippable hydration",
-        summary:
-          "9g of protein per 60 kcal. A warm mug 20 minutes before a main meal preloads protein and warms the stomach in a way that mirrors what GLP-1 patients describe as helpful. The 24-hour bone broth recipe in our Bone & Tendon hub gels at the fridge and freezes in 250ml portions.",
-      },
-      {
-        rank: 5,
-        name: "Ginger-turmeric salmon, 32g protein",
-        summary:
-          "If the 'natural Mounjaro' drink is doing anything mechanistically, it's the ginger. We use the same ginger more usefully — grated into a soy-and-honey marinade for salmon. 32g protein, 380 kcal, 25 minutes. The omega-3 fats also push satiety markers (Parra 2008) more reliably than anything in a warm-lemon drink.",
-      },
-      {
-        rank: 6,
-        name: "Greek lemon chicken, batch-cookable",
-        summary:
-          "Lemon does end up in this list — just used the way chefs use it, as acid against fat and protein. The Greek lemon chicken on this site batch-cooks 6 portions in an hour, holds for 4 days in the fridge, and clears 38g of protein per serving. Drink the warm-lemon-ginger thing if you want; eat this for the actual outcome.",
-      },
-      {
-        rank: 7,
-        name: "Anti-inflammatory golden chicken soup, low-volume meal",
-        summary:
-          "When patients on actual GLP-1 therapy describe what works, low-volume warm meals come up repeatedly. Our anti-inflammatory chicken soup runs 380 kcal and 32g protein in a single bowl that takes 4-5 bites to feel full. This is the dish we'd cook on a 'natural Mounjaro' day — the same warm-stomach effect, far more nutritionally complete.",
-      },
-      {
-        rank: 8,
-        name: "High-protein breakfast bowl, front-loaded protein",
-        summary:
-          "If you're using the morning-drink ritual to feel like you're 'starting the day right,' do that with food. Our high-protein breakfast bowl runs 42g protein in 480 kcal and 15 minutes. Front-loaded morning protein is the single most useful eating habit on a GLP-1 — drug or no drug.",
-      },
-      {
-        rank: 9,
-        name: "Cottage-cheese pancakes, soft-texture mornings",
-        summary:
-          "Three pancakes, 28g protein, 12 minutes. We chose this for the same patient cohort that drinks lemon-ginger-honey water — people who want a soft, mild-flavoured morning that still does protein arithmetic. The pancakes do; the drink doesn't.",
-      },
-      {
-        rank: 10,
-        name: "What we'd say to anyone genuinely using this trend",
-        summary:
-          "The drink is fine. Drink it. Drink it warm in the morning, drink it before lunch, drink it with the cottage-cheese flatbread. What we'd push back on is the framing that it replaces a drug — it doesn't, and neither does any food. If a clinician has prescribed Mounjaro, Ozempic, Wegovy, or Zepbound, those drugs work because they activate GLP-1 (and GIP) receptors directly. If they haven't, the recipes above will out-perform any warm-water-and-lemon habit on every measurable axis.",
-      },
-    ],
-    faq: [
-      {
-        q: "Can natural Mounjaro recipes replace the medication?",
-        a: "No. There is no food, drink, or supplement that activates the GLP-1 (and GIP, in tirzepatide's case) receptors the way these medications do. Anyone telling you otherwise is selling something. Food can support the goals patients use these drugs for — fat loss, muscle preservation, glucose control — but not by mimicking the drug.",
-      },
-      {
-        q: "Is apple cider vinegar dangerous?",
-        a: "In small culinary amounts (1 tablespoon diluted in water), no. Drunk neat or in large quantities it can erode tooth enamel and irritate the oesophagus. The literature on its glucose effects is weak but not zero (Johnston 2010). Treat it as a pleasant ingredient, not a supplement.",
-      },
-      {
-        q: "Should I be sceptical of TikTok recipes that claim drug effects?",
-        a: "Yes. Reflexively. Any food trend that claims to reproduce a prescription drug's effect is overclaiming — by a lot. The recipes themselves may be fine; the marketing around them is the issue.",
-      },
-    ],
-    sources: [
-      {
-        label: "Jastreboff AM, Aronne LJ, Ahmad NN, et al. Tirzepatide once weekly for the treatment of obesity (SURMOUNT-1). N Engl J Med. 2022.",
-        url: "https://pubmed.ncbi.nlm.nih.gov/35658024/",
-      },
-      {
-        label: "Wilding JPH, Batterham RL, Calanna S, et al. Once-weekly semaglutide in adults with overweight or obesity (STEP-1). N Engl J Med. 2021.",
-        url: "https://pubmed.ncbi.nlm.nih.gov/33567185/",
-      },
-      {
-        label: "Johnston CS, Steplewska I, Long CA, Harris LN, Ryals RH. Examination of the antiglycemic properties of vinegar in healthy adults. Ann Nutr Metab. 2010.",
-        url: "https://pubmed.ncbi.nlm.nih.gov/20068289/",
-      },
-      {
-        label: "Wu KL, Rayner CK, Chuah SK, et al. Effects of ginger on gastric emptying and motility in healthy humans. Eur J Gastroenterol Hepatol. 2008.",
-        url: "https://pubmed.ncbi.nlm.nih.gov/18403946/",
-      },
-      {
-        label: "Phillips SM, Chevalier S, Leidy HJ. Protein 'requirements' beyond the RDA. Appl Physiol Nutr Metab. 2017.",
-        url: "https://pubmed.ncbi.nlm.nih.gov/26960445/",
-      },
-      {
-        label: "UK NICE guidance — Tirzepatide for managing overweight and obesity. TA1026, 2024.",
-        url: "https://www.nice.org.uk/guidance/ta1026",
-      },
-    ],
-  },
-  {
     slug: "savory-cottage-cheese-bowl",
     imageUrl: "/images/recipes/savory-cottage-cheese-bowl.jpg",
     title: "Savory Cottage Cheese Bowl with Tomato, Cucumber and Olive Oil",
     h1: "Savory cottage cheese bowl",
     description: "A 5-minute savory cottage cheese bowl with tomato, cucumber, olive oil, and za'atar. 32g protein, no sweet stuff, the lunch I eat three times a week.",
-    hub: "muscle-preservation",
+    hub: "protein-forward",
     peptideContext: "muscle-preservation",
     postType: "cluster",
     publishedAt: "2026-04-24",
@@ -2035,8 +1909,8 @@ export const posts: Post[] = [
     ],
     faq: [
       {
-        q: "Is cottage cheese healthy if I'm on a GLP-1?",
-        a: "It's one of the best foods on a GLP-1 in our reading. High protein per calorie, soft texture, mild flavor (food reward is often dulled on these drugs), and the casein digests slowly. Lena (our RD) recommends it as a default lunch protein for patients on Wegovy or Mounjaro who can't face anything fragrant.",
+        q: "Is cottage cheese a daily-driver protein?",
+        a: "Yes — one of the best high-protein-per-calorie defaults in our kitchen. High protein per calorie, soft texture, mild flavour, and the casein digests slowly so satiety holds. Lena (our RD) recommends it as a default lunch protein when something fragrant is too much.",
       },
       {
         q: "Can I make it ahead?",
@@ -2068,7 +1942,7 @@ export const posts: Post[] = [
     title: "Greek Yogurt Power Bowl with Berries, Walnuts and Hemp Seeds",
     h1: "Greek yogurt power bowl",
     description: "30g protein, 8g fiber, 10 minutes. A breakfast bowl that holds you to lunch without a second coffee.",
-    hub: "muscle-preservation",
+    hub: "protein-forward",
     peptideContext: "muscle-preservation",
     postType: "cluster",
     publishedAt: "2026-04-24",
@@ -2154,7 +2028,7 @@ export const posts: Post[] = [
     title: "Salmon Rice Bowl Meal Prep — 5 Lunches in 35 Minutes",
     h1: "Salmon rice bowl meal prep",
     description: "Five lunches: roasted salmon, brown rice, cucumber, edamame, sesame-soy dressing. 35 minutes Sunday, 38g protein per box.",
-    hub: "cycle-nutrition",
+    hub: "seasonal-menus",
     peptideContext: "cycle-nutrition",
     postType: "pillar",
     publishedAt: "2026-04-24",
@@ -2265,7 +2139,7 @@ export const posts: Post[] = [
     title: "Lentil and Sweet Potato Stew — One Pot, 18g Fiber",
     h1: "Lentil and sweet potato stew",
     description: "A weeknight one-pot stew. Red lentils, sweet potato, coconut milk, turmeric, lemon. 18g fiber per bowl, the kind of food that fixes a tired evening.",
-    hub: "anti-inflammatory-recovery",
+    hub: "diet-specific",
     peptideContext: "anti-inflammatory",
     postType: "cluster",
     publishedAt: "2026-04-24",
@@ -2319,7 +2193,7 @@ export const posts: Post[] = [
     faq: [
       {
         q: "Why is fiber the headline number here, not protein?",
-        a: "On a GLP-1, fiber is one of the under-eaten macros. Most patients are below 15g/day. This bowl carries 18g in one serving. UK NHS reference is 30g/day. We frame this stew around fiber the way our cottage-cheese recipes are framed around protein.",
+        a: "Fibre is one of the under-eaten macros — most adults are below 15g/day. This bowl carries 18g in one serving. UK NHS reference is 30g/day. We frame this stew around fibre the way our cottage-cheese recipes are framed around protein.",
       },
       {
         q: "Can I add chicken to bump the protein?",
@@ -2351,7 +2225,7 @@ export const posts: Post[] = [
     title: "Anti-Inflammatory Smoothie with Turmeric, Ginger and Pineapple",
     h1: "Anti-inflammatory smoothie",
     description: "A 4-minute smoothie with turmeric, fresh ginger, pineapple, kefir, and chia. 20g protein, the morning glass on cycle days.",
-    hub: "anti-inflammatory-recovery",
+    hub: "diet-specific",
     peptideContext: "anti-inflammatory",
     postType: "cluster",
     publishedAt: "2026-04-24",
@@ -2436,8 +2310,8 @@ export const posts: Post[] = [
     imageUrl: "/images/recipes/egg-white-frittata.jpg",
     title: "Egg White Frittata with Spinach and Goat Cheese",
     h1: "Egg white frittata",
-    description: "A soft frittata for the GLP-1 morning. 28g protein, 220 kcal, 18 minutes start to plate. Mild texture, no fried smell.",
-    hub: "glp1-friendly",
+    description: "A soft frittata for the small-appetite morning. 28g protein, 220 kcal, 18 minutes start to plate. Mild texture, no fried smell.",
+    hub: "meal-types",
     peptideContext: "glp1-friendly",
     postType: "cluster",
     publishedAt: "2026-04-24",
@@ -2491,7 +2365,7 @@ export const posts: Post[] = [
     faq: [
       {
         q: "Why egg whites and not whole eggs?",
-        a: "On a GLP-1, calorie density matters more than fat avoidance for most patients. Egg whites give you the protein at lower calorie density, which is useful when total food volume is small. The single whole egg back in the mix is for flavor and color. If you're not on a GLP-1, three whole eggs is a better default.",
+        a: "When total food volume is small, calorie density matters more than fat avoidance. Egg whites give you the protein at lower calorie density, which is useful when the plate has to be small. The single whole egg back in the mix is for flavour and colour. If you're cooking on a normal appetite, three whole eggs is the better default.",
       },
       {
         q: "Can I add other vegetables?",
@@ -2512,7 +2386,7 @@ export const posts: Post[] = [
         url: "https://pubmed.ncbi.nlm.nih.gov/26960445/",
       },
       {
-        label: "British Dietetic Association — Eating well on a smaller appetite (older adults factsheet, transferable to GLP-1 patients).",
+        label: "British Dietetic Association — Eating well on a smaller appetite.",
         url: "https://www.bda.uk.com/",
       },
     ],
@@ -2523,7 +2397,7 @@ export const posts: Post[] = [
     title: "Spinach and Feta Egg Bites — 12 Bites, 5 Days",
     h1: "Spinach and feta egg bites",
     description: "12 small egg bites for the week. 6g protein each, made in a muffin tin in 22 minutes, hold for 5 days. Designed for the in-between snack slot.",
-    hub: "muscle-preservation",
+    hub: "protein-forward",
     peptideContext: "muscle-preservation",
     postType: "cluster",
     publishedAt: "2026-04-24",
@@ -2609,7 +2483,7 @@ export const posts: Post[] = [
     title: "Chia Pudding Three Ways — Berry, Cocoa, Tahini",
     h1: "Chia pudding, three ways",
     description: "One base recipe, three flavors, all 18g protein. 5 minutes the night before, breakfast that doesn't need cooking.",
-    hub: "anti-inflammatory-recovery",
+    hub: "diet-specific",
     peptideContext: "anti-inflammatory",
     postType: "cluster",
     publishedAt: "2026-04-24",
@@ -2694,8 +2568,8 @@ export const posts: Post[] = [
     imageUrl: "/images/recipes/miso-salmon-soup.jpg",
     title: "Miso Salmon Soup — Soft, Hydrating, Low-Volume",
     h1: "Miso salmon soup",
-    description: "A clear miso broth with poached salmon and silken tofu. 28g protein in a 250 kcal bowl. The soup I cook for friends on a GLP-1.",
-    hub: "glp1-friendly",
+    description: "A clear miso broth with poached salmon and silken tofu. 28g protein in a 250 kcal bowl. The soup I cook on a small-appetite night.",
+    hub: "meal-types",
     peptideContext: "glp1-friendly",
     postType: "cluster",
     publishedAt: "2026-04-24",
@@ -2764,7 +2638,7 @@ export const posts: Post[] = [
       {
         rank: 6,
         name: "Spring onion, sesame oil, chili flakes if you like",
-        summary: "One sliced spring onion, half a teaspoon of toasted sesame oil, a pinch of chili flakes if you tolerate them. The chili is optional and many GLP-1 patients skip it; the spring onion and sesame oil are the move.",
+        summary: "One sliced spring onion, half a teaspoon of toasted sesame oil, a pinch of chili flakes if you tolerate them. The chili is optional and easy to skip on a small-appetite night; the spring onion and sesame oil are the move.",
       },
     ],
     faq: [
@@ -2778,7 +2652,7 @@ export const posts: Post[] = [
       },
       {
         q: "Is this enough for dinner?",
-        a: "On a GLP-1, yes for most patients. Off a GLP-1 it's a starter. Bulk it out with a side of brown rice (half cup) for a 38g protein, 380 kcal dinner if you're not in a low-volume eating window.",
+        a: "On a small-appetite night, yes — this is dinner. With a normal appetite it works as a starter. Bulk it out with a side of brown rice (half cup) for a 38g protein, 380 kcal dinner if you're not in a low-volume eating window.",
       },
     ],
     sources: [
@@ -2802,7 +2676,7 @@ export const posts: Post[] = [
     title: "Sheet-Pan Mediterranean Chicken with Olives, Feta and Lemon",
     h1: "Sheet-pan Mediterranean chicken",
     description: "One tray, four servings, 38g protein. Chicken thighs, cherry tomatoes, olives, feta, oregano. The Tuesday-night dinner I cook on autopilot.",
-    hub: "cycle-nutrition",
+    hub: "seasonal-menus",
     peptideContext: "cycle-nutrition",
     postType: "cluster",
     publishedAt: "2026-04-24",
@@ -2864,7 +2738,7 @@ export const posts: Post[] = [
       },
       {
         q: "What goes with it?",
-        a: "Brown rice or wholegrain orzo to soak up the pan juices. A simple cucumber-yogurt side. If you're cooking for someone on a GLP-1, just the chicken and tomatoes is plenty — the carb side is for everyone else at the table.",
+        a: "Brown rice or wholegrain orzo to soak up the pan juices. A simple cucumber-yogurt side. If you're cooking for a small appetite, just the chicken and tomatoes is plenty — the carb side is for everyone else at the table.",
       },
     ],
     sources: [

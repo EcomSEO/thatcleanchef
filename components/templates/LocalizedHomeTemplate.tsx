@@ -5,12 +5,10 @@ import {
   localizedHubName,
   localizedHubShortName,
   localizedHubOneLiner,
-  localizedMedicationOneLiner,
   localizedMealPlanTitle,
   localizedMealPlanDescription,
 } from "@/lib/content/translations-data";
 import { hubs } from "@/lib/content/hubs";
-import { medications } from "@/lib/content/medications";
 import { mealPlans } from "@/lib/content/meal-plans";
 import { posts } from "@/lib/content/posts";
 import { Eyebrow } from "@/components/editorial/Eyebrow";
@@ -105,41 +103,6 @@ export function LocalizedHomeTemplate({ locale }: { locale: Locale }) {
                 </li>
               );
             })}
-          </ul>
-        </div>
-      </section>
-
-      {/* Medications */}
-      <section id="medications" className="border-b border-olive/10 bg-paper">
-        <div className="mx-auto max-w-6xl px-6 py-14 md:py-20">
-          <Eyebrow tone="terracotta">{strings.sectionMedications}</Eyebrow>
-          <h2 className="font-serif text-3xl md:text-4xl text-olive mt-3 mb-3 leading-tight">
-            {strings.medicationsHeading}
-          </h2>
-          <p className="text-charcoal/80 max-w-xl leading-relaxed mb-10">
-            {strings.medicationsDek}
-          </p>
-          <ul className="grid sm:grid-cols-2 lg:grid-cols-4 gap-0 border-t border-olive/10">
-            {medications.map((m, i) => (
-              <li
-                key={m.slug}
-                className="border-b border-olive/10 sm:border-r"
-              >
-                <Link
-                  href={`/${locale}/medications/${m.slug}`}
-                  className="card-lift group block p-6 hover:bg-cream-deep/40"
-                >
-                  <span className="rank-numeral">{String(i + 1).padStart(2, "0")}</span>
-                  <h3 className="font-serif text-xl text-olive leading-tight mt-3 group-hover:text-terracotta transition">
-                    {m.brand}
-                  </h3>
-                  <p className="caps-label text-stone mt-1">{m.generic}</p>
-                  <p className="mt-3 text-[14px] text-charcoal/75 leading-relaxed line-clamp-4">
-                    {localizedMedicationOneLiner(m.slug, locale, m.oneLiner)}
-                  </p>
-                </Link>
-              </li>
-            ))}
           </ul>
         </div>
       </section>

@@ -6,24 +6,23 @@ import { TestKitchenStamp } from "@/components/editorial/TestKitchenStamp";
 import { DietitianReviewedBadge } from "@/components/editorial/DietitianReviewedBadge";
 import { posts } from "@/lib/content/posts";
 import { hubs } from "@/lib/content/hubs";
-import { medications } from "@/lib/content/medications";
 import { mealPlans } from "@/lib/content/meal-plans";
 import Image from "next/image";
 import Link from "next/link";
 
-const categoryEyebrows: Record<string, string> = {
-  "glp1-friendly": "GLP-1 therapy",
-  "muscle-preservation": "Muscle preservation",
-  "anti-inflammatory-recovery": "Recovery protocols",
-  "bone-tendon-health": "Connective tissue",
-  "cycle-nutrition": "Cycle windows",
+const hubEyebrows: Record<string, string> = {
+  "diet-specific": "Diet-specific",
+  "meal-types": "By meal type",
+  "protein-forward": "Protein-forward",
+  technique: "Technique & reference",
+  "seasonal-menus": "Seasonal & meal plans",
 };
 
 export default function HomePage() {
   const featured = posts.filter((p) => p.featured || p.nutritionLedger).slice(0, 8);
 
   const tiles = hubs.map((h) => ({
-    eyebrow: categoryEyebrows[h.slug] ?? "Category",
+    eyebrow: hubEyebrows[h.slug] ?? "Category",
     title: h.name,
     dek: h.oneLiner,
     href: `/guides/${h.slug}`,
@@ -37,76 +36,20 @@ export default function HomePage() {
 
       <CategoryTileGrid
         tiles={tiles}
-        heading="Browse recipes by peptide context"
-        dek="Five lenses on the same kitchen, organized for peptide therapy. GLP-1 friendly, muscle preservation, anti-inflammatory recovery, bone and tendon support, and cycle-window nutrition."
+        heading="Browse the kitchen"
+        dek="Five hubs that map how the recipe library is organised. Diet-specific frameworks, meal types for the weeknight grid, protein-forward recipes, technique reference, and the seasonal menus + RD-reviewed weekly meal plans."
       />
 
       <FeaturedRecipeCarousel
         posts={featured}
         heading="Editor's picks this week"
-        dek="Each recipe is tested at least three times and reviewed by a registered dietitian with peptide-therapy expertise."
+        dek="Each recipe is tested at least three times in our kitchen and reviewed by a registered dietitian before it ships."
       />
 
-      {/* Medication hubs — patient-context entry points */}
-      <section
-        id="medications"
-        className="border-y border-hairline bg-paper"
-      >
-        <div className="mx-auto max-w-7xl px-5 py-14 md:py-20">
-          <div className="flex items-end justify-between flex-wrap gap-3 mb-8">
-            <div>
-              <span className="caps-label text-terracotta">By medication</span>
-              <h2 className="mt-1.5 font-serif text-3xl md:text-4xl text-olive leading-tight">
-                Eating well on a GLP-1.
-              </h2>
-              <p className="mt-2 text-body-md text-ink-2 max-w-xl">
-                Recipes selected, scaled, and annotated for the cooking
-                constraints patients on tirzepatide and semaglutide consistently
-                report.
-              </p>
-            </div>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-0 border-t border-olive/10">
-            {medications.map((m, i) => (
-              <Link
-                key={m.slug}
-                href={`/medications/${m.slug}`}
-                className="card-lift group p-6 border-b sm:border-b border-olive/10 sm:[&:nth-child(2n)]:border-r-0 lg:[&:nth-child(n)]:border-r lg:[&:nth-child(4n)]:border-r-0 sm:border-r lg:border-b-0 hover:bg-cream-deep/40"
-              >
-                {m.imageUrl && (
-                  <div className="relative aspect-[16/10] w-full overflow-hidden mb-4 rounded-sm border border-olive/10 bg-cream-deep/40">
-                    <Image
-                      src={m.imageUrl}
-                      alt={`${m.brand} kitchen brief`}
-                      fill
-                      sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-                      className="object-cover"
-                    />
-                  </div>
-                )}
-                <span className="rank-numeral">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="font-serif text-xl text-olive leading-tight mt-3 group-hover:text-terracotta transition">
-                  {m.brand}
-                </h3>
-                <p className="caps-label text-stone mt-1">{m.generic}</p>
-                <p className="mt-3 text-sm text-charcoal/75 leading-relaxed line-clamp-3">
-                  {m.oneLiner}
-                </p>
-                <span className="mt-4 inline-flex items-center gap-1.5 text-terracotta group-hover:text-olive transition text-sm font-medium">
-                  See the kitchen brief &rarr;
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Meal plans — gated PDF lead magnets */}
+      {/* Meal plans — 3 RD-reviewed weekly plans */}
       <section
         id="meal-plans"
-        className="border-b border-hairline bg-cream-deep/30"
+        className="border-y border-hairline bg-cream-deep/30"
       >
         <div className="mx-auto max-w-7xl px-5 py-14 md:py-20">
           <div className="mb-8">
@@ -115,11 +58,12 @@ export default function HomePage() {
               Free PDFs, RD-reviewed.
             </h2>
             <p className="mt-2 text-body-md text-ink-2 max-w-xl">
-              Structured weekly eating, grocery list by section, macros
-              totalled per day. Two plans live; more in the pipeline.
+              Structured weekly eating, grocery list by section, macros totalled
+              per day. Three plans live: Anti-Inflammatory 14-day, Mediterranean
+              7-day, High-Protein 7-day.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-3 gap-6">
             {mealPlans.map((p) => (
               <Link
                 key={p.slug}
@@ -132,24 +76,24 @@ export default function HomePage() {
                       src={p.imageUrl}
                       alt={p.title}
                       fill
-                      sizes="(min-width: 768px) 50vw, 100vw"
+                      sizes="(min-width: 768px) 33vw, 100vw"
                       className="object-cover"
                     />
                   </div>
                 )}
                 <div className="p-7">
-                <span className="caps-label text-terracotta">
-                  {p.durationLabel}
-                </span>
-                <h3 className="font-serif text-2xl text-olive leading-tight mt-3 group-hover:text-terracotta transition">
-                  {p.title}
-                </h3>
-                <p className="mt-3 text-[15px] text-charcoal/80 leading-relaxed line-clamp-3">
-                  {p.description}
-                </p>
-                <span className="mt-5 inline-flex items-center gap-1.5 text-terracotta group-hover:text-olive transition text-sm font-medium">
-                  Get the PDF &rarr;
-                </span>
+                  <span className="caps-label text-terracotta">
+                    {p.durationLabel}
+                  </span>
+                  <h3 className="font-serif text-xl text-olive leading-tight mt-3 group-hover:text-terracotta transition">
+                    {p.title}
+                  </h3>
+                  <p className="mt-3 text-[15px] text-charcoal/80 leading-relaxed line-clamp-3">
+                    {p.description}
+                  </p>
+                  <span className="mt-5 inline-flex items-center gap-1.5 text-terracotta group-hover:text-olive transition text-sm font-medium">
+                    Get the PDF &rarr;
+                  </span>
                 </div>
               </Link>
             ))}

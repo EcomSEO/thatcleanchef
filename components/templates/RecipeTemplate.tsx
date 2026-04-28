@@ -20,9 +20,9 @@ import { SourcesAccordion, type SourceRef } from "../editorial/SourcesAccordion"
 import { RelatedRecipes, type RelatedRecipeCard } from "../editorial/RelatedRecipes";
 import { NewsletterInline } from "../editorial/NewsletterInline";
 import { DietTags } from "../NutritionLedger";
-import { PeptideContextCallout } from "../PeptideContextCallout";
 import { EducationalBanner } from "../EducationalBanner";
 import { WhyWeTestedThreeTimes } from "../editorial/WhyWeTestedThreeTimes";
+import { MediavineSlot } from "../MediavineSlot";
 
 /**
  * RecipeTemplate — full medical-info recipe layout.
@@ -181,11 +181,6 @@ export function RecipeTemplate({ post }: { post: Post }) {
               <EducationalBanner />
             </div>
 
-            <PeptideContextCallout
-              context={post.peptideContext ?? "glp1-friendly"}
-              proteinG={post.nutritionLedger?.proteinG}
-            />
-
             {/* Mobile-only inline NutritionLedger */}
             <div className="md:hidden mt-6">
               <NutritionLedger post={post} variant="inline" />
@@ -241,6 +236,8 @@ export function RecipeTemplate({ post }: { post: Post }) {
               <h2 className="text-h2-mid font-semibold text-ink">Variations</h2>
               <p className="mt-2 text-body-md text-ink-2">Substitutions and adaptations land with the photography shoot. The method holds across most reasonable swaps.</p>
             </section>
+
+            <MediavineSlot slot="mv-content-recipe" />
 
             <section id="storage" className="mt-12 scroll-mt-24">
               <h2 className="text-h2-mid font-semibold text-ink">Storage</h2>

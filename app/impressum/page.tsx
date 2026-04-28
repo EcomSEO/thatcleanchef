@@ -55,11 +55,11 @@ export default function ImpressumPage() {
       <section>
         <h2>Hinweis</h2>
         <p>
-          {SITE.name} ist ein redaktionelles Angebot mit Rezepten, die für
-          Menschen unter ärztlich verordneter Peptid- oder GLP-1-Therapie
-          gedacht sind. Die Inhalte sind keine medizinische, diätetische oder
-          pharmakologische Beratung. Bitte konsultieren Sie Ihren behandelnden
-          Arzt, bevor Sie Ihre Ernährung ändern.
+          {SITE.name} ist ein redaktionelles Angebot mit chefgeprüften
+          Clean-Eating-Rezepten und USDA-belegter Nährwertkarte zu jedem
+          Rezept. Die Inhalte sind keine medizinische, diätetische oder
+          pharmakologische Beratung. Bitte konsultieren Sie eine qualifizierte
+          Fachperson, bevor Sie Ihre Ernährung wesentlich ändern.
         </p>
       </section>
 

@@ -4,10 +4,10 @@
  * country-specific overlays documented in the April 2026 EU
  * compliance audit.
  *
- * ThatCleanChef is a peptide-therapy nutrition / clean recipes
+ * ThatCleanChef is a clean-eating recipe site
  * publisher. The list below is ported from larderlab and adds patterns
  * for "weight-loss guaranteed", "rapid fat loss", "burn fat fast" since
- * peptide-therapy and GLP-1 recipe context can attract weight-loss
+ * recipe-site context can attract weight-loss
  * framing risk (per the audit's note on diet/weight-loss claims under
  * Reg. 1924/2006 Art. 13(1) and the UCPD).
  *

@@ -1,3 +1,15 @@
+/**
+ * The 5 ThatCleanChef hubs — recipe-site framing per `docs/topical-maps/
+ * thatcleanchef.md`. This is Option A in the network strategic decision:
+ * recipe site for Kate (busy professional), Mediavine display-ad thesis,
+* NOT a peptide-therapy nutrition site (the brief peptide pivot was reverted under Option A).
+ *
+ * Hub slugs are deliberately stable URL keys — DO NOT rename without a 301
+ * map. The legacy peptide hub slugs from the brief pivot (glp1-friendly, muscle-preservation,
+ * anti-inflammatory-recovery, bone-tendon-health, cycle-nutrition) are
+ * 301'd to the closest surviving recipe-site hub in `next.config.mjs`.
+ */
+
 export type Hub = {
   slug: string;
   name: string;
@@ -10,54 +22,54 @@ export type Hub = {
 
 export const hubs: Hub[] = [
   {
-    slug: "glp1-friendly",
-    imageUrl: "/images/hubs/glp1-friendly.jpg",
-    name: "GLP-1 Friendly Recipes",
-    shortName: "GLP-1 Friendly",
+    slug: "diet-specific",
+    imageUrl: "/images/hubs/diet-specific.jpg",
+    name: "Diet-Specific Recipes",
+    shortName: "Diet-Specific",
     oneLiner:
-      "Small portions, nutrient-dense, easier digestion — for reduced appetite on semaglutide, tirzepatide, or liraglutide.",
+      "Anti-inflammatory, Whole30, Mediterranean, PCOS, low-FODMAP — chef-tested recipes that respect the diet without scolding the cook.",
     thesis:
-      "GLP-1 medications shrink appetite. The food has to do more in less volume. Every recipe in this hub is built for nutrient density per smaller portion, gentle on a slow-emptying stomach, and easy to finish on a low-appetite day.",
+      "Most diet-specific recipes online are either rigid plan-of-the-month content or watered-down imitations of the cuisine they claim to honor. We test the recipe against the diet's actual rules and against good cooking, in that order. The result is a recipe that holds up at the table whether or not the cook is following the diet that week.",
   },
   {
-    slug: "muscle-preservation",
-    imageUrl: "/images/hubs/muscle-preservation.jpg",
-    name: "High-Protein for Muscle Preservation",
-    shortName: "Muscle Preservation",
+    slug: "meal-types",
+    imageUrl: "/images/hubs/meal-types.jpg",
+    name: "Meal Types",
+    shortName: "Meal Types",
     oneLiner:
-      "30g+ protein per serving. Designed to prevent lean-mass loss during GLP-1 therapy and caloric deficit.",
+      "Breakfast, lunch, dinner, snack, dessert, drinks. The five-shelf weeknight library — all chef-tested, all timed honestly.",
     thesis:
-      "The single biggest nutritional risk on GLP-1 therapy is losing muscle alongside fat. Hitting a 1.2-1.6g/kg/day protein target on reduced calories is non-negotiable. These recipes do the math for you — 30 grams or more per serving, and the protein is the hero.",
+      "What people actually search for is dinner. Then breakfast. Then a snack that isn't a protein bar. We organize by meal type because that's how the cooking week actually plays — the recipes inside cross diet and cuisine lines, but the slot they fill is fixed.",
   },
   {
-    slug: "anti-inflammatory-recovery",
-    imageUrl: "/images/hubs/anti-inflammatory-recovery.jpg",
-    name: "Anti-Inflammatory Recovery",
-    shortName: "Anti-Inflammatory",
+    slug: "protein-forward",
+    imageUrl: "/images/hubs/protein-forward.jpg",
+    name: "Protein-Forward Recipes",
+    shortName: "High-Protein",
     oneLiner:
-      "Anti-inflammatory ingredients that support BPC-157, TB-500 protocols and joint/tendon recovery work.",
+      "30g+ protein per serving, real food only. Cottage cheese, eggs, salmon, chicken — the protein is the hero, not a powder.",
     thesis:
-      "Peptide-cycle users running BPC-157, TB-500, or similar recovery protocols benefit from a low-inflammation food backdrop — turmeric, ginger, omega-3 fats, dark leafy greens. These recipes are built around those ingredients without turning into supplement marketing.",
+      "Protein-targeted recipes online are dominated by powders, bars, and supplement marketing. The protein-forward hub here is real-food only: cottage cheese, Greek yogurt, eggs, salmon, chicken, lentils. The arithmetic still hits the target — just with ingredients you'd cook anyway.",
   },
   {
-    slug: "bone-tendon-health",
-    imageUrl: "/images/hubs/bone-tendon-health.jpg",
-    name: "Bone & Tendon Health",
-    shortName: "Bone & Tendon",
+    slug: "technique",
+    imageUrl: "/images/hubs/technique.jpg",
+    name: "Technique & Reference",
+    shortName: "Technique",
     oneLiner:
-      "Collagen-supporting recipes — bone broth, gelatin, vitamin C — that pair with peptide therapy for connective tissue.",
+      "How to roast a chicken, how to make bone broth, how to cook salmon four ways. The reference layer underneath the recipes.",
     thesis:
-      "Connective tissue rebuilds slowly and needs the substrate to do it. Bone broth, slow-cooked collagen sources, and vitamin-C-rich pairings give the body the raw material that peptide protocols try to put to work.",
+      "Recipes age out, technique doesn't. The technique hub is the layer of knowing-how-to-cook the rest of the site rests on — roasting a whole bird, building a sheet-pan dinner, cooking salmon to four different finishes, breaking down a Dutch-oven braise. We write these once, properly, and link to them from every recipe that uses the move.",
   },
   {
-    slug: "cycle-nutrition",
-    imageUrl: "/images/hubs/cycle-nutrition.jpg",
-    name: "Pre/Post-Cycle Nutrition",
-    shortName: "Cycle Nutrition",
+    slug: "seasonal-menus",
+    imageUrl: "/images/hubs/seasonal-menus.jpg",
+    name: "Seasonal Menus & Meal Plans",
+    shortName: "Seasonal & Plans",
     oneLiner:
-      "Meal patterns built around the structure of a peptide cycle — pre-cycle priming, post-cycle recovery windows.",
+      "Quarterly clean-dinner menus and structured weekly meal plans (Anti-Inflammatory, Mediterranean, High-Protein) — RD-reviewed.",
     thesis:
-      "A peptide cycle has a shape. Nutrition can match it: pre-cycle, you front-load protein and micronutrients; post-cycle, you eat to support what the cycle was working on. These recipes are organized around those windows rather than a generic weekly plan.",
+      "A weekly meal plan is the single most-asked-for thing in the recipe-site search graph. We publish three plans seriously — Anti-Inflammatory 7-day, Mediterranean 7-day, High-Protein 7-day — and four seasonal menus that curate cross-hub recipes by what's at the market.",
   },
 ];
 

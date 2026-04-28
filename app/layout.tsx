@@ -3,6 +3,7 @@ import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { CookieConsent } from "@/components/CookieConsent";
+import { MediavineScript } from "@/components/MediavineScript";
 import { OrganizationJsonLd } from "@/components/schema/OrganizationJsonLd";
 import { SITE } from "@/lib/content/site";
 import { robotsMeta } from "@/lib/seo";
@@ -63,6 +64,7 @@ export default function RootLayout({
         {children}
         <Footer />
         <CookieConsent />
+        <MediavineScript />
       </body>
     </html>
   );

@@ -47,7 +47,7 @@ export const AFFILIATE_DISCLOSURE = {
       heading: "3. How recommendations are made",
       body: [
         "Editorial independence is non-negotiable.",
-        "We recommend on the merits — nutrition density, ingredient quality, durability of cookware, peptide-therapy appropriateness — not on commission rate.",
+        "We recommend on the merits — nutrition density, ingredient quality, durability of cookware, nutrition density — not on commission rate.",
         "We never accept payment for placement.",
         "We never raise a product's ranking because its affiliate program pays better.",
         "When we have to choose between two genuinely-tied products and only one has an affiliate program, we say so in the post and link the non-affiliate one too.",
@@ -60,7 +60,7 @@ export const AFFILIATE_DISCLOSURE = {
         "Amazon Associates (cookware, kitchen tools).",
         "ShareASale, Impact, Awin (cookware and dietitian-vetted food brands).",
         "Direct relationships with selected vendors, disclosed per post.",
-        "ThatCleanChef does **not** participate in peptide-vendor or GLP-1-vendor affiliate programs. Zero. Ever. Editorial standards forbid it because the audience is patient-adjacent and the products are prescription-only in most jurisdictions.",
+        "ThatCleanChef does **not** participate in pharmaceutical, peptide, or GLP-1-vendor affiliate programs. Zero. Ever. Editorial standards forbid it — those products are prescription-only in most jurisdictions and a recipe site has no business steering patients toward them.",
       ],
     },
     {

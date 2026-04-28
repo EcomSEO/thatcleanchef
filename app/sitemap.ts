@@ -2,7 +2,6 @@ import type { MetadataRoute } from "next";
 import { SITE } from "@/lib/content/site";
 import { hubs } from "@/lib/content/hubs";
 import { posts } from "@/lib/content/posts";
-import { medications } from "@/lib/content/medications";
 import { mealPlans } from "@/lib/content/meal-plans";
 import { recipeCategories } from "@/lib/content/recipe-categories";
 import { team } from "@/lib/content/team";
@@ -58,15 +57,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       0.9,
     ),
 
-    // Medications — 4 brands × 12 locales
-    ...localizedExpand(
-      medications.map((m) => `/medications/${m.slug}`),
-      now,
-      "weekly",
-      0.9,
-    ),
-
-    // Meal plans — 2 plans × 12 locales (lastModified per plan reviewedOn)
+    // Meal plans — 3 RD-reviewed plans × 12 locales (lastModified per plan reviewedOn)
     ...mealPlans.flatMap((p) => {
       const path = `/meal-plans/${p.slug}`;
       return [

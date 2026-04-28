@@ -12,37 +12,27 @@ const nextConfig = {
     ],
   },
   /**
-   * 301 redirects for hub slugs retired in the b5ee768 peptide-therapy
-   * repositioning. Each old slug maps to the closest surviving hub so
-   * inbound links and cached SERP results don't 404.
+   * 301 redirects for the peptide hub slugs that were live during the
+   * b5ee768 → reverted positioning window. Each old slug maps to the
+   * closest surviving recipe-site hub so inbound links and cached SERP
+   * results don't 404. Also redirect the deprecated /medications/* tree
+   * to /guides/diet-specific (the closest surviving hub).
    */
   async redirects() {
     return [
-      {
-        source: "/guides/diet-specific",
-        destination: "/guides/glp1-friendly",
-        permanent: true,
-      },
-      {
-        source: "/guides/meal-types",
-        destination: "/guides/glp1-friendly",
-        permanent: true,
-      },
-      {
-        source: "/guides/protein-forward",
-        destination: "/guides/muscle-preservation",
-        permanent: true,
-      },
-      {
-        source: "/guides/technique",
-        destination: "/guides/cycle-nutrition",
-        permanent: true,
-      },
-      {
-        source: "/guides/seasonal",
-        destination: "/guides/cycle-nutrition",
-        permanent: true,
-      },
+      // Peptide hub slugs → recipe-site hubs
+      { source: "/guides/glp1-friendly", destination: "/guides/meal-types", permanent: true },
+      { source: "/guides/muscle-preservation", destination: "/guides/protein-forward", permanent: true },
+      { source: "/guides/anti-inflammatory-recovery", destination: "/guides/diet-specific", permanent: true },
+      { source: "/guides/bone-tendon-health", destination: "/guides/technique", permanent: true },
+      { source: "/guides/cycle-nutrition", destination: "/guides/seasonal-menus", permanent: true },
+
+      // Deprecated medications tree → diet-specific hub
+      { source: "/medications", destination: "/guides/diet-specific", permanent: true },
+      { source: "/medications/:brand", destination: "/guides/diet-specific", permanent: true },
+
+      // Deprecated peptide-themed listicle slug → recipe index
+      { source: "/natural-mounjaro-recipes", destination: "/recipes", permanent: true },
     ];
   },
 };

@@ -22,7 +22,6 @@ const RESERVED = new Set([
   "editorial-standards",
   "newsletter",
   "guides",
-  "medications",
   "meal-plans",
   "recipes",
   "ingredients",

@@ -1,16 +1,20 @@
 export const SITE = {
   name: "ThatCleanChef",
   url: "https://thatcleanchef.com",
-  tagline: "Clean-eating recipes for people on peptide therapy",
-  taglineAlt: "Clean-eating recipes for people on peptide therapy",
+  tagline: "Clean-eating recipes that respect your time",
+  taglineAlt: "Recipes tested three times, timed honestly, USDA-cited",
   description:
-    "Recipes designed for GLP-1 patients fighting muscle loss, peptide-cycle users supporting recovery, and anyone optimizing nutrition during peptide protocols. Time-honest. USDA Nutrition Ledger on every recipe. Reviewed by registered dietitians with peptide-therapy expertise.",
+    "Chef-tested clean-eating recipes with a USDA-sourced Nutrition Ledger on every page. Honest prep times, original photography, and a registered-dietitian review on every recipe. Anti-inflammatory, Whole30, Mediterranean, high-protein, low-FODMAP — five hubs, no diet-scolding.",
   author: "The ThatCleanChef Kitchen",
   email: "hello@thatcleanchef.com",
   launched: true,
-  // Kitchen "pass" = the counter where plates go out. Our dateline treatment.
+  /** Kitchen "pass" = the counter where plates go out. Our dateline treatment. */
   service: "Service I",
   issue: "Issue No. 01",
-  /** Repositioning flag — peptide-therapy context layered onto recipes. */
-  peptideContext: true,
+  /**
+   * Mediavine display-ad gate. Flips to true only after the site clears 50k
+   * sessions/mo and Mediavine onboarding completes. Recipe-site economics
+   * make this material — see CLAUDE.md "Display ads — network exception".
+   */
+  displayAdsEnabled: false,
 } as const;

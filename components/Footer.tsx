@@ -23,8 +23,8 @@ export function Footer() {
           </div>
           <div className="max-w-md text-body-sm text-ink-2 leading-relaxed">
             Independent test kitchen. Recipes tested 3+ times in our kitchen,
-            reviewed by registered dietitians with peptide-therapy expertise,
-            USDA-cited Nutrition Ledger on every recipe.
+            reviewed by a registered dietitian, USDA-cited Nutrition Ledger on
+            every recipe.
           </div>
         </div>
 
@@ -46,12 +46,12 @@ export function Footer() {
           </div>
 
           <div className="md:col-span-3">
-            <h4 className="caps-label mb-4">Peptide context</h4>
+            <h4 className="caps-label mb-4">Meal plans</h4>
             <ul className="space-y-2 text-body-sm">
-              <li><Link href="/guides/glp1-friendly" className="text-ink hover:text-sage-700">GLP-1 friendly</Link></li>
-              <li><Link href="/guides/muscle-preservation" className="text-ink hover:text-sage-700">Muscle preservation</Link></li>
-              <li><Link href="/guides/anti-inflammatory-recovery" className="text-ink hover:text-sage-700">Anti-inflammatory recovery</Link></li>
-              <li><Link href="/guides/cycle-nutrition" className="text-ink hover:text-sage-700">Cycle nutrition</Link></li>
+              <li><Link href="/meal-plans/14-day-anti-inflammatory" className="text-ink hover:text-sage-700">Anti-inflammatory · 14 days</Link></li>
+              <li><Link href="/meal-plans/7-day-mediterranean" className="text-ink hover:text-sage-700">Mediterranean · 7 days</Link></li>
+              <li><Link href="/meal-plans/7-day-high-protein" className="text-ink hover:text-sage-700">High-protein · 7 days</Link></li>
+              <li><Link href="/recipes" className="text-ink hover:text-sage-700">Full recipe index</Link></li>
             </ul>
           </div>
 

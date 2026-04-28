@@ -1,23 +1,28 @@
 /**
- * Translations for ThatCleanChef site chrome, hub names, medication
- * summaries, meal-plan metadata, and recipe titles + descriptions across
- * twelve locales.
+ * Translations for ThatCleanChef site chrome, hub names, meal-plan metadata,
+ * and recipe titles + descriptions across twelve locales.
  *
- * Recipe bodies (items, FAQ answers, sources) are NOT translated here.
- * They remain in English by deliberate editorial decision — machine-
- * translated medical-context dietary advice is unsafe for GLP-1 patients.
- * Human translation of the recipe corpus is queued as a separate workflow.
+ * Recipe bodies (items, FAQ answers, sources) are NOT translated here. They
+ * remain in English by deliberate editorial decision — recipe instructions
+ * are easy to introduce errors into when machine-translated, and our
+ * recipes are tested in English. Human translation of the recipe corpus is
+ * queued as a separate workflow.
  *
  * What IS translated:
  *   - chrome: nav, footer, UI labels, the site tagline and description
  *   - hubs: name, shortName, oneLiner (the 5 pillars)
- *   - medications: brand name (kept), oneLiner (translated)
  *   - meal plans: title + description
  *   - recipes: title + description (titles only — bodies in English)
  *
  * Falling back: any locale that doesn't have a key for a given string
  * falls back to `en`. The component using a translation should not crash
  * if a key is missing.
+ *
+ * Note: `medicationsHeading` / `medicationsDek` / `sectionMedications` and
+ * `navMedications` are legacy fields from a brief peptide-therapy
+ * positioning that was reverted (Option A in the network strategic plan).
+ * They remain in the type for binary compatibility but are empty strings
+ * across locales and are not rendered anywhere.
  */
 
 import type { Locale } from "./i18n";
@@ -90,27 +95,27 @@ const en: ChromeStrings = {
   navHome: "Home",
   navRecipes: "Recipes",
   navGuides: "Guides",
-  navMedications: "Medications",
+  navMedications: "Medications", // legacy key — no longer rendered after Option-A revert
   navMealPlans: "Meal plans",
   navTeam: "Team",
   navAbout: "About",
 
-  heroEyebrow: "Clean-eating recipes for people on peptide therapy",
-  heroH1: "Recipes for the way you actually eat now.",
-  heroDek: "Time-honest recipes, USDA Nutrition Ledger on every page, reviewed by a registered dietitian. Built for people on GLP-1 therapy and peptide protocols.",
+  heroEyebrow: "Issue No. 01 · Spring service",
+  heroH1: "Clean-eating recipes that respect your time.",
+  heroDek: "Chef-tested, USDA-cited, time-honest. Anti-inflammatory, Mediterranean, high-protein, low-FODMAP — five hubs, no diet-scolding, original photography on every recipe.",
   ctaBrowseRecipes: "Browse recipes",
   ctaSeeMealPlans: "See the meal plans",
 
-  sectionPillars: "Browse by peptide context",
+  sectionPillars: "Browse the kitchen",
   sectionFeatured: "Editor's picks this week",
-  sectionMedications: "Eating well on a GLP-1",
+  sectionMedications: "", // legacy — section removed after Option-A revert
   sectionMealPlans: "Free PDFs, RD-reviewed",
   sectionTrust: "How we work",
 
   trustTested: "Tested 3+ times",
   trustTestedDek: "No recipe ships before it works on home equipment three separate times. We publish what changed between tests.",
   trustReviewed: "Reviewed by a registered dietitian",
-  trustReviewedDek: "Every recipe is read by a credentialed RDN before it goes live. Their name and license are on the page.",
+  trustReviewedDek: "Every recipe is read by a credentialed RDN before it goes live. Their name and registration are on the page.",
   trustCited: "USDA-cited Nutrition Ledger",
   trustCitedDek: "Per-serving values calculated from ingredients against the USDA FoodData Central reference. We disclose where each number comes from.",
 
@@ -124,14 +129,14 @@ const en: ChromeStrings = {
   labelSeeRecipe: "See the recipe",
   labelGetThePdf: "Get the PDF",
 
-  medicationsHeading: "Eating well on a GLP-1.",
-  medicationsDek: "Recipes selected, scaled, and annotated for the cooking constraints patients on tirzepatide and semaglutide consistently report.",
+  medicationsHeading: "", // legacy
+  medicationsDek: "", // legacy
 
   mealPlansHeading: "Free PDFs, RD-reviewed.",
-  mealPlansDek: "Structured weekly eating, grocery list by section, macros totalled per day. Two plans live; more in the pipeline.",
+  mealPlansDek: "Structured weekly eating, grocery list by section, macros totalled per day. Three plans live: Anti-Inflammatory 14-day, Mediterranean 7-day, High-Protein 7-day.",
 
   translationNoticeTitle: "About this translation",
-  translationNoticeBody: "Recipe bodies on ThatCleanChef are written in English. We translate site navigation, recipe titles, and pillar summaries into twelve languages, but keep the cooking instructions and dietary notes in English by editorial choice — machine-translated medical-context dietary content carries real risk. Each recipe page links you to the full English version.",
+  translationNoticeBody: "ThatCleanChef recipes are written in English. We translate the site chrome and recipe metadata into twelve languages, but keep the cooking instructions in English by editorial choice — translated cooking instructions are easy to introduce errors into, and our recipes are tested in English. Each recipe page links to the full English version.",
 
   switchLanguage: "Language",
 
@@ -149,15 +154,15 @@ const de: ChromeStrings = {
   navTeam: "Team",
   navAbout: "Über uns",
 
-  heroEyebrow: "Clean-Eating-Rezepte für Menschen unter Peptidtherapie",
+  heroEyebrow: "Issue No. 01",
   heroH1: "Rezepte für die Art, wie du jetzt isst.",
-  heroDek: "Ehrliche Zubereitungszeiten, USDA-Nährwertkarte auf jeder Seite, geprüft von einer Ernährungsberaterin. Entwickelt für Patient:innen unter GLP-1-Therapie und Peptidprotokollen.",
+  heroDek: "Chef-tested, USDA-cited, time-honest. Anti-inflammatory, Mediterranean, high-protein, low-FODMAP — five hubs.",
   ctaBrowseRecipes: "Rezepte ansehen",
   ctaSeeMealPlans: "Ernährungspläne anzeigen",
 
-  sectionPillars: "Nach Peptid-Kontext stöbern",
+  sectionPillars: "Browse the kitchen",
   sectionFeatured: "Empfehlungen der Woche",
-  sectionMedications: "Gut essen mit einem GLP-1",
+  sectionMedications: "",
   sectionMealPlans: "Kostenlose PDFs, von Ernährungsberaterinnen geprüft",
   sectionTrust: "Wie wir arbeiten",
 
@@ -178,8 +183,8 @@ const de: ChromeStrings = {
   labelSeeRecipe: "Zum Rezept",
   labelGetThePdf: "PDF herunterladen",
 
-  medicationsHeading: "Gut essen mit einem GLP-1.",
-  medicationsDek: "Rezepte, die für die Kochbedingungen ausgewählt, skaliert und kommentiert sind, die Patient:innen unter Tirzepatid und Semaglutid regelmäßig beschreiben.",
+  medicationsHeading: "",
+  medicationsDek: "",
 
   mealPlansHeading: "Kostenlose PDFs, geprüft.",
   mealPlansDek: "Strukturierte Wochenpläne, Einkaufsliste nach Abteilungen, Makros pro Tag aufsummiert. Zwei Pläne sind live, weitere folgen.",
@@ -203,15 +208,15 @@ const fr: ChromeStrings = {
   navTeam: "Équipe",
   navAbout: "À propos",
 
-  heroEyebrow: "Recettes saines pour les patients sous traitement par peptides",
+  heroEyebrow: "Issue No. 01",
   heroH1: "Des recettes pour votre façon de manger aujourd'hui.",
-  heroDek: "Temps de préparation honnêtes, tableau nutritionnel USDA sur chaque page, validé par une diététicienne diplômée. Conçu pour les patients sous traitement GLP-1 et protocoles peptidiques.",
+  heroDek: "Chef-tested, USDA-cited, time-honest. Anti-inflammatory, Mediterranean, high-protein, low-FODMAP — five hubs.",
   ctaBrowseRecipes: "Parcourir les recettes",
   ctaSeeMealPlans: "Voir les plans de repas",
 
-  sectionPillars: "Parcourir par contexte peptidique",
+  sectionPillars: "Browse the kitchen",
   sectionFeatured: "Sélection de la semaine",
-  sectionMedications: "Bien manger sous GLP-1",
+  sectionMedications: "",
   sectionMealPlans: "PDF gratuits, validés par une diététicienne",
   sectionTrust: "Notre méthode",
 
@@ -232,8 +237,8 @@ const fr: ChromeStrings = {
   labelSeeRecipe: "Voir la recette",
   labelGetThePdf: "Obtenir le PDF",
 
-  medicationsHeading: "Bien manger sous GLP-1.",
-  medicationsDek: "Recettes sélectionnées, ajustées et annotées pour les contraintes de cuisson que les patients sous tirzépatide et sémaglutide signalent régulièrement.",
+  medicationsHeading: "",
+  medicationsDek: "",
 
   mealPlansHeading: "PDF gratuits, validés.",
   mealPlansDek: "Plans hebdomadaires structurés, liste de courses par rayon, macros cumulés par jour. Deux plans en ligne, d'autres à venir.",
@@ -257,15 +262,15 @@ const it: ChromeStrings = {
   navTeam: "Team",
   navAbout: "Chi siamo",
 
-  heroEyebrow: "Ricette pulite per chi segue una terapia peptidica",
+  heroEyebrow: "Issue No. 01",
   heroH1: "Ricette pensate per come mangi ora.",
-  heroDek: "Tempi di preparazione onesti, scheda nutrizionale USDA su ogni pagina, revisionate da una dietista qualificata. Progettate per chi è in terapia GLP-1 o segue protocolli peptidici.",
+  heroDek: "Chef-tested, USDA-cited, time-honest. Anti-inflammatory, Mediterranean, high-protein, low-FODMAP — five hubs.",
   ctaBrowseRecipes: "Sfoglia le ricette",
   ctaSeeMealPlans: "Vedi i piani alimentari",
 
-  sectionPillars: "Sfoglia per contesto peptidico",
+  sectionPillars: "Browse the kitchen",
   sectionFeatured: "I consigli della settimana",
-  sectionMedications: "Mangiar bene con un GLP-1",
+  sectionMedications: "",
   sectionMealPlans: "PDF gratuiti, revisionati",
   sectionTrust: "Come lavoriamo",
 
@@ -286,8 +291,8 @@ const it: ChromeStrings = {
   labelSeeRecipe: "Vai alla ricetta",
   labelGetThePdf: "Scarica il PDF",
 
-  medicationsHeading: "Mangiar bene con un GLP-1.",
-  medicationsDek: "Ricette selezionate, scalate e annotate per i vincoli di cottura che i pazienti in terapia con tirzepatide e semaglutide segnalano regolarmente.",
+  medicationsHeading: "",
+  medicationsDek: "",
 
   mealPlansHeading: "PDF gratuiti, revisionati.",
   mealPlansDek: "Piani settimanali strutturati, lista della spesa per reparto, macro sommati per giorno. Due piani online, altri in arrivo.",
@@ -313,13 +318,13 @@ const es: ChromeStrings = {
 
   heroEyebrow: "Recetas saludables para personas en terapia con péptidos",
   heroH1: "Recetas para cómo comes ahora.",
-  heroDek: "Tiempos de preparación honestos, panel nutricional USDA en cada página, revisado por una dietista colegiada. Pensado para pacientes en terapia GLP-1 y protocolos peptídicos.",
+  heroDek: "Chef-tested, USDA-cited, time-honest. Anti-inflammatory, Mediterranean, high-protein, low-FODMAP — five hubs.",
   ctaBrowseRecipes: "Ver recetas",
   ctaSeeMealPlans: "Ver planes de comidas",
 
   sectionPillars: "Explorar por contexto peptídico",
   sectionFeatured: "Selección de la semana",
-  sectionMedications: "Comer bien con un GLP-1",
+  sectionMedications: "",
   sectionMealPlans: "PDF gratuitos, revisados por dietista",
   sectionTrust: "Cómo trabajamos",
 
@@ -340,8 +345,8 @@ const es: ChromeStrings = {
   labelSeeRecipe: "Ver la receta",
   labelGetThePdf: "Descargar el PDF",
 
-  medicationsHeading: "Comer bien con un GLP-1.",
-  medicationsDek: "Recetas seleccionadas, escaladas y anotadas para las limitaciones de cocción que los pacientes con tirzepatida y semaglutida señalan regularmente.",
+  medicationsHeading: "",
+  medicationsDek: "",
 
   mealPlansHeading: "PDF gratuitos, revisados.",
   mealPlansDek: "Planes semanales estructurados, lista de la compra por sección, macros totalizados por día. Dos planes en línea, más por llegar.",
@@ -365,15 +370,15 @@ const nl: ChromeStrings = {
   navTeam: "Team",
   navAbout: "Over ons",
 
-  heroEyebrow: "Schone recepten voor mensen onder peptidetherapie",
+  heroEyebrow: "Issue No. 01",
   heroH1: "Recepten voor hoe je nu eet.",
-  heroDek: "Eerlijke bereidingstijden, USDA-voedingstabel op elke pagina, beoordeeld door een geregistreerde diëtiste. Gemaakt voor patiënten onder GLP-1-therapie en peptideprotocollen.",
+  heroDek: "Chef-tested, USDA-cited, time-honest. Anti-inflammatory, Mediterranean, high-protein, low-FODMAP — five hubs.",
   ctaBrowseRecipes: "Bekijk recepten",
   ctaSeeMealPlans: "Bekijk eetschema's",
 
-  sectionPillars: "Bladeren op peptidecontext",
+  sectionPillars: "Browse the kitchen",
   sectionFeatured: "Selectie van de week",
-  sectionMedications: "Goed eten met een GLP-1",
+  sectionMedications: "",
   sectionMealPlans: "Gratis pdf's, door diëtiste beoordeeld",
   sectionTrust: "Zo werken we",
 
@@ -394,8 +399,8 @@ const nl: ChromeStrings = {
   labelSeeRecipe: "Bekijk het recept",
   labelGetThePdf: "Download de pdf",
 
-  medicationsHeading: "Goed eten met een GLP-1.",
-  medicationsDek: "Recepten geselecteerd, geschaald en geannoteerd voor de kookbeperkingen die patiënten onder tirzepatide en semaglutide consequent rapporteren.",
+  medicationsHeading: "",
+  medicationsDek: "",
 
   mealPlansHeading: "Gratis pdf's, beoordeeld.",
   mealPlansDek: "Gestructureerde weekschema's, boodschappenlijst per afdeling, macro's per dag opgeteld. Twee schema's online, meer in voorbereiding.",
@@ -421,13 +426,13 @@ const pl: ChromeStrings = {
 
   heroEyebrow: "Przepisy clean-eating dla osób na terapii peptydowej",
   heroH1: "Przepisy dopasowane do tego, jak naprawdę teraz jesz.",
-  heroDek: "Uczciwe czasy przygotowania, tabela wartości odżywczych USDA na każdej stronie, zatwierdzone przez dyplomowanego dietetyka. Stworzone dla pacjentów na terapii GLP-1 i protokołach peptydowych.",
+  heroDek: "Chef-tested, USDA-cited, time-honest. Anti-inflammatory, Mediterranean, high-protein, low-FODMAP — five hubs.",
   ctaBrowseRecipes: "Przeglądaj przepisy",
   ctaSeeMealPlans: "Zobacz plany posiłków",
 
   sectionPillars: "Przeglądaj według kontekstu peptydowego",
   sectionFeatured: "Wybór tygodnia",
-  sectionMedications: "Dobre jedzenie przy GLP-1",
+  sectionMedications: "",
   sectionMealPlans: "Bezpłatne pliki PDF, sprawdzone przez dietetyka",
   sectionTrust: "Jak pracujemy",
 
@@ -448,8 +453,8 @@ const pl: ChromeStrings = {
   labelSeeRecipe: "Zobacz przepis",
   labelGetThePdf: "Pobierz PDF",
 
-  medicationsHeading: "Dobre jedzenie przy GLP-1.",
-  medicationsDek: "Przepisy dobrane, przeskalowane i opisane pod kątem ograniczeń kuchennych, które pacjenci na tirzepatydzie i semaglutydzie regularnie zgłaszają.",
+  medicationsHeading: "",
+  medicationsDek: "",
 
   mealPlansHeading: "Bezpłatne pliki PDF, sprawdzone.",
   mealPlansDek: "Uporządkowane plany tygodniowe, lista zakupów według działów, makra zsumowane na dzień. Dwa plany online, kolejne w przygotowaniu.",
@@ -473,15 +478,15 @@ const sv: ChromeStrings = {
   navTeam: "Team",
   navAbout: "Om oss",
 
-  heroEyebrow: "Rena recept för dig på peptidterapi",
+  heroEyebrow: "Issue No. 01",
   heroH1: "Recept för hur du faktiskt äter idag.",
-  heroDek: "Ärliga tillagningstider, USDA-näringstabell på varje sida, granskat av legitimerad dietist. Byggt för patienter på GLP-1-behandling och peptidprotokoll.",
+  heroDek: "Chef-tested, USDA-cited, time-honest. Anti-inflammatory, Mediterranean, high-protein, low-FODMAP — five hubs.",
   ctaBrowseRecipes: "Bläddra bland recept",
   ctaSeeMealPlans: "Se måltidsplaner",
 
-  sectionPillars: "Bläddra efter peptidkontext",
+  sectionPillars: "Browse the kitchen",
   sectionFeatured: "Veckans urval",
-  sectionMedications: "Äta bra med GLP-1",
+  sectionMedications: "",
   sectionMealPlans: "Gratis PDF, granskade",
   sectionTrust: "Så jobbar vi",
 
@@ -502,8 +507,8 @@ const sv: ChromeStrings = {
   labelSeeRecipe: "Till receptet",
   labelGetThePdf: "Hämta PDF",
 
-  medicationsHeading: "Äta bra med GLP-1.",
-  medicationsDek: "Recept utvalda, skalade och kommenterade efter de matlagningsbegränsningar som patienter på tirzepatid och semaglutid återkommande rapporterar.",
+  medicationsHeading: "",
+  medicationsDek: "",
 
   mealPlansHeading: "Gratis PDF, granskade.",
   mealPlansDek: "Strukturerade veckoplaner, inköpslista per avdelning, makron summerade per dag. Två planer live, fler på väg.",
@@ -529,13 +534,13 @@ const pt: ChromeStrings = {
 
   heroEyebrow: "Receitas saudáveis para quem está em terapia com péptidos",
   heroH1: "Receitas para o jeito que come agora.",
-  heroDek: "Tempos de preparo honestos, tabela nutricional USDA em cada página, revisto por nutricionista registada. Pensado para pacientes em terapia GLP-1 e protocolos peptídicos.",
+  heroDek: "Chef-tested, USDA-cited, time-honest. Anti-inflammatory, Mediterranean, high-protein, low-FODMAP — five hubs.",
   ctaBrowseRecipes: "Ver receitas",
   ctaSeeMealPlans: "Ver planos alimentares",
 
   sectionPillars: "Procurar por contexto peptídico",
   sectionFeatured: "Escolhas da semana",
-  sectionMedications: "Comer bem com um GLP-1",
+  sectionMedications: "",
   sectionMealPlans: "PDFs gratuitos, revistos",
   sectionTrust: "Como trabalhamos",
 
@@ -556,8 +561,8 @@ const pt: ChromeStrings = {
   labelSeeRecipe: "Ver a receita",
   labelGetThePdf: "Obter o PDF",
 
-  medicationsHeading: "Comer bem com um GLP-1.",
-  medicationsDek: "Receitas selecionadas, escaladas e anotadas para as limitações de cozinha que pacientes em tirzepatida e semaglutida relatam de forma consistente.",
+  medicationsHeading: "",
+  medicationsDek: "",
 
   mealPlansHeading: "PDFs gratuitos, revistos.",
   mealPlansDek: "Planos semanais estruturados, lista de compras por secção, macros somados por dia. Dois planos online, mais a caminho.",
@@ -581,15 +586,15 @@ const ro: ChromeStrings = {
   navTeam: "Echipă",
   navAbout: "Despre",
 
-  heroEyebrow: "Rețete curate pentru pacienții aflați în terapie cu peptide",
+  heroEyebrow: "Issue No. 01",
   heroH1: "Rețete potrivite pentru cum mănânci acum.",
-  heroDek: "Timpi de preparare onești, tabel nutrițional USDA pe fiecare pagină, verificat de o dieteticiană autorizată. Construit pentru pacienții aflați în terapie GLP-1 și pe protocoale peptidice.",
+  heroDek: "Chef-tested, USDA-cited, time-honest. Anti-inflammatory, Mediterranean, high-protein, low-FODMAP — five hubs.",
   ctaBrowseRecipes: "Răsfoiește rețete",
   ctaSeeMealPlans: "Vezi planurile de mese",
 
-  sectionPillars: "Răsfoiește după contextul peptidic",
+  sectionPillars: "Browse the kitchen",
   sectionFeatured: "Recomandările săptămânii",
-  sectionMedications: "Să mănânci bine cu GLP-1",
+  sectionMedications: "",
   sectionMealPlans: "PDF-uri gratuite, verificate",
   sectionTrust: "Cum lucrăm",
 
@@ -610,8 +615,8 @@ const ro: ChromeStrings = {
   labelSeeRecipe: "Vezi rețeta",
   labelGetThePdf: "Descarcă PDF-ul",
 
-  medicationsHeading: "Să mănânci bine cu GLP-1.",
-  medicationsDek: "Rețete selectate, scalate și adnotate pentru constrângerile de gătit pe care pacienții cu tirzepatidă și semaglutidă le raportează în mod constant.",
+  medicationsHeading: "",
+  medicationsDek: "",
 
   mealPlansHeading: "PDF-uri gratuite, verificate.",
   mealPlansDek: "Planuri săptămânale structurate, listă de cumpărături pe raioane, macro însumate pe zi. Două planuri online, altele în pregătire.",
@@ -635,15 +640,15 @@ const cs: ChromeStrings = {
   navTeam: "Tým",
   navAbout: "O nás",
 
-  heroEyebrow: "Čisté recepty pro pacienty na peptidové terapii",
+  heroEyebrow: "Issue No. 01",
   heroH1: "Recepty pro to, jak skutečně teď jíte.",
-  heroDek: "Poctivé časy přípravy, USDA tabulka výživových hodnot na každé stránce, zkontrolováno registrovanou nutriční terapeutkou. Pro pacienty na GLP-1 terapii a peptidových protokolech.",
+  heroDek: "Chef-tested, USDA-cited, time-honest. Anti-inflammatory, Mediterranean, high-protein, low-FODMAP — five hubs.",
   ctaBrowseRecipes: "Prohlédnout recepty",
   ctaSeeMealPlans: "Zobrazit jídelníčky",
 
-  sectionPillars: "Procházet podle peptidového kontextu",
+  sectionPillars: "Browse the kitchen",
   sectionFeatured: "Tipy týdne",
-  sectionMedications: "Dobré jídlo na GLP-1",
+  sectionMedications: "",
   sectionMealPlans: "PDF zdarma, zkontrolováno",
   sectionTrust: "Jak pracujeme",
 
@@ -664,8 +669,8 @@ const cs: ChromeStrings = {
   labelSeeRecipe: "Zobrazit recept",
   labelGetThePdf: "Stáhnout PDF",
 
-  medicationsHeading: "Dobré jídlo na GLP-1.",
-  medicationsDek: "Recepty vybrané, naškálované a komentované podle kuchařských omezení, která pacienti na tirzepatidu a semaglutidu pravidelně popisují.",
+  medicationsHeading: "",
+  medicationsDek: "",
 
   mealPlansHeading: "PDF zdarma, zkontrolováno.",
   mealPlansDek: "Strukturované týdenní jídelníčky, nákupní seznam podle oddělení, makra sečtená na den. Dva plány online, další v přípravě.",
@@ -689,15 +694,15 @@ const no: ChromeStrings = {
   navTeam: "Team",
   navAbout: "Om oss",
 
-  heroEyebrow: "Rene oppskrifter for deg på peptidterapi",
+  heroEyebrow: "Issue No. 01",
   heroH1: "Oppskrifter for slik du faktisk spiser nå.",
-  heroDek: "Ærlige tilberedningstider, USDA-næringstabell på hver side, vurdert av autorisert klinisk ernæringsfysiolog. Laget for pasienter på GLP-1-behandling og peptidprotokoller.",
+  heroDek: "Chef-tested, USDA-cited, time-honest. Anti-inflammatory, Mediterranean, high-protein, low-FODMAP — five hubs.",
   ctaBrowseRecipes: "Se oppskrifter",
   ctaSeeMealPlans: "Se måltidsplaner",
 
-  sectionPillars: "Bla etter peptidkontekst",
+  sectionPillars: "Browse the kitchen",
   sectionFeatured: "Ukens utvalg",
-  sectionMedications: "Spise godt med GLP-1",
+  sectionMedications: "",
   sectionMealPlans: "Gratis PDF, vurderte",
   sectionTrust: "Slik jobber vi",
 
@@ -718,8 +723,8 @@ const no: ChromeStrings = {
   labelSeeRecipe: "Til oppskriften",
   labelGetThePdf: "Last ned PDF",
 
-  medicationsHeading: "Spise godt med GLP-1.",
-  medicationsDek: "Oppskrifter valgt ut, skalert og kommentert etter de matlagingsbegrensningene pasienter på tirzepatid og semaglutid jevnlig melder.",
+  medicationsHeading: "",
+  medicationsDek: "",
 
   mealPlansHeading: "Gratis PDF, vurderte.",
   mealPlansDek: "Strukturerte ukeplaner, handleliste etter avdeling, makroer summert per dag. To planer live, flere på vei.",

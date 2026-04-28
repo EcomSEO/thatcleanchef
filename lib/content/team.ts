@@ -43,8 +43,8 @@ export const team: TeamMember[] = [
     jobTitle: "Reviewing Dietitian, ThatCleanChef",
     role: "RD reviewer",
     oneLiner:
-      "Registered dietitian with a clinical specialism in metabolic-health nutrition for adults on GLP-1 therapy.",
-    bio: "Lena Marsh is a Registered Dietitian Nutritionist (RDN) with a Master's in Clinical Nutrition from King's College London. She has spent the last seven years working with adults on GLP-1 therapy — first in NHS metabolic clinics, now in private practice — and her clinical interest sits squarely at the intersection of muscle preservation, micronutrient adequacy, and the practical food question patients actually ask: 'so what do I eat tomorrow?' She reads every recipe on this site against the British Dietetic Association evidence base, the USDA FoodData Central reference, and her own clinical judgement on tolerance and protein density. She is the human accountable for every nutrition number and every patient-context note on ThatCleanChef.",
+      "Registered dietitian with a clinical specialism in everyday nutrition — diet patterns, protein targets, micronutrient adequacy in real cooking.",
+    bio: "Lena Marsh is a Registered Dietitian Nutritionist (RDN) with a Master's in Clinical Nutrition from King's College London. She has spent the last seven years in NHS clinical practice and private nutrition consulting, and her interest sits squarely at the intersection of evidence-based eating patterns and the practical food question patients actually ask: 'so what do I cook tomorrow?' She reads every recipe on this site against the British Dietetic Association evidence base, the USDA FoodData Central reference, and her own clinical judgement on protein density and micronutrient balance. She is the human accountable for every nutrition number on ThatCleanChef.",
     credentialingBody: "Health and Care Professions Council (HCPC), United Kingdom",
     credentialingUrl: "https://www.hcpc-uk.org/",
     scope:
@@ -52,10 +52,10 @@ export const team: TeamMember[] = [
     yearsExperience: 7,
     accent: "sage",
     expertise: [
-      "GLP-1 therapy nutrition",
-      "Muscle preservation in caloric deficit",
-      "Anti-inflammatory eating patterns",
-      "Micronutrient adequacy on restricted intake",
+      "Mediterranean and anti-inflammatory eating patterns",
+      "Protein targets for active adults",
+      "Micronutrient adequacy in real cooking",
+      "Low-FODMAP and PCOS-friendly recipe review",
     ],
   },
   {

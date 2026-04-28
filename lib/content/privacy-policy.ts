@@ -7,9 +7,7 @@
  * until [locale]/ routing lands in this repo.
  *
  * Voice: ThatCleanChef cookbook-honest. No "we may" hedging where a
- * direct statement is accurate. Peptide-therapy framing is referenced
- * because the audience is GLP-1 / peptide-cycle users — sensitive
- * health context, even though we do not collect health data.
+ * direct statement is accurate.
  */
 
 export const PRIVACY_POLICY_LAST_UPDATED = "April 27, 2026";
@@ -17,8 +15,8 @@ export const PRIVACY_POLICY_LAST_UPDATED = "April 27, 2026";
 export const PRIVACY_POLICY = {
   lastUpdated: PRIVACY_POLICY_LAST_UPDATED,
   intro: [
-    "ThatCleanChef (“we,” “us”) publishes clean-eating recipes for people on prescribed peptide or GLP-1 therapy. This Privacy Policy explains what data we collect when you use thatcleanchef.com, why we collect it, how long we keep it, and the rights you have under the EU General Data Protection Regulation (GDPR), the UK GDPR, and equivalent laws.",
-    "ThatCleanChef does not collect health data. We do not ask which medication you take, which protocol you run, or any clinical detail. Recipes are public; the peptide-therapy context is editorial framing only.",
+    "ThatCleanChef (“we,” “us”) publishes chef-tested clean-eating recipes with USDA-cited Nutrition Ledgers, RD-reviewed before publication. This Privacy Policy explains what data we collect when you use thatcleanchef.com, why we collect it, how long we keep it, and the rights you have under the EU General Data Protection Regulation (GDPR), the UK GDPR, and equivalent laws.",
+    "ThatCleanChef does not collect health data. We do not ask about medication, dietary restrictions, or any clinical detail. Recipes and Nutrition Ledger values are public information.",
   ],
   sections: [
     {

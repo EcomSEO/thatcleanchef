@@ -1,7 +1,7 @@
 /**
  * Recipe-category landing pages — the high-volume "high-protein-X" cluster
  * mapped from DataForSEO April 2026 (UK + US merged). Each category is
- * scoped to a peptide-context filter the recipe set can satisfy today.
+ * scoped to a filter strategy the recipe set can satisfy today.
  *
  * These are NOT pillars. The pillars in `hubs.ts` carry the editorial frame.
  * These are SERP-targeted recipe filters that index for transactional
@@ -38,11 +38,11 @@ export const recipeCategories: RecipeCategory[] = [
     primaryKeyword: "high protein meals",
     monthlyVolumeUK: 5400,
     intent:
-      "Adults on GLP-1 therapy or in caloric deficit needing 30 g+ protein per serving to protect lean mass.",
+      "Adults in caloric deficit or building a muscle-preservation protein floor needing 30 g+ protein per serving to protect lean mass.",
     description:
-      "Every meal here clears 30 g of protein per serving and has been tested at least three times in our kitchen. RD-reviewed, USDA-cited. Designed for people fighting muscle loss on a GLP-1 or running a peptide cycle.",
+      "Every meal here clears 30 g of protein per serving and has been tested at least three times in our kitchen. RD-reviewed, USDA-cited. Designed for people on a body-composition or muscle-preservation track.",
     introCopy:
-      "On a GLP-1, in caloric deficit, or running a peptide cycle, the single biggest nutritional risk is losing muscle alongside fat. Independent guidance (Phillips 2017, Morton 2018 meta-analysis) sets the daily protein floor at 1.2–1.6 g per kg of body weight. For a 75 kg adult, that's 90–120 g a day — and it has to land in actual meals. Halving a normal recipe halves the protein. These don't.",
+      "In caloric deficit, the single biggest nutritional risk is losing muscle alongside fat. Independent guidance (Phillips 2017, Morton 2018 meta-analysis) sets the daily protein floor at 1.2–1.6 g per kg of body weight. For a 75 kg adult, that's 90–120 g a day — and it has to land in actual meals. Halving a normal recipe halves the protein. These don't.",
     matchHubs: ["muscle-preservation", "glp1-friendly", "anti-inflammatory-recovery"],
     minProteinG: 25,
     faq: [
@@ -52,7 +52,7 @@ export const recipeCategories: RecipeCategory[] = [
       },
       {
         q: "Are these all dinner recipes?",
-        a: "No — breakfasts, lunches, and dinners. The breakfast slot matters most for GLP-1 patients whose evening appetite collapses; we front-load.",
+        a: "No — breakfasts, lunches, and dinners. The breakfast slot matters most when later-day appetite is unreliable; we front-load.",
       },
       {
         q: "Do plant-based options work?",
@@ -67,11 +67,11 @@ export const recipeCategories: RecipeCategory[] = [
     primaryKeyword: "high protein snacks",
     monthlyVolumeUK: 6600,
     intent:
-      "Adults needing a 15–25 g protein bridge between main meals — particularly GLP-1 patients whose lunch or dinner appetite collapses.",
+      "Adults needing a 15–25 g protein bridge between main meals — particularly when later-day appetite is unreliable.",
     description:
       "Snacks that carry real protein — 15 g or more per portion, no protein-bar marketing. Tested in our kitchen. RD-reviewed.",
     introCopy:
-      "Snacking on a GLP-1 isn't really snacking — it's a fourth small meal slot for protein you couldn't fit at lunch. Same standard applies: 15 g protein minimum, real food, no powders disguised as biscuits.",
+      "When later-day appetite is unreliable, snacks become a fourth small meal slot for protein you couldn't fit at lunch. Same standard applies: 15 g protein minimum, real food, no powders disguised as biscuits.",
     matchHubs: ["muscle-preservation", "glp1-friendly"],
     minProteinG: 12,
     faq: [
@@ -88,11 +88,11 @@ export const recipeCategories: RecipeCategory[] = [
     primaryKeyword: "high protein breakfast",
     monthlyVolumeUK: 8100,
     intent:
-      "Adults front-loading the day's protein when later-day appetite is unreliable (GLP-1, shift workers, parents).",
+      "Adults front-loading the day's protein when later-day appetite is unreliable — shift workers, parents, anyone whose evening hunger collapses.",
     description:
       "Breakfasts that carry 25–35 g of protein. Tested, RD-reviewed, USDA-cited. Most clear in 15 minutes.",
     introCopy:
-      "Morning hunger is often preserved on a GLP-1 even when evening hunger collapses — which makes breakfast the most reliable slot to build the day's protein floor. We treat breakfast as a dinner-grade plate, just earlier.",
+      "For many adults, morning hunger is preserved even when evening hunger collapses — which makes breakfast the most reliable slot to build the day's protein floor. We treat breakfast as a dinner-grade plate, just earlier.",
     matchHubs: ["muscle-preservation", "glp1-friendly"],
     minProteinG: 20,
     maxTotalMin: 25,
@@ -174,23 +174,23 @@ export const recipeCategories: RecipeCategory[] = [
   {
     slug: "cottage-cheese",
     title: "Cottage cheese recipes",
-    h1: "Cottage cheese recipes — high-protein, GLP-1 friendly, tested.",
+    h1: "Cottage cheese recipes — high-protein, real-food, tested.",
     primaryKeyword: "cottage cheese recipes",
     monthlyVolumeUK: 6600,
     intent:
-      "Adults using cottage cheese as a daily protein vehicle — pancakes, savoury bowls, ice cream — for GLP-1, weight management, or muscle preservation.",
+      "Adults using cottage cheese as a daily protein vehicle — pancakes, savoury bowls, ice cream — for weight management or muscle preservation.",
     description:
       "The cottage cheese cluster: pancakes, savoury bowls, scrambled eggs, ice cream, flatbread. Each recipe carries 25 g+ protein per serving and has been tested at least three times. RD-reviewed by Lena Marsh, MS RD.",
     introCopy:
-      "Cottage cheese is the single most useful protein vehicle on a GLP-1. Soft on a slow-emptying stomach, neutral enough that food-reward changes don't spoil it, and high-protein per calorie in a way Greek yoghurt and skyr can't match. The recipes in this cluster — pancakes, savoury bowls, blended ice cream, flatbread — are how we use it three or four times a week without it ever feeling like the same dish.",
+      "Cottage cheese is one of the most versatile protein vehicles in our kitchen. Soft, neutral-flavoured, and high-protein per calorie in a way Greek yoghurt and skyr can't match. The recipes in this cluster — pancakes, savoury bowls, blended ice cream, flatbread — are how we use it three or four times a week without it ever feeling like the same dish.",
     slugIncludes: "cottage-cheese",
     faq: [
       {
         q: "Why cottage cheese specifically — what about Greek yoghurt or skyr?",
-        a: "Cottage cheese carries roughly the same protein per 100 g as 5% Greek yoghurt (10–11 g) but has a softer mouthfeel that reads better on a slow-emptying GLP-1 stomach. The casein digests slowly, holding satiety longer than whey-heavy yoghurts. Both are good. Cottage cheese is the one we reach for first.",
+        a: "Cottage cheese carries roughly the same protein per 100 g as 5% Greek yoghurt (10–11 g) but with a softer mouthfeel and a thicker curd. The casein digests slowly, holding satiety longer than whey-heavy yoghurts. Both are good. Cottage cheese is the one we reach for first.",
       },
       {
-        q: "Is cottage cheese OK on a GLP-1?",
+        q: "Is cottage cheese a daily-driver protein?",
         a: "Yes — Lena (our RD reviewer) recommends it as a default protein for patients on Wegovy, Mounjaro, Zepbound, or Ozempic who can't face stronger flavours. The neutral profile and soft texture survive the food-aversion phase most patients describe in weeks 1–4 of dose escalation.",
       },
       {
@@ -210,7 +210,7 @@ export const recipeCategories: RecipeCategory[] = [
     primaryKeyword: "bone broth recipe",
     monthlyVolumeUK: 8100,
     intent:
-      "Adults making bone broth as a base technique — for sippable mugs, soups, joint/tendon support during peptide cycles (BPC-157, TB-500), or post-illness recovery.",
+      "Adults making bone broth as a base technique — for sippable mugs, soups, joint and tendon support, or post-illness recovery.",
     description:
       "Bone broth as a core technique recipe: 24-hour slow method, real gel set, sippable straight or as a base. Pairs with our anti-inflammatory chicken soup and the bone-and-tendon-health pillar.",
     introCopy:

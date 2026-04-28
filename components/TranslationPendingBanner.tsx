@@ -7,7 +7,7 @@ import { t } from "@/lib/content/translations";
  * site chrome, recipe titles, and pillar metadata are localized in twelve
  * languages, but the recipe instructions, FAQ answers, and source lists
  * remain in English by deliberate editorial decision — machine-translated
- * medical-context dietary advice for GLP-1 patients is a real harm risk.
+ * machine-translated cooking instructions are easy to introduce errors into.
  *
  * The banner names the local language so the reader understands what is
  * translated and what is not, and links to the canonical English page.

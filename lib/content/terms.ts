@@ -1,10 +1,10 @@
 /**
  * English Terms of Service for ThatCleanChef.
  *
- * Peptide-therapy framing is explicit: ThatCleanChef provides
- * educational recipes for people on prescribed peptide or GLP-1
- * therapy. Content is not medical advice. Consult your prescriber
- * before changing nutrition.
+ * ThatCleanChef provides chef-tested clean-eating recipes with USDA-sourced
+ * Nutrition Ledger values, reviewed by a registered dietitian. Content is
+ * editorial nutrition information, not medical advice. Consult a qualified
+ * healthcare professional for medical, dietetic, or clinical guidance.
  *
  * Per-locale expansion deferred until [locale]/ routing lands.
  */
@@ -20,22 +20,22 @@ export const TERMS = {
     {
       heading: "1. Scope",
       body: [
-        "ThatCleanChef publishes editorial recipes, ingredient guides, and dietitian-reviewed nutrition explainers. The Site is informational. It does not sell medication, supplements, or peptide products.",
+        "ThatCleanChef publishes editorial recipes, ingredient guides, and dietitian-reviewed nutrition explainers. The Site is informational. It does not sell medication, supplements, or food products.",
       ],
     },
     {
       heading: "2. Content disclaimer — not medical advice",
       body: [
-        "ThatCleanChef provides educational recipes for people on prescribed peptide or GLP-1 therapy. Content is not medical advice, dietetic advice, prescription advice, or pharmacological advice.",
-        "Peptide and GLP-1 medications are prescription-only in most jurisdictions. ThatCleanChef does not advise you to start, stop, dose, time, cycle, or alter any peptide. We do not advise you to swap, augment, or replace any prescribed nutrition plan.",
-        "**Always consult your prescriber, dietitian, or another qualified healthcare professional** before making any change to your nutrition while on peptide or GLP-1 therapy. The recipes are designed to be appropriate clean-eating defaults; they are not personalized medical nutrition therapy.",
+        "ThatCleanChef provides editorial recipes and dietitian-reviewed nutrition explainers. Content is not medical advice, dietetic advice, prescription advice, or pharmacological advice.",
+        "ThatCleanChef does not advise you to start, stop, or alter any prescription medication, supplement, or clinical nutrition plan. Recipes are general culinary information, not individualised medical nutrition therapy.",
+        "**Always consult your dietitian or another qualified healthcare professional** before making any significant change to your nutrition, particularly if you have a diagnosed condition or take prescription medication. The recipes are designed to be sensible clean-eating defaults; they are not personalised medical nutrition therapy.",
         "We do not diagnose, treat, cure, or prevent any disease or condition. Recipes are not labelled with permitted EFSA health claims unless specifically and verifiably scoped to a single, EFSA-authorised wording.",
       ],
     },
     {
       heading: "3. Editorial review",
       body: [
-        "Recipes are reviewed by registered dietitians with peptide-therapy expertise (see the editorial reviewer registry at /about). Review applies to clinical appropriateness within the recipe context only — it is not a substitute for personal clinical advice for you.",
+        "Recipes are reviewed by a registered dietitian (see the editorial team registry at /team). Review applies to clinical appropriateness within the recipe context only — it is not a substitute for personal clinical advice for you.",
       ],
     },
     {
@@ -59,7 +59,7 @@ export const TERMS = {
       heading: "6. Affiliate links and commercial content",
       body: [
         "ThatCleanChef may participate in affiliate programs for cookware, kitchen tools, and dietitian-vetted supplements (none currently active). When affiliate links appear, they are labelled with the audit-mandated disclosure pill (Werbung / Publicité / Pubblicità / Sponsored / etc.). Affiliate participation never affects which recipes we publish or which ingredients we recommend. See the Affiliate Disclosure at /affiliate-disclosure.",
-        "ThatCleanChef does not run peptide or GLP-1 vendor affiliate programs. Zero. Ever.",
+        "ThatCleanChef does not run pharmaceutical or supplement-vendor affiliate programs. Zero. Ever.",
       ],
     },
     {

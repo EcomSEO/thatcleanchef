@@ -2,7 +2,7 @@
  * National food-safety authorities + data protection authorities per
  * locale, used by the Footer's "Regulatory authorities" strip.
  *
- * For ThatCleanChef (peptide-therapy nutrition / clean recipes) we list
+ * For ThatCleanChef (clean-eating recipes) we list
  * the food-safety agency (not the medicines agency) plus the national
  * DPA, ported verbatim from the larderlab April 2026 EU compliance
  * audit.
