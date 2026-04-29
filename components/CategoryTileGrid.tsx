@@ -54,18 +54,19 @@ export function CategoryTileGrid({
                 href={t.href}
                 className="group flex flex-col items-center gap-3.5"
               >
-                {/* Circular sage-tinted blob */}
+                {/* Circular sage-tinted blob — SVG glyph behind, image on top.
+                    If image fails / 404s, the glyph stays visible so the
+                    circle is never empty. */}
                 <div className="relative w-[112px] h-[112px] md:w-[128px] md:h-[128px] rounded-full bg-sage-100 ring-1 ring-sage-200 overflow-hidden flex items-center justify-center transition-all duration-300 group-hover:ring-2 group-hover:ring-sage-300 group-hover:bg-sage-50">
-                  {t.imageUrl ? (
+                  <HubGlyph slug={hubSlugFromHref(t.href)} />
+                  {t.imageUrl && (
                     <Image
                       src={t.imageUrl}
                       alt=""
                       fill
                       sizes="128px"
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="absolute inset-0 object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                  ) : (
-                    <HubGlyph slug={hubSlugFromHref(t.href)} />
                   )}
                 </div>
 
