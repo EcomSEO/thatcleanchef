@@ -103,47 +103,47 @@ function hubSlugFromHref(href: string): string {
 
 /** Inline SVG glyphs per hub — no network request, no font load. */
 function HubGlyph({ slug }: { slug: string }) {
-  // sage-700 stroke, ~36px square, line-art style
-  const common = "w-12 h-12 text-sage-700";
+  // sage-800 stroke, larger size, thicker stroke for visibility on sage-100 ground
+  const common = "w-14 h-14 md:w-16 md:h-16 text-sage-800";
   switch (slug) {
     case "diet-specific":
       return (
-        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.6" className={common}>
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.9" className={common}>
           <path d="M12 24c0-6 5-12 12-12s12 6 12 12-5 12-12 12S12 30 12 24Z" />
           <path d="M18 24h12M24 18v12" />
         </svg>
       );
     case "meal-types":
       return (
-        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.6" className={common}>
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.9" className={common}>
           <circle cx="24" cy="24" r="11" />
           <path d="M24 16v8l5 3" />
         </svg>
       );
     case "protein-forward":
       return (
-        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.6" className={common}>
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.9" className={common}>
           <path d="M14 20c0-4 3-7 10-7s10 3 10 7v8c0 4-3 7-10 7s-10-3-10-7v-8Z" />
           <path d="M14 24h20" />
         </svg>
       );
     case "technique":
       return (
-        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.6" className={common}>
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.9" className={common}>
           <path d="M14 32V18l8-4 8 4v14" />
           <path d="M14 32h20M22 32v-8h4v8" />
         </svg>
       );
     case "seasonal-menus":
       return (
-        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.6" className={common}>
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.9" className={common}>
           <path d="M24 12c4 4 6 8 6 12s-2 8-6 12c-4-4-6-8-6-12s2-8 6-12Z" />
           <path d="M18 24h12" />
         </svg>
       );
     default:
       return (
-        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.6" className={common}>
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.9" className={common}>
           <circle cx="24" cy="24" r="10" />
         </svg>
       );

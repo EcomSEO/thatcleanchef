@@ -120,42 +120,91 @@ export function RecipeTemplate({ post }: { post: Post }) {
       )}
 
       <main>
-        {/* Hero — full-width photo placeholder + meta */}
-        <section className="bg-surface border-b border-hairline">
-          <div className="mx-auto max-w-7xl px-5 pt-6 pb-10">
-            <BreadcrumbNav crumbs={crumbs} />
-            <div className="mt-5 grid md:grid-cols-12 gap-8">
+        {/* Hero — terracotta full-bleed block with food image overlay (Stitch design) */}
+        <section className="relative bg-terracotta text-cream overflow-hidden">
+          {/* Subtle cream-tinted radial behind the photo for depth */}
+          <div
+            aria-hidden
+            className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_50%,rgba(247,242,233,0.08)_0%,transparent_60%)]"
+          />
+          <div className="relative mx-auto max-w-7xl px-5 pt-6 pb-12 md:pb-16">
+            <div className="[&_*]:!text-cream/85 [&_a]:!text-cream [&_a:hover]:!text-cream/70 mb-2">
+              <BreadcrumbNav crumbs={crumbs} />
+            </div>
+            <div className="mt-5 grid md:grid-cols-12 gap-8 items-center">
+              {/* Left: title + meta */}
               <div className="md:col-span-7">
-                <div className="caps-label mb-3">{hub?.shortName ?? "Recipe"}</div>
-                <h1 className="h1-editorial text-[32px] sm:text-[40px] md:text-[44px] leading-[1.1] text-ink">
+                <div className="text-[11px] font-mono uppercase tracking-[0.2em] text-cream/75 mb-4">
+                  {hub?.shortName ?? "Recipe"}
+                </div>
+                <h1 className="font-serif italic text-[36px] sm:text-[44px] md:text-[52px] lg:text-[56px] leading-[1.04] text-cream tracking-[-0.01em]">
                   {post.h1}
                 </h1>
-                <p className="mt-4 text-body-md text-ink-2 max-w-2xl leading-relaxed">
+                <p className="mt-5 font-serif italic text-[17px] md:text-[18px] text-cream/85 max-w-2xl leading-[1.55]">
                   {post.description}
                 </p>
-                <div className="mt-5 flex flex-wrap items-center gap-2.5">
-                  <TestKitchenStamp testCount={3} />
-                  <DietitianReviewedBadge />
-                  <LastTestedLine date={post.updatedAt} />
+
+                {/* Pill row */}
+                <div className="mt-6 flex flex-wrap items-center gap-2.5">
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-cream/15 backdrop-blur-sm px-3 py-1.5 text-[12px] text-cream border border-cream/25">
+                    <span className="h-1.5 w-1.5 rounded-full bg-cream/85" />
+                    Tested 3 times in our kitchen
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-cream/15 backdrop-blur-sm px-3 py-1.5 text-[12px] text-cream border border-cream/25">
+                    <span className="h-1.5 w-1.5 rounded-full bg-cream/85" />
+                    Reviewed by Lena Marsh, RDN, MS
+                  </span>
                 </div>
-                <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-body-sm text-ink-2">
+
+                {/* Mono badges row */}
+                <div className="mt-6 flex flex-wrap items-center gap-x-7 gap-y-2 text-[12px] font-mono uppercase tracking-[0.14em] text-cream/85">
                   {post.totalTimeMinutes != null && (
-                    <span><span className="caps-label !text-ink-3 mr-1">Total</span><span className="font-mono tnum text-ink">{formatTime(post.totalTimeMinutes)}</span></span>
+                    <span>
+                      <span className="text-cream/55 mr-2">Total</span>
+                      <span className="text-cream tnum">
+                        {formatTime(post.totalTimeMinutes)}
+                      </span>
+                    </span>
                   )}
                   {post.servings != null && (
-                    <span><span className="caps-label !text-ink-3 mr-1">Yield</span><span className="font-mono tnum text-ink">{post.servings}</span></span>
+                    <span>
+                      <span className="text-cream/55 mr-2">Yield</span>
+                      <span className="text-cream tnum">{post.servings}</span>
+                    </span>
                   )}
-                  <span><span className="caps-label !text-ink-3 mr-1">Difficulty</span><span className="text-ink">Approachable</span></span>
+                  <span>
+                    <span className="text-cream/55 mr-2">Difficulty</span>
+                    <span className="text-cream">Approachable</span>
+                  </span>
+                  <span>
+                    <span className="text-cream/55 mr-2">Last tested</span>
+                    <span className="text-cream tnum">
+                      {new Date(post.updatedAt).toLocaleDateString("en-GB", {
+                        month: "short",
+                        year: "numeric",
+                      })}
+                    </span>
+                  </span>
                 </div>
-                {post.dietTags && (
-                  <div className="mt-4">
-                    <DietTags tags={post.dietTags} />
+
+                {post.dietTags && post.dietTags.length > 0 && (
+                  <div className="mt-5 flex flex-wrap items-center gap-2">
+                    {post.dietTags.map((t) => (
+                      <span
+                        key={t}
+                        className="text-[11px] font-mono uppercase tracking-[0.12em] text-cream/75 px-2.5 py-1 rounded-full border border-cream/25"
+                      >
+                        {t}
+                      </span>
+                    ))}
                   </div>
                 )}
               </div>
+
+              {/* Right: food image card overlaid on terracotta */}
               <div className="md:col-span-5">
                 {post.imageUrl ? (
-                  <div className="relative aspect-[16/10] w-full overflow-hidden rounded-sm border border-hairline">
+                  <div className="relative aspect-[4/5] md:aspect-[4/4.5] w-full overflow-hidden rounded-[24px] shadow-plate ring-1 ring-cream/20">
                     <Image
                       src={post.imageUrl}
                       alt={post.h1}
@@ -166,7 +215,11 @@ export function RecipeTemplate({ post }: { post: Post }) {
                     />
                   </div>
                 ) : (
-                  <div className="photo-slot aspect-[16/10] w-full" role="img" aria-label={`Photography placeholder for ${post.h1}`} />
+                  <div
+                    className="aspect-[4/5] md:aspect-[4/4.5] w-full rounded-[24px] bg-cream/10 ring-1 ring-cream/20"
+                    role="img"
+                    aria-label={`Photography placeholder for ${post.h1}`}
+                  />
                 )}
               </div>
             </div>
