@@ -3,8 +3,14 @@ import { JsonLd } from "./JsonLd";
 
 /**
  * Organization + WebSite JSON-LD on the home page.
- * sameAs links to sister sites (larderlab, injectcompass) so search engines
- * can connect the network graph.
+ *
+ * `sameAs` is intentionally empty per the 2026-04-29 master-orchestration
+ * operator-isolation lock: "No sister-site links anywhere — and especially
+ * no `-ecom-seo.vercel.app` URLs." Schema.org `sameAs` is the same exposure
+ * surface as a footer link as far as Google's link graph is concerned.
+ *
+ * Per the schema-library spec: "`sameAs` stays empty until you have public
+ * social profiles. Do NOT invent fake profiles for E-E-A-T padding."
  */
 export function OrganizationJsonLd() {
   return (
@@ -19,10 +25,7 @@ export function OrganizationJsonLd() {
             url: SITE.url,
             logo: `${SITE.url}/logo.png`,
             description: SITE.description,
-            sameAs: [
-              "https://larderlab-ecom-seo.vercel.app/",
-              "https://injectcompass-ecom-seo.vercel.app/",
-            ],
+            sameAs: [],
           },
           {
             "@type": "WebSite",
