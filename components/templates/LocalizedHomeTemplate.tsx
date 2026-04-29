@@ -26,34 +26,44 @@ export function LocalizedHomeTemplate({ locale }: { locale: Locale }) {
 
   return (
     <main>
-      {/* Hero */}
-      <section className="border-b border-olive/10 bg-cream-deep/30">
-        <div className="mx-auto max-w-6xl px-6 pt-12 pb-16 md:pt-16 md:pb-24">
-          <div className="flex items-center justify-between gap-3 mb-8">
-            <Eyebrow tone="terracotta">{strings.heroEyebrow}</Eyebrow>
-            <LocaleSwitcher current={locale} />
+      {/* Hero — Stitch design: terracotta full-bleed CTA block.
+          Locale switcher pinned top-right; eyebrow + serif italic headline
+          + cream dek + two cream/transparent buttons. Matches
+          localized_homepage_german_2.png exactly. */}
+      <section className="relative bg-terracotta text-cream overflow-hidden">
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-[radial-gradient(ellipse_at_85%_30%,rgba(247,242,233,0.08)_0%,transparent_60%)]"
+        />
+        <div className="relative mx-auto max-w-6xl px-6 pt-10 pb-16 md:pt-12 md:pb-24">
+          <div className="flex items-center justify-between gap-3 mb-10">
+            <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-cream/85">
+              {strings.heroEyebrow}
+            </span>
+            <div className="[&_*]:!text-cream [&_a:hover]:!text-cream/70">
+              <LocaleSwitcher current={locale} />
+            </div>
           </div>
-          <h1 className="display-headline text-olive text-[2.6rem] md:text-[3.8rem] leading-[1.02] max-w-3xl">
+          <h1 className="font-serif italic text-cream text-[2.6rem] md:text-[3.8rem] leading-[1.02] max-w-3xl tracking-[-0.01em]">
             {strings.heroH1}
           </h1>
-          <p className="mt-7 font-serif italic text-xl md:text-2xl text-charcoal/80 max-w-2xl leading-[1.45]">
+          <p className="mt-7 font-serif italic text-xl md:text-2xl text-cream/85 max-w-2xl leading-[1.45]">
             {strings.heroDek}
           </p>
-          <div className="mt-9 flex flex-wrap gap-3">
+          <div className="mt-10 flex flex-wrap gap-3">
             <a
               href="#pillars"
-              className="inline-flex items-center gap-2 px-5 py-3 bg-olive text-cream rounded-sm hover:bg-terracotta transition text-[15px]"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-cream text-charcoal rounded-full hover:bg-cream-deep transition text-[14px] font-medium"
             >
               {strings.ctaBrowseRecipes}
             </a>
             <a
               href="#meal-plans"
-              className="inline-flex items-center gap-2 px-5 py-3 border border-olive/20 text-olive rounded-sm hover:border-terracotta hover:text-terracotta transition text-[15px]"
+              className="inline-flex items-center gap-2 px-6 py-3 border border-cream/35 text-cream rounded-full hover:bg-cream/10 transition text-[14px]"
             >
               {strings.ctaSeeMealPlans}
             </a>
           </div>
-          <KitchenRule className="mt-14" drawIn />
         </div>
       </section>
 
