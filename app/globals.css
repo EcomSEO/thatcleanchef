@@ -11,41 +11,54 @@
 :root {
   color-scheme: light;
   --color-ink: #1A1F1A;
-  --color-ink-2: #5A6358;
-  --color-ink-3: #8A9388;
-  --color-surface: #FFFFFF;
-  --color-surface-tint: #F7F9F5;
-  --color-hairline: #E5E9E1;
+  /* === Stitch design tokens (2026-04-29) ============================== */
+  --color-ink: #2A2520;
+  --color-ink-2: #5A4F45;
+  --color-ink-3: #8A7E70;
+  --color-surface: #F7F2E9;          /* warm cream paper, the page background */
+  --color-surface-tint: #EFE8DA;     /* cream-deep, subtle elevation */
+  --color-surface-raised: #FFFFFF;   /* genuine card whites */
+  --color-hairline: rgba(74, 66, 52, 0.12);
 
-  --color-sage-50: #EEF2E8;
-  --color-sage-100: #DCE4D2;
-  --color-sage-200: #BFCDB0;
-  --color-sage-500: #7C8C6C;
-  --color-sage-600: #6B7A5C;
-  --color-sage-700: #5A6B4D;
-  --color-sage: #7C8C6C;
+  --color-sage-50: #F0F3EC;
+  --color-sage-100: #E0E7D9;
+  --color-sage-200: #C7D3BC;
+  --color-sage-300: #ADBE9F;
+  --color-sage-500: #8FA083;
+  --color-sage-600: #73876A;
+  --color-sage-700: #5A6E54;
+  --color-sage-800: #445340;
+  --color-sage-900: #2E3A2C;
+  --color-sage: #8FA083;
 
-  --color-rust-50: #FBEEE8;
-  --color-rust: #B85431;
-  --color-rust-600: #9E4523;
+  --color-terracotta-50: #FBEEE7;
+  --color-terracotta-100: #F4D5C5;
+  --color-terracotta-200: #EBB69E;
+  --color-terracotta: #C77554;
+  --color-terracotta-600: #A85F40;
+  --color-terracotta-700: #874B31;
 
-  --color-success: #10A26A;
+  --color-forest: #2E3A2C;
+  --color-forest-deep: #1F2A1E;
+  --color-forest-soft: #3F4D3D;
 
-  /* legacy cookbook tokens — re-pointed at the new palette so any stragglers
-     don't visually break the build during transition */
+  /* legacy aliases re-pointed to Stitch palette */
+  --color-rust: #C77554;
+  --color-rust-50: #FBEEE7;
+  --color-rust-600: #A85F40;
+  --color-success: #3F7E5C;
+
   --color-paper: #FFFFFF;
-  --color-cream: #F7F9F5;
-  --color-cream-deep: #EEF2E8;
-  --color-olive: #5A6B4D;
-  --color-olive-deep: #384430;
-  --color-terracotta: #B85431;
-  --color-terracotta-deep: #9E4523;
-  --color-terracotta-soft: #F4D8C9;
-  --color-charcoal: #1A1F1A;
-  --color-stone: #5A6358;
-  --color-forest: #5A6B4D;
-  --color-sage-light: #A0B38E;
-  --color-sage-deep: #5A6B4D;
+  --color-cream: #F7F2E9;
+  --color-cream-deep: #EFE8DA;
+  --color-olive: #4A4234;
+  --color-olive-deep: #2A2520;
+  --color-terracotta-deep: #A85F40;
+  --color-terracotta-soft: #F4D5C5;
+  --color-charcoal: #2A2520;
+  --color-stone: #8A7E70;
+  --color-sage-light: #ADBE9F;
+  --color-sage-deep: #5A6E54;
 }
 
 html {

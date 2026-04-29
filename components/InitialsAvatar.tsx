@@ -16,31 +16,31 @@ type Accent = "sage" | "terracotta" | "olive" | "stone";
 type Size = "sm" | "md" | "lg" | "xl";
 
 const ACCENT_BG: Record<Accent, string> = {
-  sage: "bg-sage/15",
-  terracotta: "bg-terracotta/15",
-  olive: "bg-olive/15",
-  stone: "bg-stone/20",
+  sage: "bg-sage-100",
+  terracotta: "bg-terracotta-100",
+  olive: "bg-cream-deep",
+  stone: "bg-cream-deep",
 };
 
 const ACCENT_INK: Record<Accent, string> = {
-  sage: "text-sage",
-  terracotta: "text-terracotta",
+  sage: "text-sage-700",
+  terracotta: "text-terracotta-600",
   olive: "text-olive",
   stone: "text-stone",
 };
 
 const ACCENT_BORDER: Record<Accent, string> = {
-  sage: "border-sage/40",
-  terracotta: "border-terracotta/40",
-  olive: "border-olive/40",
-  stone: "border-stone/40",
+  sage: "border-sage-200",
+  terracotta: "border-terracotta-200",
+  olive: "border-hairline",
+  stone: "border-hairline",
 };
 
 const SIZE_MAP: Record<Size, { box: string; type: string }> = {
   sm: { box: "w-10 h-10", type: "text-[14px]" },
   md: { box: "w-16 h-16", type: "text-[22px]" },
   lg: { box: "w-24 h-24", type: "text-[34px]" },
-  xl: { box: "w-full aspect-square", type: "text-[88px] md:text-[112px]" },
+  xl: { box: "w-44 h-44 md:w-56 md:h-56", type: "text-[60px] md:text-[80px]" },
 };
 
 export function InitialsAvatar({
@@ -61,7 +61,7 @@ export function InitialsAvatar({
     <div
       role={ariaLabel ? "img" : undefined}
       aria-label={ariaLabel}
-      className={`${sz.box} rounded-sm border ${ACCENT_BORDER[accent]} ${ACCENT_BG[accent]} flex items-center justify-center font-serif font-medium tracking-wider ${ACCENT_INK[accent]} ${sz.type} ${className}`}
+      className={`${sz.box} rounded-full border ${ACCENT_BORDER[accent]} ${ACCENT_BG[accent]} flex items-center justify-center font-serif font-medium tracking-[0.04em] ${ACCENT_INK[accent]} ${sz.type} ${className}`}
     >
       <span aria-hidden>{initials}</span>
     </div>

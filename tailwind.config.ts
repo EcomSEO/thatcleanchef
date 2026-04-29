@@ -15,61 +15,86 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // ------- Medical-info surface -----------------------------------
-        ink: "#1A1F1A",
-        "ink-2": "#5A6358",
-        "ink-3": "#8A9388",
-        surface: "#FFFFFF",
-        "surface-tint": "#F7F9F5",
-        "surface-raised": "#FFFFFF",
-        hairline: "#E5E9E1",
+        // ============================================================
+        // Stitch design tokens (2026-04-29) — warmer paper, deeper
+        // charcoal, vivid terracotta hero accent, forest-green footer.
+        // Palette extracted from /tmp/stitch-extracted/ mockups.
+        // ============================================================
 
-        // ------- Sage primary (thatcleanchef brand) ---------------------
+        // ------- Editorial surface (warmer than the old cool-white) -----
+        ink: "#2A2520",          // primary text — deep brown-black
+        "ink-2": "#5A4F45",      // secondary — warm taupe
+        "ink-3": "#8A7E70",      // tertiary — soft taupe
+        surface: "#F7F2E9",      // base cream paper
+        "surface-tint": "#EFE8DA", // subtle elevation cream
+        "surface-raised": "#FFFFFF", // genuine card whites
+        hairline: "rgba(74, 66, 52, 0.12)", // warm-olive @ 12%
+
+        // ------- Sage (softer, more muted than the old #7C8C6C) ---------
         sage: {
-          DEFAULT: "#7C8C6C",
-          50: "#EEF2E8",
-          100: "#DCE4D2",
-          200: "#BFCDB0",
-          300: "#A0B38E",
-          400: "#8C9E7A",
-          500: "#7C8C6C",
-          600: "#6B7A5C",
-          700: "#5A6B4D",
-          800: "#48563E",
-          900: "#384430",
+          DEFAULT: "#8FA083",
+          50: "#F0F3EC",
+          100: "#E0E7D9",
+          200: "#C7D3BC",
+          300: "#ADBE9F",
+          400: "#9FB191",
+          500: "#8FA083",
+          600: "#73876A",
+          700: "#5A6E54",
+          800: "#445340",
+          900: "#2E3A2C",
         },
 
-        // ------- Rust secondary accent (vs larderlab tomato) ------------
+        // ------- Terracotta (vivid hero accent, the Stitch lead) --------
+        terracotta: {
+          DEFAULT: "#C77554",
+          50: "#FBEEE7",
+          100: "#F4D5C5",
+          200: "#EBB69E",
+          300: "#DD9270",
+          500: "#C77554",
+          600: "#A85F40",
+          700: "#874B31",
+          800: "#623725",
+          900: "#3E2218",
+        },
+
+        // ------- Forest (footer block, deep green) ----------------------
+        forest: {
+          DEFAULT: "#2E3A2C",
+          deep: "#1F2A1E",
+          soft: "#3F4D3D",
+        },
+
+        // ------- Rust alias (some legacy components reference rust-*) ---
         rust: {
-          DEFAULT: "#B85431",
-          50: "#FBEEE8",
-          100: "#F4D8C9",
-          500: "#B85431",
-          600: "#9E4523",
-          700: "#7E3719",
+          DEFAULT: "#C77554",
+          50: "#FBEEE7",
+          100: "#F4D5C5",
+          500: "#C77554",
+          600: "#A85F40",
+          700: "#874B31",
         },
 
         // ------- Status -------------------------------------------------
-        success: "#10A26A",
+        success: "#3F7E5C",
 
         // ------- Reviewed badge -----------------------------------------
-        "reviewed-bg": "#EEF2E8",
-        "reviewed-text": "#5A6B4D",
+        "reviewed-bg": "#E0E7D9",
+        "reviewed-text": "#5A6E54",
 
-        // ------- Legacy aliases (cookbook quarantine compat) -----------
-        "sage-light": "#A0B38E",
-        "sage-deep": "#5A6B4D",
-        cream: "#F7F9F5",
-        "cream-deep": "#EEF2E8",
+        // ------- Legacy aliases (kept; values updated to Stitch) --------
+        "sage-light": "#ADBE9F",
+        "sage-deep": "#5A6E54",
+        cream: "#F7F2E9",
+        "cream-deep": "#EFE8DA",
         paper: "#FFFFFF",
-        terracotta: "#B85431",
-        "terracotta-deep": "#9E4523",
-        "terracotta-soft": "#F4D8C9",
-        olive: "#5A6B4D",
-        "olive-deep": "#384430",
-        charcoal: "#1A1F1A",
-        stone: "#5A6358",
-        forest: "#5A6B4D",
+        "terracotta-deep": "#A85F40",
+        "terracotta-soft": "#F4D5C5",
+        olive: "#4A4234",
+        "olive-deep": "#2A2520",
+        charcoal: "#2A2520",
+        stone: "#8A7E70",
       },
       fontFamily: {
         sans: ["var(--font-inter)", "system-ui", "-apple-system", "sans-serif"],
