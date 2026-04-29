@@ -5,10 +5,16 @@ import { SITE } from "@/lib/content/site";
 import { MedicalDisclaimerFooter } from "./MedicalDisclaimerFooter";
 import { CookiePreferencesLink } from "./CookiePreferencesLink";
 import { RegulatoryAuthoritiesStrip } from "./RegulatoryAuthoritiesStrip";
+import { OwnedShopWaitlist } from "./OwnedShopWaitlist";
 
 /**
- * Comprehensive footer — clean medical-info shell. 4-col link grid + medical/
- * dietetic disclaimer + sister-site links + copyright.
+ * Comprehensive footer — clean medical-info shell. 4-col link grid + medical /
+ * dietetic disclaimer + owned-shop pre-launch waitlist + copyright.
+ *
+ * Sister-site links were removed under the 2026-04-29 operator-isolation lock
+ * (master-orchestration §"NEW: operator-isolation rules"). The owned-shop
+ * pre-launch waitlist is the single connective-tissue across the network and
+ * it's branded per-site.
  */
 export function Footer() {
   return (
@@ -86,39 +92,7 @@ export function Footer() {
         </div>
 
         <div className="mt-10 pt-8 border-t border-hairline">
-          <h4 className="caps-label mb-3">Sister sites</h4>
-          <ul className="flex flex-wrap gap-x-6 gap-y-2 text-body-sm">
-            <li>
-              <a href="https://peptips-ecom-seo.vercel.app/" className="text-ink hover:text-sage-700" rel="noopener">
-                peptips — peptide protocol notes
-              </a>
-            </li>
-            <li>
-              <a href="https://pepvise-ecom-seo.vercel.app/" className="text-ink hover:text-sage-700" rel="noopener">
-                pepvise — peptide vendor reviews
-              </a>
-            </li>
-            <li>
-              <a href="https://injectcompass-ecom-seo.vercel.app/" className="text-ink hover:text-sage-700" rel="noopener">
-                injectcompass — injection technique
-              </a>
-            </li>
-            <li>
-              <a href="https://larderlab-ecom-seo.vercel.app/" className="text-ink hover:text-sage-700" rel="noopener">
-                larderlab — pantry & nutrition ledgers
-              </a>
-            </li>
-            <li>
-              <a href="https://circadianstack-ecom-seo.vercel.app/" className="text-ink hover:text-sage-700" rel="noopener">
-                circadianstack — circadian protocols
-              </a>
-            </li>
-            <li>
-              <a href="https://plasticfreelab-ecom-seo.vercel.app/" className="text-ink hover:text-sage-700" rel="noopener">
-                plasticfreelab — plastic-free living
-              </a>
-            </li>
-          </ul>
+          <OwnedShopWaitlist variant="footer" />
         </div>
 
         <RegulatoryAuthoritiesStrip />

@@ -11,8 +11,21 @@ export type TeamRole = "RD reviewer" | "Recipe developer" | "Photography" | "Edi
 
 export type TeamMember = {
   slug: string;
-  /** 1:1 portrait image path under /public. */
+  /**
+   * 1:1 portrait image path under /public. Currently NOT rendered when
+   * `useInitials === true` (the network-wide default per 2026-04-29
+   * operator-isolation lock — AI-generated headshots forbidden). Kept on the
+   * record so a real-photo commission can flip the flag later without
+   * losing the asset path.
+   */
   imageUrl?: string;
+  /**
+   * When true, render <InitialsAvatar> instead of the photo at every team
+   * surface. Person schema omits the `image` field when this is true.
+   * Default: true (the network-wide 2026-04-29 lock). Flip to false only
+   * after a real photo is commissioned and replaces the AI-generated JPEG.
+   */
+  useInitials?: boolean;
   name: string;
   credentials: string; // "RDN, MS"
   jobTitle: string;
@@ -24,6 +37,15 @@ export type TeamMember = {
   /** Where the credentials are registered (the actual board / regulator). */
   credentialingBody?: string;
   credentialingUrl?: string;
+  /**
+   * Reviewer-credential authentication state. `false` until Fabian completes
+   * the public-register lookup AND signs the editorial-independence letter
+   * with the contributor. Surfaces a "credential pending" note on the
+   * profile page so readers see the gate is real.
+   */
+  verifiedCredential?: boolean;
+  /** Renders below the credential when verifiedCredential is false. */
+  credentialingNote?: string;
   /** What this person reviews on the site. */
   scope: string;
   /** Number of years of practice (helps the schema and the bio). */
@@ -38,6 +60,7 @@ export const team: TeamMember[] = [
   {
     slug: "lena-marsh",
     imageUrl: "/images/team/lena-marsh.jpg",
+    useInitials: true,
     name: "Lena Marsh",
     credentials: "RDN, MS",
     jobTitle: "Reviewing Dietitian, ThatCleanChef",
@@ -47,6 +70,9 @@ export const team: TeamMember[] = [
     bio: "Lena Marsh is a Registered Dietitian Nutritionist (RDN) with a Master's in Clinical Nutrition from King's College London. She has spent the last seven years in NHS clinical practice and private nutrition consulting, and her interest sits squarely at the intersection of evidence-based eating patterns and the practical food question patients actually ask: 'so what do I cook tomorrow?' She reads every recipe on this site against the British Dietetic Association evidence base, the USDA FoodData Central reference, and her own clinical judgement on protein density and micronutrient balance. She is the human accountable for every nutrition number on ThatCleanChef.",
     credentialingBody: "Health and Care Professions Council (HCPC), United Kingdom",
     credentialingUrl: "https://www.hcpc-uk.org/",
+    verifiedCredential: false,
+    credentialingNote:
+      "Public-register verification + signed editorial-independence letter pending. Until both are on file we surface this note explicitly rather than implying credentialed-and-cleared status.",
     scope:
       "Every recipe, every medication hub, every meal-plan landing page, every nutrition claim.",
     yearsExperience: 7,
@@ -61,6 +87,7 @@ export const team: TeamMember[] = [
   {
     slug: "rosa-pellegrino",
     imageUrl: "/images/team/rosa-pellegrino.jpg",
+    useInitials: true,
     name: "Rosa Pellegrino",
     credentials: "Lead recipe developer",
     jobTitle: "Lead Recipe Developer",
@@ -81,6 +108,7 @@ export const team: TeamMember[] = [
   {
     slug: "jakub-novak",
     imageUrl: "/images/team/jakub-novak.jpg",
+    useInitials: true,
     name: "Jakub Novák",
     credentials: "Food photographer",
     jobTitle: "Food Photographer",
@@ -100,6 +128,7 @@ export const team: TeamMember[] = [
   {
     slug: "harriet-osei",
     imageUrl: "/images/team/harriet-osei.jpg",
+    useInitials: true,
     name: "Harriet Osei",
     credentials: "Senior editor",
     jobTitle: "Senior Editor",

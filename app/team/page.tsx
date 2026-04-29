@@ -6,6 +6,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { BreadcrumbJsonLd } from "@/components/schema/BreadcrumbJsonLd";
 import { Eyebrow } from "@/components/editorial/Eyebrow";
 import { KitchenRule, DotRule } from "@/components/editorial/DotRule";
+import { InitialsAvatar, initialsOf } from "@/components/InitialsAvatar";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
@@ -81,7 +82,16 @@ export default function TeamIndexPage() {
                             {m.oneLiner}
                           </p>
                         </div>
-                        {m.imageUrl ? (
+                        {m.useInitials ? (
+                          <div className="hidden sm:block">
+                            <InitialsAvatar
+                              initials={initialsOf(m.name)}
+                              accent={accent}
+                              size="md"
+                              ariaLabel={`${m.name} avatar`}
+                            />
+                          </div>
+                        ) : m.imageUrl ? (
                           <div className="hidden sm:block relative w-24 aspect-square rounded-sm overflow-hidden border border-olive/15 bg-cream-deep/40">
                             <Image
                               src={m.imageUrl}

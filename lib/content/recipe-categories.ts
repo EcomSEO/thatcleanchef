@@ -191,7 +191,7 @@ export const recipeCategories: RecipeCategory[] = [
       },
       {
         q: "Is cottage cheese a daily-driver protein?",
-        a: "Yes — Lena (our RD reviewer) recommends it as a default protein for patients on Wegovy, Mounjaro, Zepbound, or Ozempic who can't face stronger flavours. The neutral profile and soft texture survive the food-aversion phase most patients describe in weeks 1–4 of dose escalation.",
+        a: "Yes — Lena (our RD reviewer) recommends it as a default protein for anyone navigating a small appetite, food aversion, or recovery from illness. The neutral profile and soft texture survive most flavour-aversion phases, and the casein-to-whey ratio gives you a longer satiety curve than a whey-heavy yoghurt at the same protein density.",
       },
       {
         q: "Which brand?",

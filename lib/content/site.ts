@@ -17,4 +17,12 @@ export const SITE = {
    * make this material — see CLAUDE.md "Display ads — network exception".
    */
   displayAdsEnabled: false,
+  /**
+   * Recipe schema multi-aspect-image gate. Flips to true after the kie.ai
+   * Nano Banana batch ships the 4:3 + 1:1 variants for every recipe (path
+   * documented in docs/launch-blockers.md). Until then, RecipeJsonLd emits
+   * a single-element image array (16:9 only) — still valid Recipe schema,
+   * just less SERP-image-carousel coverage.
+   */
+  multiAspectComplete: false,
 } as const;

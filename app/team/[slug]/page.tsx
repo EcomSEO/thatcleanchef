@@ -9,6 +9,7 @@ import { BreadcrumbJsonLd } from "@/components/schema/BreadcrumbJsonLd";
 import { JsonLd } from "@/components/schema/JsonLd";
 import { Eyebrow } from "@/components/editorial/Eyebrow";
 import { KitchenRule, DotRule } from "@/components/editorial/DotRule";
+import { InitialsAvatar, initialsOf } from "@/components/InitialsAvatar";
 import { pageMetadata } from "@/lib/seo";
 import { SITE } from "@/lib/content/site";
 
@@ -109,7 +110,14 @@ export default async function TeamMemberPage({
 
             <div className="mt-10 grid md:grid-cols-12 gap-10 items-start">
               <div className="md:col-span-4">
-                {m.imageUrl ? (
+                {m.useInitials ? (
+                  <InitialsAvatar
+                    initials={initialsOf(m.name)}
+                    accent={accent}
+                    size="xl"
+                    ariaLabel={`${m.name} avatar`}
+                  />
+                ) : m.imageUrl ? (
                   <div className="relative aspect-square rounded-sm overflow-hidden border border-olive/15 bg-cream-deep/40">
                     <Image
                       src={m.imageUrl}
@@ -164,6 +172,17 @@ export default async function TeamMemberPage({
               </p>
             </div>
             <aside className="md:col-span-5 md:pl-6 md:border-l md:border-olive/10">
+              {m.verifiedCredential === false && m.credentialingNote && (
+                <div className="mb-7 p-4 rounded-sm border border-terracotta/30 bg-terracotta/5">
+                  <p className="caps-label text-terracotta">
+                    Credential verification pending
+                  </p>
+                  <p className="mt-2 text-[13.5px] text-charcoal/85 leading-relaxed">
+                    {m.credentialingNote}
+                  </p>
+                </div>
+              )}
+
               <Eyebrow tone="stone">Scope on this site</Eyebrow>
               <p className="mt-3 text-[15px] text-charcoal/85 leading-relaxed">
                 {m.scope}

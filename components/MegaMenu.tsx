@@ -6,7 +6,7 @@ import Link from "next/link";
  * 720px MegaMenu panel — 3-col category list + 1 featured-recipe tile.
  * Driven by the active nav item kind.
  */
-type Kind = "Recipes" | "Techniques" | "Ingredients" | "Nutrition" | "Tools";
+type Kind = "Recipes" | "Techniques" | "Ingredients" | "Nutrition" | "Test kitchen";
 
 const COLUMNS: Record<
   Kind,
@@ -123,27 +123,29 @@ const COLUMNS: Record<
       ],
     },
   ],
-  Tools: [
+  "Test kitchen": [
     {
-      heading: "Planning",
+      heading: "What we're testing",
       items: [
-        { label: "Pipeline (recipes in test)", href: "/pipeline" },
-        { label: "Newsletter", href: "/newsletter" },
+        { label: "On the stove this week", href: "/pipeline" },
+        { label: "Queued for next month", href: "/pipeline#queued" },
+        { label: "Recipe ideas inbox", href: "/contact" },
+      ],
+    },
+    {
+      heading: "How we work",
+      items: [
         { label: "Editorial standards", href: "/editorial-standards" },
+        { label: "Methodology", href: "/methodology" },
+        { label: "Newsletter", href: "/newsletter" },
       ],
     },
     {
       heading: "About",
       items: [
-        { label: "About", href: "/about" },
+        { label: "About the test kitchen", href: "/about" },
+        { label: "The team", href: "/team" },
         { label: "Contact", href: "/contact" },
-      ],
-    },
-    {
-      heading: "Sister sites",
-      items: [
-        { label: "larderlab — pantry", href: "https://larderlab-ecom-seo.vercel.app/" },
-        { label: "Health network", href: "/about" },
       ],
     },
   ],
@@ -174,10 +176,10 @@ const FEATURED: Record<Kind, { eyebrow: string; title: string; dek: string; href
     dek: "USDA FoodData Central reference; per-ingredient values; sourcing disclosed.",
     href: "/methodology",
   },
-  Tools: {
-    eyebrow: "Pipeline",
-    title: "Recipes in test this month",
-    dek: "What's on the stove right now, what's queued, where each one stands.",
+  "Test kitchen": {
+    eyebrow: "Test kitchen",
+    title: "Recipes we're testing this month",
+    dek: "What's on the stove right now, what's queued, where each one stands. The public side of the test process.",
     href: "/pipeline",
   },
 };

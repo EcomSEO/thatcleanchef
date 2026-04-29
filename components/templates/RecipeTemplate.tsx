@@ -19,6 +19,7 @@ import { RecipeMethodList } from "../editorial/RecipeMethodList";
 import { SourcesAccordion, type SourceRef } from "../editorial/SourcesAccordion";
 import { RelatedRecipes, type RelatedRecipeCard } from "../editorial/RelatedRecipes";
 import { NewsletterInline } from "../editorial/NewsletterInline";
+import { OwnedShopWaitlist } from "../OwnedShopWaitlist";
 import { DietTags } from "../NutritionLedger";
 import { EducationalBanner } from "../EducationalBanner";
 import { WhyWeTestedThreeTimes } from "../editorial/WhyWeTestedThreeTimes";
@@ -268,6 +269,8 @@ export function RecipeTemplate({ post }: { post: Post }) {
             <RelatedRecipes recipes={relatedCards} />
 
             <NewsletterInline />
+
+            <OwnedShopWaitlist variant="inline" />
           </article>
 
           <aside className="md:col-span-4 space-y-6 hidden md:block">

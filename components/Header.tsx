@@ -11,7 +11,7 @@ import { LocaleSwitcher } from "./LocaleSwitcher";
  * 320px rounded sage-bordered search center-right, locale switcher, sage-pill
  * "Newsletter" button right.
  */
-type NavKind = "Recipes" | "Techniques" | "Ingredients" | "Nutrition" | "Tools";
+type NavKind = "Recipes" | "Techniques" | "Ingredients" | "Nutrition" | "Test kitchen";
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -19,10 +19,10 @@ export function Header() {
 
   const navItems: Array<{ label: NavKind; href: string }> = [
     { label: "Recipes", href: "/recipes" },
-    { label: "Techniques", href: "/guides/bone-tendon-health" },
+    { label: "Techniques", href: "/guides/technique" },
     { label: "Ingredients", href: "/ingredients" },
     { label: "Nutrition", href: "/methodology" },
-    { label: "Tools", href: "/pipeline" },
+    { label: "Test kitchen", href: "/pipeline" },
   ];
 
   return (

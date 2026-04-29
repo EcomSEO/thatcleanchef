@@ -64,14 +64,21 @@ export const AFFILIATE_DISCLOSURE = {
       ],
     },
     {
-      heading: "5. Your rights",
+      heading: "5. Why we're building a shop",
+      body: [
+        "Affiliate links are bridge revenue while we build something we control. The plan is a curated shop — cookware sets we've tested for years, the olive oils we cook from, recipe-bundle PDFs, branded printable meal-plan templates. When the shop opens, the affiliate links on this site swap to first-party links automatically (no recipe rewrites). Until then: every affiliate link on this site is labelled, every link uses `rel='sponsored nofollow'`, and revenue does not influence which recipes we recommend.",
+        "Sign up for the [owned-shop pre-launch waitlist](/) (footer signup on every page) and we'll only email when it actually opens.",
+      ],
+    },
+    {
+      heading: "6. Your rights",
       body: [
         "Affiliate links never compromise your privacy. The merchant sees only that the click came from ThatCleanChef, not who you are. We do not receive your name, address, or payment information.",
         "You can use the site without ever clicking an affiliate link. Recipes are free. The Nutrition Ledger is free. Editorial review is free.",
       ],
     },
     {
-      heading: "6. Contact",
+      heading: "7. Contact",
       body: [
         "Affiliate or sponsorship questions: **hello@thatcleanchef.com**.",
       ],
